@@ -342,6 +342,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regex = new RegExp(&apos;MriLiuJY&apos;);</span><br></pre></td></tr></table></figure>
 <p>第二是使用一种是使用字面量，使用以斜杠表示开始和结束</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regex = /MriLiuJY/;</span><br></pre></td></tr></table></figure>
+<p>&lt; !–more–&gt;</p>
 <p>两种方式创建的是等价的。不同的是字面量的方式会在JS引擎解析的时候就会新建一个正则表达式，而第一种则是在运行的时候才会新建一个正则表达式。所以第二种的效率会高于第一种。</p>
 <p>正则表达式还可以接受第二个参数,表示修饰符</p>
 <ul>
