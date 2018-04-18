@@ -342,7 +342,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regex = new RegExp(&apos;MriLiuJY&apos;);</span><br></pre></td></tr></table></figure>
 <p>第二是使用一种是使用字面量，使用以斜杠表示开始和结束</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var regex = /MriLiuJY/;</span><br></pre></td></tr></table></figure>
-<p>&lt; !–more–&gt;</p>
 <p>两种方式创建的是等价的。不同的是字面量的方式会在JS引擎解析的时候就会新建一个正则表达式，而第一种则是在运行的时候才会新建一个正则表达式。所以第二种的效率会高于第一种。</p>
 <p>正则表达式还可以接受第二个参数,表示修饰符</p>
 <ul>
@@ -378,6 +377,40 @@
 </tbody>
 </table>
 <p>以上仅为很小的一部分（从<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions#special-backslash" target="_blank" rel="noopener">MDN</a>搬运的..）</p>
+<h3 id="调用正则表达式"><a href="#调用正则表达式" class="headerlink" title="调用正则表达式"></a>调用正则表达式</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align:center">描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exec</td>
+<td style="text-align:center">一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。</td>
+</tr>
+<tr>
+<td>test</td>
+<td style="text-align:center">一个在字符串中测试是否匹配的RegExp方法，它返回true或false。</td>
+</tr>
+<tr>
+<td>match</td>
+<td style="text-align:center">一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。</td>
+</tr>
+<tr>
+<td>search</td>
+<td style="text-align:center">一个在字符串中测试匹配的String方法，它返回匹配到的位置索引，或者在失败时返回-1。</td>
+</tr>
+<tr>
+<td>replace</td>
+<td style="text-align:center">一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。</td>
+</tr>
+<tr>
+<td>split</td>
+<td style="text-align:center">一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。</td>
+</tr>
+</tbody>
+</table>
 
           
         
