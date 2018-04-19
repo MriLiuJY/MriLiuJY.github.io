@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T02:58:49.736Z">
+<meta property="og:updated_time" content="2018-04-19T03:53:09.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈前端性能优化">
 <meta name="twitter:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
@@ -339,6 +339,14 @@
 <p>两者的共同点是，都是从客户端缓存中读取资源；区别是强缓存不会发请求，协商缓存会发请求。</p>
 <h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>Expires是HTTP/1.0控制网页缓存的字段，可由服务端通过配置Nginx来直接设置。如果客户端的时间小于设置的时间则默认缓存不需要更新直接使用浏览器缓存。<br>但是Expires有个很严重的不足就是对比的时间是客户端本地的时间这样就会造成如果客户端的时间不正确的话则设置了Expires也毫无意义。</p>
 <p>Cache-Control是HTTP/1.1用来控制网页缓存的。具体可直接设置秒数，当设置为max-age=300时浏览器在5分钟之内请求则会被强制使用缓存。Expires与Cache-Control的作用都差不多但是由Cache-Control是HTTP/1.1的所以在都设置的情况下Cache-Control的优先级会高于Expires。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>协商缓存中比较常见的是对比缓存。对比缓存就是客户端请求资源的时候先访问浏览器的缓存拿到缓存的标识，然后携带该标识发送HTTP请求。若无资源更新则返回304客户端直接从缓存中读取。如果是资源更新了的情况下则服务器直接返回资源200，客户端则将新的资源存入缓存。</p>
+<p>在现代的浏览器中拥有一下两种的方式：</p>
+<h3 id="浏览器缓存过程"><a href="#浏览器缓存过程" class="headerlink" title="浏览器缓存过程"></a>浏览器缓存过程</h3><p>首先一个从未加载过资源的客户端第一次加载资源，服务器返回200，浏览器将返回的资源下载并且存入缓存。并且把response header以及该请求的时间一并缓存。</p>
+<p>下一次加载的时候会以此根据客户端当前的时间对比Cache-Control 和 Expires 如果时间没过期则命中强缓存，客户端不发送请求并且直接在本地缓存中拉取结果。</p>
+<p>或者在服务端收到请求后先根据Etag的值判断资源有无经过修改，如果没有则命中协商缓存，返回304客户端直接从缓存中读取资源。</p>
+<h3 id="用户行为对浏览器缓存的控制"><a href="#用户行为对浏览器缓存的控制" class="headerlink" title="用户行为对浏览器缓存的控制"></a>用户行为对浏览器缓存的控制</h3><p>地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制；</p>
+<p>F5刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断；</p>
+<p>ctrl+F5刷新，跳过强缓存和协商缓存，直接从服务器拉取资源。</p>
 
       
     </div>
@@ -569,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为对浏览器缓存的控制"><span class="nav-number">3.</span> <span class="nav-text">用户行为对浏览器缓存的控制</span></a></li></ol></div>
             
 
           </div>
