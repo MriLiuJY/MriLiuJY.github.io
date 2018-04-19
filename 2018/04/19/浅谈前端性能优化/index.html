@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T06:09:23.963Z">
+<meta property="og:updated_time" content="2018-04-19T07:20:07.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈前端性能优化">
 <meta name="twitter:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
@@ -347,6 +347,9 @@
 <h3 id="用户行为对浏览器缓存的控制"><a href="#用户行为对浏览器缓存的控制" class="headerlink" title="用户行为对浏览器缓存的控制"></a>用户行为对浏览器缓存的控制</h3><p>地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制；</p>
 <p>F5刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断；</p>
 <p>ctrl+F5刷新，跳过强缓存和协商缓存，直接从服务器拉取资源。</p>
+<h3 id="避免浏览器缓存"><a href="#避免浏览器缓存" class="headerlink" title="避免浏览器缓存"></a>避免浏览器缓存</h3><p>事实上有很多的业务场景是不需要任何的缓存的，除了浏览器设置的隐私模式，也可以设置请求头：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: no-cache, no-store, must-revalidate .</span><br></pre></td></tr></table></figure></p>
+<p>或者直接用打包后生成带hash的资源。HTML也可以控制浏览器不缓存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>首先强制缓存优先协商缓存进行，若强制缓存生效则直接使用强制缓存，若不生效则进行协商缓存。协商缓存由服务端直接决定是否使用缓存。若协商缓存失效则代表缓存失效，需要重新请求获取结果。</p>
 
       
     </div>
@@ -577,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为对浏览器缓存的控制"><span class="nav-number">3.</span> <span class="nav-text">用户行为对浏览器缓存的控制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为对浏览器缓存的控制"><span class="nav-number">3.</span> <span class="nav-text">用户行为对浏览器缓存的控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免浏览器缓存"><span class="nav-number">4.</span> <span class="nav-text">避免浏览器缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
