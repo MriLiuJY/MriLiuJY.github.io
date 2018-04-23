@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CSS,Grid," />
+  <meta name="keywords" content="JS," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
-<meta name="keywords" content="CSS,Grid">
+<meta name="description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈Grid布局">
-<meta property="og:url" content="http://iliujy.top/2018/04/23/浅谈Grid布局/index.html">
+<meta property="og:title" content="export与export default">
+<meta property="og:url" content="http://iliujy.top/2018/04/23/export与export-default/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
+<meta property="og:description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T10:50:35.567Z">
+<meta property="og:updated_time" content="2018-04-23T11:10:57.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Grid布局">
-<meta name="twitter:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
+<meta name="twitter:title" content="export与export default">
+<meta name="twitter:description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/04/23/浅谈Grid布局/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/04/23/export与export-default/"/>
 
 
 
 
 
-  <title>浅谈Grid布局 | 键盘下的sao想法</title>
+  <title>export与export default | 键盘下的sao想法</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/23/浅谈Grid布局/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/23/export与export-default/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈Grid布局</h1>
+          <h1 class="post-title" itemprop="name headline">export与export default</h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T11:05:49+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-23T14:39:31+08:00">
                 2018-04-23
               </time>
             
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/23/浅谈Grid布局/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/23/export与export-default/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/23/浅谈Grid布局/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/23/export与export-default/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,17 +331,18 @@
       
 
       
-        <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS Grid</a>布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&gt;float-&gt;position-&gt;flex的经历。而是直接带我们进入了网格的布局的时代。</p>
+        <p>最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。</p>
 <a id="more"></a>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Grid布局在各个浏览器的最新版兼容性已经做的非常好了，但是如果你需要兼容低版本的浏览器，还需要慎重的使用。网上对网格布局的概述已经足够多了，所以本文直接从Grid布局的用法与属性来介绍了。</p>
-<h2 id="启用网格布局"><a href="#启用网格布局" class="headerlink" title="启用网格布局"></a>启用网格布局</h2><p>首先我们使用<strong>display</strong>的属性来定义一个网格容器，他的grid值决定了容器展现是块级还是内联。一旦启用网格容器，它的所有子元素都进入grid文档流，称为网格子项。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: grid | inline-grid | subgrid</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>grid</code> 定义一个块级的网格容器。</li>
-<li><code>inline-grid</code> 定义一个内联网格容器。</li>
-<li><code>subgrid</code> 定义一个继承其父级网格容器的行和列的大小的网格容器，它是其父级网格容器的一个子项。</li>
-</ul>
-<p>在设置了grid布局之后，<code>column, float, clear和vertical-align</code> 对网格容器没有效果。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>首先JS在ES6之前一直都没有模块的体系，但在ES6中JS本身支持了模块的功能。</p>
+<h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><p>模块的构成主要由两个命令构成: <strong>export</strong>  和 <strong>import</strong><br><strong>export</strong> 用于输出变量, <strong>import</strong> 用于引入变量</p>
+<p>栗子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test = &apos;111&apos;;</span><br><span class="line">var data = &apos;222&apos;;</span><br><span class="line">export &#123;test, data&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码就是直接使用export导出变量, 同样的可以直接导出函数，或者:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const test = &apos;111&apos;</span><br></pre></td></tr></table></figure>
+<p>在使用export导出的变量在使用import引入的时候必须加上{}! 且重复的使用import引入同一个对象的时候只会执行一次。</p>
+<h2 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h2><p>export default 为模块指定了一个默认输出.以便于其他的任意模块在加载他的时候可以为该匿名变量指定任意名字。</p>
+<p>export default 命令其实是输出了一个叫default的变量,所以在后面不能再继续声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export const test = &apos;111&apos;;           // 正确</span><br><span class="line">export default const test = &apos;111&apos;;   // 错误</span><br></pre></td></tr></table></figure>
+<p>因为export default 本甚至上是将后面的值赋值给default变量。所以第二种会报错。</p>
 
       
     </div>
@@ -388,9 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/Grid/" rel="tag"># Grid</a>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
       
@@ -403,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/20/前端资源分享/" rel="next" title="前端资源分享">
-                <i class="fa fa-chevron-left"></i> 前端资源分享
+              <a href="/2018/04/23/浅谈Grid布局/" rel="next" title="浅谈Grid布局">
+                <i class="fa fa-chevron-left"></i> 浅谈Grid布局
               </a>
             
           </div>
@@ -413,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/23/export与export-default/" rel="prev" title="export与export default">
-                export与export default <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/23/穹顶之下/" rel="prev" title="穹顶之下">
+                穹顶之下 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -570,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">2.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export-default"><span class="nav-number">3.</span> <span class="nav-text">export default</span></a></li></ol></div>
             
 
           </div>
@@ -740,9 +739,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/04/23/浅谈Grid布局/';
-          this.page.identifier = '2018/04/23/浅谈Grid布局/';
-          this.page.title = '浅谈Grid布局';
+          this.page.url = 'http://iliujy.top/2018/04/23/export与export-default/';
+          this.page.identifier = '2018/04/23/export与export-default/';
+          this.page.title = 'export与export default';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
