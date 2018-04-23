@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T11:51:27.938Z">
+<meta property="og:updated_time" content="2018-04-23T12:03:15.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Grid布局">
 <meta name="twitter:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
@@ -355,6 +355,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display:grid;</span><br><span class="line">  grid-template-columns: 100px 50px 100px;</span><br><span class="line">  grid-template-rows: 80px auto 80px; </span><br><span class="line">  grid-column-gap: 10px;</span><br><span class="line">  grid-row-gap: 15px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="justify-items-align-items"><a href="#justify-items-align-items" class="headerlink" title="justify-items / align-items"></a>justify-items / align-items</h2><p>justify-items垂直与<strong>列</strong>网格线对齐，适用于网格容器里面所有网格项。<br>align-items垂直与<strong>行</strong>网格线对齐，适用于网格容器里面所有网格项。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start:   左对齐。 / 顶部对齐</span><br><span class="line">end:     右对齐。 / 底部对齐</span><br><span class="line">center:  居中对齐。 / 居中对齐</span><br><span class="line">stretch: 填满（默认） / 填满（默认）</span><br></pre></td></tr></table></figure>
+<h2 id="justify-content-align-content"><a href="#justify-content-align-content" class="headerlink" title="justify-content / align-content"></a>justify-content / align-content</h2><p>如果使用的是px这样的单位的话，总的网格区域可能小于网格容器，这个时候justify-content可以设置网格区域的对齐方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start:         左对齐。</span><br><span class="line">end:           右对齐。</span><br><span class="line">center:        居中对齐。</span><br><span class="line">stretch:       填满网格容器。</span><br><span class="line">space-around:  网格项两边间距相等，网格项之间间隔是单侧的2倍。</span><br><span class="line">space-between: 两边对齐，网格项之间间隔相等。</span><br><span class="line">space-evenly:  网格项间隔相等。</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -532,7 +533,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -583,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-template-columns-grid-template-rows"><span class="nav-number">3.</span> <span class="nav-text">grid-template-columns / grid-template-rows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-column-gap-grid-row-gap"><span class="nav-number">4.</span> <span class="nav-text">grid-column-gap / grid-row-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-items-align-items"><span class="nav-number">5.</span> <span class="nav-text">justify-items / align-items</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-template-columns-grid-template-rows"><span class="nav-number">3.</span> <span class="nav-text">grid-template-columns / grid-template-rows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-column-gap-grid-row-gap"><span class="nav-number">4.</span> <span class="nav-text">grid-column-gap / grid-row-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-items-align-items"><span class="nav-number">5.</span> <span class="nav-text">justify-items / align-items</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-content-align-content"><span class="nav-number">6.</span> <span class="nav-text">justify-content / align-content</span></a></li></ol></div>
             
 
           </div>
