@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T10:50:35.567Z">
+<meta property="og:updated_time" content="2018-04-23T11:51:27.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Grid布局">
 <meta name="twitter:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
@@ -337,11 +337,24 @@
 <h2 id="启用网格布局"><a href="#启用网格布局" class="headerlink" title="启用网格布局"></a>启用网格布局</h2><p>首先我们使用<strong>display</strong>的属性来定义一个网格容器，他的grid值决定了容器展现是块级还是内联。一旦启用网格容器，它的所有子元素都进入grid文档流，称为网格子项。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: grid | inline-grid | subgrid</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>grid</code> 定义一个块级的网格容器。</li>
-<li><code>inline-grid</code> 定义一个内联网格容器。</li>
-<li><code>subgrid</code> 定义一个继承其父级网格容器的行和列的大小的网格容器，它是其父级网格容器的一个子项。</li>
+<li>grid 定义一个块级的网格容器。</li>
+<li>inline-grid 定义一个内联网格容器。</li>
+<li>subgrid 定义一个继承其父级网格容器的行和列的大小的网格容器，它是其父级网格容器的一个子项。</li>
 </ul>
-<p>在设置了grid布局之后，<code>column, float, clear和vertical-align</code> 对网格容器没有效果。</p>
+<p>在设置了grid布局之后，<strong>column, float, clear和vertical-align</strong> 对网格容器没有效果。</p>
+<h2 id="grid-template-columns-grid-template-rows"><a href="#grid-template-columns-grid-template-rows" class="headerlink" title="grid-template-columns / grid-template-rows"></a>grid-template-columns / grid-template-rows</h2><p>grid-template-columns用来设置网格列的名称和宽度。grid-template-rows用来设置网格行的名称和高度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... ;</span><br><span class="line">grid-template-rows:    &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... ;</span><br></pre></td></tr></table></figure>
+<p>属性：</p>
+<blockquote>
+<p>track-size: 非负的值，可以使用css长度单位或者百分比。当设置为auto时会根据空间自动分配。<br>line-name: 网格线的名字，可以是任意的名字。</p>
+</blockquote>
+<p>使用fr单位可以将容器分成几等份，如果与px或者%混用的话则会平分剩下的空间，栗子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 1fr 1fr 1fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义的宽度如果包含重复的部分则可以使用repeat()来重复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: repeat(3, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码会重复3个20px的列，repeat同样也可以用在grid-template-rows上。</p>
+<h2 id="grid-column-gap-grid-row-gap"><a href="#grid-column-gap-grid-row-gap" class="headerlink" title="grid-column-gap / grid-row-gap"></a>grid-column-gap / grid-row-gap</h2><p>用来控制单元格的间距, 间距仅设置在单元格之间不作用在容器的边缘。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display:grid;</span><br><span class="line">  grid-template-columns: 100px 50px 100px;</span><br><span class="line">  grid-template-rows: 80px auto 80px; </span><br><span class="line">  grid-column-gap: 10px;</span><br><span class="line">  grid-row-gap: 15px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="justify-items-align-items"><a href="#justify-items-align-items" class="headerlink" title="justify-items / align-items"></a>justify-items / align-items</h2><p>justify-items垂直与<strong>列</strong>网格线对齐，适用于网格容器里面所有网格项。<br>align-items垂直与<strong>行</strong>网格线对齐，适用于网格容器里面所有网格项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start:   左对齐。 / 顶部对齐</span><br><span class="line">end:     右对齐。 / 底部对齐</span><br><span class="line">center:  居中对齐。 / 居中对齐</span><br><span class="line">stretch: 填满（默认） / 填满（默认）</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -570,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-template-columns-grid-template-rows"><span class="nav-number">3.</span> <span class="nav-text">grid-template-columns / grid-template-rows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-column-gap-grid-row-gap"><span class="nav-number">4.</span> <span class="nav-text">grid-column-gap / grid-row-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-items-align-items"><span class="nav-number">5.</span> <span class="nav-text">justify-items / align-items</span></a></li></ol></div>
             
 
           </div>
