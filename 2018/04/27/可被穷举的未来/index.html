@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JS,CSS,浏览器," />
+  <meta name="keywords" content="杂谈," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
-<meta name="keywords" content="JS,CSS,浏览器">
+<meta name="description" content="可被穷举的未来。说的并不是未来的发展…而仅仅是我个人的未来。  着眼去看最近以一种非常平和的心态去算了下到35岁的时候能挣到多少钱。 以每年税后可支配的净收入20W（直接当成能存下来的钱）来算。也只有240W工资收入。得到结果后非常的平静，感觉仿佛刚才思考的并不是我本人而只是别人说给我的一个与我并无太大关联的故事。 但当我结束了初期的茫然之后，留下的就剩下对未来的焦躁与茫然。 这不仅仅是对数字的焦">
+<meta name="keywords" content="杂谈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈前端性能优化（缓存篇）">
-<meta property="og:url" content="http://iliujy.top/2018/04/19/浅谈前端性能优化/index.html">
+<meta property="og:title" content="可被穷举的未来">
+<meta property="og:url" content="http://iliujy.top/2018/04/27/可被穷举的未来/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
+<meta property="og:description" content="可被穷举的未来。说的并不是未来的发展…而仅仅是我个人的未来。  着眼去看最近以一种非常平和的心态去算了下到35岁的时候能挣到多少钱。 以每年税后可支配的净收入20W（直接当成能存下来的钱）来算。也只有240W工资收入。得到结果后非常的平静，感觉仿佛刚才思考的并不是我本人而只是别人说给我的一个与我并无太大关联的故事。 但当我结束了初期的茫然之后，留下的就剩下对未来的焦躁与茫然。 这不仅仅是对数字的焦">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T07:49:28.470Z">
+<meta property="og:updated_time" content="2018-05-02T03:24:23.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈前端性能优化（缓存篇）">
-<meta name="twitter:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
+<meta name="twitter:title" content="可被穷举的未来">
+<meta name="twitter:description" content="可被穷举的未来。说的并不是未来的发展…而仅仅是我个人的未来。  着眼去看最近以一种非常平和的心态去算了下到35岁的时候能挣到多少钱。 以每年税后可支配的净收入20W（直接当成能存下来的钱）来算。也只有240W工资收入。得到结果后非常的平静，感觉仿佛刚才思考的并不是我本人而只是别人说给我的一个与我并无太大关联的故事。 但当我结束了初期的茫然之后，留下的就剩下对未来的焦躁与茫然。 这不仅仅是对数字的焦">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/04/19/浅谈前端性能优化/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/04/27/可被穷举的未来/"/>
 
 
 
 
 
-  <title>浅谈前端性能优化（缓存篇） | 键盘下的sao想法</title>
+  <title>可被穷举的未来 | 键盘下的sao想法</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/19/浅谈前端性能优化/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/27/可被穷举的未来/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈前端性能优化（缓存篇）</h1>
+          <h1 class="post-title" itemprop="name headline">可被穷举的未来</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T09:43:34+08:00">
-                2018-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T14:10:29+08:00">
+                2018-04-27
               </time>
             
 
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/19/浅谈前端性能优化/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/27/可被穷举的未来/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/19/浅谈前端性能优化/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/27/可被穷举的未来/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,25 +331,22 @@
       
 
       
-        <p>今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。</p>
-<a id="more"></a>
-<h3 id="关于浏览器缓存"><a href="#关于浏览器缓存" class="headerlink" title="关于浏览器缓存"></a>关于浏览器缓存</h3><p>首先想聊一下浏览器缓存的机制，主要是两种强缓存和协商缓存</p>
-<p>1.强缓存：不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的network选项中可以看到该请求返回200的状态码，并且size显示from disk cache或from memory cache；</p>
-<p>2.协商缓存：向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是否命中协商缓存，如果命中，则返回304状态码并带上新的response header通知浏览器从缓存中读取资源；</p>
-<p>两者的共同点是，都是从客户端缓存中读取资源；区别是强缓存不会发请求，协商缓存会发请求。</p>
-<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>Expires是HTTP/1.0控制网页缓存的字段，可由服务端通过配置Nginx来直接设置。如果客户端的时间小于设置的时间则默认缓存不需要更新直接使用浏览器缓存。<br>但是Expires有个很严重的不足就是对比的时间是客户端本地的时间这样就会造成如果客户端的时间不正确的话则设置了Expires也毫无意义。</p>
-<p>Cache-Control是HTTP/1.1用来控制网页缓存的。具体可直接设置秒数，当设置为max-age=300时浏览器在5分钟之内请求则会被强制使用缓存。Expires与Cache-Control的作用都差不多但是由Cache-Control是HTTP/1.1的所以在都设置的情况下Cache-Control的优先级会高于Expires。</p>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>协商缓存中比较常见的是对比缓存。对比缓存就是客户端请求资源的时候先访问浏览器的缓存拿到缓存的标识，然后携带该标识发送HTTP请求。若无资源更新则返回304客户端直接从缓存中读取。如果是资源更新了的情况下则服务器直接返回资源200，客户端则将新的资源存入缓存。</p>
-<p>在现代的浏览器中拥有一下两种的方式：</p>
-<h3 id="浏览器缓存过程"><a href="#浏览器缓存过程" class="headerlink" title="浏览器缓存过程"></a>浏览器缓存过程</h3><p>首先一个从未加载过资源的客户端第一次加载资源，服务器返回200，浏览器将返回的资源下载并且存入缓存。并且把response header以及该请求的时间一并缓存。</p>
-<p>下一次加载的时候会以此根据客户端当前的时间对比Cache-Control 和 Expires 如果时间没过期则命中强缓存，客户端不发送请求并且直接在本地缓存中拉取结果。</p>
-<p>或者在服务端收到请求后先根据Etag的值判断资源有无经过修改，如果没有则命中协商缓存，返回304客户端直接从缓存中读取资源。</p>
-<h3 id="用户行为对浏览器缓存的控制"><a href="#用户行为对浏览器缓存的控制" class="headerlink" title="用户行为对浏览器缓存的控制"></a>用户行为对浏览器缓存的控制</h3><p>地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制；</p>
-<p>F5刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断；</p>
-<p>ctrl+F5刷新，跳过强缓存和协商缓存，直接从服务器拉取资源。</p>
-<h3 id="避免浏览器缓存"><a href="#避免浏览器缓存" class="headerlink" title="避免浏览器缓存"></a>避免浏览器缓存</h3><p>事实上有很多的业务场景是不需要任何的缓存的，除了浏览器设置的隐私模式，也可以设置请求头：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: no-cache, no-store, must-revalidate .</span><br></pre></td></tr></table></figure></p>
-<p>或者直接用打包后生成带hash的资源。HTML也可以控制浏览器不缓存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>首先强制缓存优先协商缓存进行，若强制缓存生效则直接使用强制缓存，若不生效则进行协商缓存。协商缓存由服务端直接决定是否使用缓存。若协商缓存失效则代表缓存失效，需要重新请求获取结果。</p>
+        <p>可被穷举的未来。说的并不是未来的发展…而仅仅是我个人的未来。</p>
+<!-- -->
+<h2 id="着眼去看"><a href="#着眼去看" class="headerlink" title="着眼去看"></a>着眼去看</h2><p>最近以一种非常平和的心态去算了下到35岁的时候能挣到多少钱。</p>
+<p>以每年税后可支配的净收入<strong>20W</strong>（直接当成能存下来的钱）来算。也只有<strong>240W</strong>工资收入。得到结果后非常的平静，感觉仿佛刚才思考的并不是我本人而只是别人说给我的一个与我并无太大关联的故事。</p>
+<p>但当我结束了初期的茫然之后，留下的就剩下对未来的焦躁与茫然。</p>
+<p>这不仅仅是对数字的焦躁，更多的是对未来的不安与梦想的破碎…</p>
+<p>曾经也想过关于以后的生活，谁知才出社会一年的时间便对未来的发展和对相应的结果慌张失措。</p>
+<h2 id="用心去想"><a href="#用心去想" class="headerlink" title="用心去想"></a>用心去想</h2><p>这篇文章从五一前开始写直到现在才发了出来，中间关于去看了一个互联网项目的诞生与运作。</p>
+<p>我发现一家互联网公司的老板和在公司里面当白领的IT从业者相对比而言其中的差距存在且微妙。但正是这种微小的差距使得有些人一辈子都无法逾越。</p>
+<p>很多的时候互联网的从业者对行业的发展与技术的趋势更为感知。这应该在市场上会让开发人员更具有优势，但更多的时候安于天命和追求完美的开发人员会在发现一个新的或者说是可以赚钱的idea / 商业项目的时候更多的是看到其中的不足与自然的想到去和市场上的行业大佬的对比。</p>
+<p>仅以一个很简单的做购物的推销的项目去做对比，程序员看到的更多的是业内大佬阿里次级梯队京东等使用的技术，顶级的架构设计，为了峰值流量做出的优化等等，这时候你让一个程序员单点的去做一个购物的项目。他可能心里首先想到的就是怎么去越过这个巨大的山峰。</p>
+<p>更多的时候做为一名开发者看到的是一个新的项目的难点与可能存在的坑，这个是长时间工作累计的经验大多数的时候我们看一个需要带入自己主观意识的项目的时候首先想到的就是自己的经验之谈。但往往更多的是忽略了一个最最重要也是大多数当老板的最看重的点。</p>
+<p>那就是<strong>都能赚钱</strong>。</p>
+<p>一个项目的诞生和发展的过程中会有很多的不足和意外但是更多的是在公司领着每个月固定工资的IT从业者感受不到也忽视了的项目盈利能力的问题。</p>
+<h2 id="just"><a href="#just" class="headerlink" title="just .."></a>just ..</h2><p>好吧。就这样了。</p>
+<p>可被穷举的未来或许在我认识到的那一刻就已经被打破了呢。</p>
 
       
     </div>
@@ -396,11 +393,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
+            <a href="/tags/杂谈/" rel="tag"># 杂谈</a>
           
         </div>
       
@@ -413,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/18/古老而强大的正则/" rel="next" title="古老而强大的正则">
-                <i class="fa fa-chevron-left"></i> 古老而强大的正则
+              <a href="/2018/04/26/Fetch-API/" rel="next" title="Fetch API">
+                <i class="fa fa-chevron-left"></i> Fetch API
               </a>
             
           </div>
@@ -422,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/19/《美国是如何培养精英的》/" rel="prev" title="《美国是如何培养精英的》">
-                《美国是如何培养精英的》 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -580,7 +569,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为对浏览器缓存的控制"><span class="nav-number">3.</span> <span class="nav-text">用户行为对浏览器缓存的控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免浏览器缓存"><span class="nav-number">4.</span> <span class="nav-text">避免浏览器缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#着眼去看"><span class="nav-number">1.</span> <span class="nav-text">着眼去看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用心去想"><span class="nav-number">2.</span> <span class="nav-text">用心去想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#just"><span class="nav-number">3.</span> <span class="nav-text">just ..</span></a></li></ol></div>
             
 
           </div>
@@ -750,9 +739,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/04/19/浅谈前端性能优化/';
-          this.page.identifier = '2018/04/19/浅谈前端性能优化/';
-          this.page.title = '浅谈前端性能优化（缓存篇）';
+          this.page.url = 'http://iliujy.top/2018/04/27/可被穷举的未来/';
+          this.page.identifier = '2018/04/27/可被穷举的未来/';
+          this.page.title = '可被穷举的未来';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
