@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JS," />
+  <meta name="keywords" content="设计," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
-<meta name="keywords" content="JS">
+<meta name="description" content="最近在看《写给大家看的设计书》，感觉作为一名前端在对视觉设计与呈现领域知之甚少。顺手写一篇博客来介绍一下最近对设计方向的学习…">
+<meta name="keywords" content="设计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="export与export default">
-<meta property="og:url" content="http://iliujy.top/2018/04/22/export与export-default/index.html">
+<meta property="og:title" content="假装是个设计师">
+<meta property="og:url" content="http://iliujy.top/2018/05/09/假装是个设计师/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
+<meta property="og:description" content="最近在看《写给大家看的设计书》，感觉作为一名前端在对视觉设计与呈现领域知之甚少。顺手写一篇博客来介绍一下最近对设计方向的学习…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-26T03:48:46.788Z">
+<meta property="og:updated_time" content="2018-05-09T02:22:27.527Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="export与export default">
-<meta name="twitter:description" content="最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。">
+<meta name="twitter:title" content="假装是个设计师">
+<meta name="twitter:description" content="最近在看《写给大家看的设计书》，感觉作为一名前端在对视觉设计与呈现领域知之甚少。顺手写一篇博客来介绍一下最近对设计方向的学习…">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/04/22/export与export-default/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/05/09/假装是个设计师/"/>
 
 
 
 
 
-  <title>export与export default | 键盘下的sao想法</title>
+  <title>假装是个设计师 | 键盘下的sao想法</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/22/export与export-default/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/09/假装是个设计师/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">export与export default</h1>
+          <h1 class="post-title" itemprop="name headline">假装是个设计师</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T14:39:31+08:00">
-                2018-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T10:06:21+08:00">
+                2018-05-09
               </time>
             
 
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/22/export与export-default/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/09/假装是个设计师/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/22/export与export-default/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/09/假装是个设计师/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,19 +331,12 @@
       
 
       
-        <p>最近在写SDK的时候需要迁移一个功能从原生的JS单文件的形式切换到webpack的module的形式，所以遇到了一个迁移过程中使用export与export default的小区别。</p>
+        <p>最近在看《写给大家看的设计书》，感觉作为一名前端在对视觉设计与呈现领域知之甚少。顺手写一篇博客来介绍一下最近对设计方向的学习…</p>
 <a id="more"></a>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>首先JS在ES6之前一直都没有模块的体系，但在ES6中JS本身支持了模块的功能。</p>
-<h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><p>模块的构成主要由两个命令构成: <strong>export</strong>  和 <strong>import</strong><br><strong>export</strong> 用于输出变量, <strong>import</strong> 用于引入变量</p>
-<p>栗子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test = &apos;111&apos;;</span><br><span class="line">var data = &apos;222&apos;;</span><br><span class="line">export &#123;test, data&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码就是直接使用export导出变量, 同样的可以直接导出函数，或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const test = &apos;111&apos;</span><br></pre></td></tr></table></figure>
-<p>在使用export导出的变量在使用import引入的时候必须加上{}! 且重复的使用import引入同一个对象的时候只会执行一次。</p>
-<h2 id="export-default"><a href="#export-default" class="headerlink" title="export default"></a>export default</h2><p>export default 为模块指定了一个默认输出.以便于其他的任意模块在加载他的时候可以为该匿名变量指定任意名字。</p>
-<p>export default 命令其实是输出了一个叫default的变量,所以在后面不能再继续声明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export const test = &apos;111&apos;;           // 正确</span><br><span class="line">export default const test = &apos;111&apos;;   // 错误</span><br></pre></td></tr></table></figure>
-<p>因为export default 本甚至上是将后面的值赋值给default变量。所以第二种会报错。</p>
-
+<h2 id="约树亚树"><a href="#约树亚树" class="headerlink" title="约树亚树"></a>约树亚树</h2><p>在书中开篇的第一章名称也是<em>约树亚树</em>，写了一个非常有意思的故事。作者在圣诞节收到了一本书，关于介绍各种树的。作者看了两章之后走出去想认识一下约树亚树，因为很有该树很有特点作者在家的附近并没有看到<em>约树亚树</em>。便觉得附近都不会有了，但是当他稍微走远一点的时候便能发现80%的邻居门前都种的有<em>约树亚树</em>。</p>
+<p>你看啊，当你认识了一种<strong>新鲜</strong>事物的时候便会觉得它出现的频率会越来越高~在你能叫上名字之后便会更多的注意到它。</p>
+<p>设计的观念也是如此一旦你掌握了一些基本的原则与美感之后，你便会在日后的工作中不经意的发现一些设计上的优化~</p>
+<h2 id="亲密性"><a href="#亲密性" class="headerlink" title="亲密性"></a>亲密性</h2><h2 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h2><h2 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h2><h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2>
       
     </div>
     
@@ -389,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
+            <a href="/tags/设计/" rel="tag"># 设计</a>
           
         </div>
       
@@ -402,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/21/浅谈Grid布局/" rel="next" title="浅谈Grid布局">
-                <i class="fa fa-chevron-left"></i> 浅谈Grid布局
+              <a href="/2018/05/07/小程序开发指北/" rel="next" title="小程序开发指北">
+                <i class="fa fa-chevron-left"></i> 小程序开发指北
               </a>
             
           </div>
@@ -411,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/23/穹顶之下/" rel="prev" title="穹顶之下">
-                穹顶之下 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">2.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export-default"><span class="nav-number">3.</span> <span class="nav-text">export default</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#约树亚树"><span class="nav-number">1.</span> <span class="nav-text">约树亚树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#亲密性"><span class="nav-number">2.</span> <span class="nav-text">亲密性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对齐"><span class="nav-number">3.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重复"><span class="nav-number">4.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比"><span class="nav-number">5.</span> <span class="nav-text">对比</span></a></li></ol></div>
             
 
           </div>
@@ -739,9 +728,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/04/22/export与export-default/';
-          this.page.identifier = '2018/04/22/export与export-default/';
-          this.page.title = 'export与export default';
+          this.page.url = 'http://iliujy.top/2018/05/09/假装是个设计师/';
+          this.page.identifier = '2018/05/09/假装是个设计师/';
+          this.page.title = '假装是个设计师';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
