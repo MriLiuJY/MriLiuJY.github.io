@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="WebRTC 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点的连接，实现视频流和（或）音频流或者其他任意数据的传输。">
+<meta name="description" content="JS中关于Math的一些方法有的时候经常会忘记，想着写一篇博客记录一下有助于记下一些常用的方法，以便到时候不需要再去看下Mdn的文档了。">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web RTC 入门">
-<meta property="og:url" content="http://iliujy.top/2018/05/04/Web-RTC-入门/index.html">
+<meta property="og:title" content="JS 中的 Math">
+<meta property="og:url" content="http://iliujy.top/2018/05/10/JS-中的-Math/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="WebRTC 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点的连接，实现视频流和（或）音频流或者其他任意数据的传输。">
+<meta property="og:description" content="JS中关于Math的一些方法有的时候经常会忘记，想着写一篇博客记录一下有助于记下一些常用的方法，以便到时候不需要再去看下Mdn的文档了。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T01:15:33.109Z">
+<meta property="og:updated_time" content="2018-05-10T02:43:20.452Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web RTC 入门">
-<meta name="twitter:description" content="WebRTC 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点的连接，实现视频流和（或）音频流或者其他任意数据的传输。">
+<meta name="twitter:title" content="JS 中的 Math">
+<meta name="twitter:description" content="JS中关于Math的一些方法有的时候经常会忘记，想着写一篇博客记录一下有助于记下一些常用的方法，以便到时候不需要再去看下Mdn的文档了。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/05/04/Web-RTC-入门/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/05/10/JS-中的-Math/"/>
 
 
 
 
 
-  <title>Web RTC 入门 | 键盘下的sao想法</title>
+  <title>JS 中的 Math | 键盘下的sao想法</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/04/Web-RTC-入门/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/10/JS-中的-Math/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Web RTC 入门</h1>
+          <h1 class="post-title" itemprop="name headline">JS 中的 Math</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-04T10:13:25+08:00">
-                2018-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-10T10:10:00+08:00">
+                2018-05-10
               </time>
             
 
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/04/Web-RTC-入门/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/10/JS-中的-Math/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/04/Web-RTC-入门/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/10/JS-中的-Math/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,10 +331,19 @@
       
 
       
-        <p>WebRTC 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点的连接，实现视频流和（或）音频流或者其他任意数据的传输。</p>
+        <p>JS中关于Math的一些方法有的时候经常会忘记，想着写一篇博客记录一下有助于记下一些常用的方法，以便到时候不需要再去看下Mdn的文档了。</p>
 <a id="more"></a>
-<p>在最近的项目中使用了webRTC的一些功能比如获取客户端的IP地址和代理的IP地址，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">  var PeerConnection = Win.RTCPeerConnection || Win.mozRTCPeerConnection || Win.webkitRTCPeerConnection;        </span><br><span class="line">  if (PeerConnection)&#123;</span><br><span class="line">    (function(pc)&#123;</span><br><span class="line">      var noop = function() &#123;&#125;,</span><br><span class="line">      ipRegex = /([0-9]&#123;1,3&#125;(\.[0-9]&#123;1,3&#125;)&#123;3&#125;)/g,</span><br><span class="line">      localIPs = &#123;&#125;,</span><br><span class="line">      res = [];</span><br><span class="line"></span><br><span class="line">      function ipIterate(ip) &#123;</span><br><span class="line">        if(!localIPs[ip]) res.push(ip);</span><br><span class="line">        localIPs[ip] = true;</span><br><span class="line">        data.internalip = res.join(&apos;,&apos;)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      pc.createDataChannel(&apos;__g__&apos;); </span><br><span class="line">      pc.onicecandidate= function(e)&#123;</span><br><span class="line">        if (e.candidate &amp;&amp; e.candidate.candidate &amp;&amp; !data.internalip)&#123;</span><br><span class="line">          new _Array(e.candidate.candidate.match(ipRegex))._forEach(ipIterate)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">      pc.createOffer(function(o)&#123;</span><br><span class="line">        new _Array(o.sdp.split(&apos;\n&apos;))._forEach(function(line) &#123;</span><br><span class="line">            if (line.indexOf(&apos;candidata&apos;) &lt; 0) return;</span><br><span class="line">            new _Array(line.match(ipRegex))._forEach(ipIterate);</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        pc.setLocalDescription(o, noop, noop);</span><br><span class="line">      &#125;, noop )</span><br><span class="line">    &#125;)(new PeerConnection(&#123;iceServers: [&#123;urls: &quot;stun:stun.l.google.com:19302&quot;&#125;]&#125;))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;catch(e)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Math-abs"><a href="#Math-abs" class="headerlink" title="Math.abs()"></a>Math.abs()</h2><p>函数返回指定数字”x”的绝对值。</p>
+<p>传入一个非数字形式的字符串或者 undefined/empty 变量，将返回 NaN。传入 null 将返回 0。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Math.abs(&apos;-1&apos;);     // 1</span><br><span class="line">Math.abs(-2);       // 2</span><br><span class="line">Math.abs(null);     // 0</span><br><span class="line">Math.abs(&quot;string&quot;); // NaN</span><br><span class="line">Math.abs();         // NaN</span><br></pre></td></tr></table></figure></p>
+<h2 id="Math-ceil"><a href="#Math-ceil" class="headerlink" title="Math.ceil()"></a>Math.ceil()</h2><p>向上取整。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.ceil(.95);    // 1</span><br><span class="line">Math.ceil(4);      // 4</span><br><span class="line">Math.ceil(7.004);  // 8</span><br><span class="line">Math.ceil(-0.95);  // -0</span><br><span class="line">Math.ceil(-4);     // -4</span><br><span class="line">Math.ceil(-7.004); // -7</span><br></pre></td></tr></table></figure>
+<h2 id="Math-floor"><a href="#Math-floor" class="headerlink" title="Math.floor()"></a>Math.floor()</h2><p>向下取整。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Math.floor(45.95);   // 45 </span><br><span class="line">Math.floor(45.05);   // 45 </span><br><span class="line">Math.floor(4);       // 4 </span><br><span class="line">Math.floor(-45.05);  // -46 </span><br><span class="line">Math.floor(-45.95);  // -46</span><br></pre></td></tr></table></figure>
+<h2 id="Math-round"><a href="#Math-round" class="headerlink" title="Math.round()"></a>Math.round()</h2><p>函数返回一个数字四舍五入后最接近的整数。</p>
+<p>注意：Math.round()在处理负数的时候会有些不同特别是在小数部分恰好是0.5的情况下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = Math.round(20.49);   //20</span><br><span class="line">x = Math.round(20.5);    //21</span><br><span class="line">x = Math.round(-20.5);   //-20</span><br><span class="line">x = Math.round(-20.51);  //-21</span><br></pre></td></tr></table></figure>
+<h2 id="Math-max-Math-min"><a href="#Math-max-Math-min" class="headerlink" title="Math.max() / Math.min()"></a>Math.max() / Math.min()</h2><p>Math.max()函数返回一组数中的最大值。Math.min() 函数返回一组数中的最小值。</p>
+<p>注意：当没有参数传入的时候Math.max()返回-Infinity。 Math.min()返回Infinity。</p>
 
       
     </div>
@@ -394,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/02/Object-defineProperty/" rel="next" title="Object.defineProperty()">
-                <i class="fa fa-chevron-left"></i> Object.defineProperty()
+              <a href="/2018/05/09/Service-Worker/" rel="next" title="Service Worker">
+                <i class="fa fa-chevron-left"></i> Service Worker
               </a>
             
           </div>
@@ -403,10 +412,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/07/小程序开发指北/" rel="prev" title="小程序开发指北">
-                小程序开发指北 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,8 +473,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -554,6 +568,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-abs"><span class="nav-number">1.</span> <span class="nav-text">Math.abs()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-ceil"><span class="nav-number">2.</span> <span class="nav-text">Math.ceil()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-floor"><span class="nav-number">3.</span> <span class="nav-text">Math.floor()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-round"><span class="nav-number">4.</span> <span class="nav-text">Math.round()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-max-Math-min"><span class="nav-number">5.</span> <span class="nav-text">Math.max() / Math.min()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -718,9 +748,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/05/04/Web-RTC-入门/';
-          this.page.identifier = '2018/05/04/Web-RTC-入门/';
-          this.page.title = 'Web RTC 入门';
+          this.page.url = 'http://iliujy.top/2018/05/10/JS-中的-Math/';
+          this.page.identifier = '2018/05/10/JS-中的-Math/';
+          this.page.title = 'JS 中的 Math';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
