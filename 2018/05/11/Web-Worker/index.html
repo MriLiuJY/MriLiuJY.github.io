@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="杂谈," />
+  <meta name="keywords" content="JS," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="有时候会有朋友问我，你咋不去做人工智能呢。 似乎现在的互联网 = 人工智能的情况在普通群众中已经是基本的认知了。就像豆浆油条一样的搭配。">
-<meta name="keywords" content="杂谈">
+<meta name="description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="舞台上的提线木偶">
-<meta property="og:url" content="http://iliujy.top/2018/04/24/舞台上的提线木偶/index.html">
+<meta property="og:title" content="Web Worker">
+<meta property="og:url" content="http://iliujy.top/2018/05/11/Web-Worker/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="有时候会有朋友问我，你咋不去做人工智能呢。 似乎现在的互联网 = 人工智能的情况在普通群众中已经是基本的认知了。就像豆浆油条一样的搭配。">
+<meta property="og:description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T01:22:54.610Z">
+<meta property="og:updated_time" content="2018-05-11T11:27:13.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="舞台上的提线木偶">
-<meta name="twitter:description" content="有时候会有朋友问我，你咋不去做人工智能呢。 似乎现在的互联网 = 人工智能的情况在普通群众中已经是基本的认知了。就像豆浆油条一样的搭配。">
+<meta name="twitter:title" content="Web Worker">
+<meta name="twitter:description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/04/24/舞台上的提线木偶/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/05/11/Web-Worker/"/>
 
 
 
 
 
-  <title>舞台上的提线木偶 | 键盘下的sao想法</title>
+  <title>Web Worker | 键盘下的sao想法</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/24/舞台上的提线木偶/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/11/Web-Worker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">舞台上的提线木偶</h1>
+          <h1 class="post-title" itemprop="name headline">Web Worker</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-24T14:21:44+08:00">
-                2018-04-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T09:53:08+08:00">
+                2018-05-11
               </time>
             
 
@@ -301,9 +301,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/24/舞台上的提线木偶/#comments" itemprop="discussionUrl">
+                <a href="/2018/05/11/Web-Worker/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/24/舞台上的提线木偶/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/05/11/Web-Worker/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,21 +331,26 @@
       
 
       
-        <p>有时候会有朋友问我，你咋不去做人工智能呢。</p>
-<p>似乎现在的互联网 = 人工智能的情况在普通群众中已经是基本的<em>认知</em>了。就像豆浆油条一样的搭配。</p>
+        <p>Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。</p>
 <a id="more"></a>
-<p>二十一世纪的互联网发展取得的成就在生物工程面前不值一提，此言当真。</p>
-<h2 id="被夸大的互联网"><a href="#被夸大的互联网" class="headerlink" title="被夸大的互联网"></a>被夸大的互联网</h2><p>2016年3月，阿尔法狗打败李世石引爆了整个互联网掀起了一股无法阻挡的人工智能热，铺天盖地的人工智能的消息和雨后春笋般冒出来的公司。一个为了博眼球，一个为了博资本。大家一起打了鸡血一样的宣传、夸大、包装、消费人工智能这个新生的资本宠儿。</p>
-<p>诚然人工智能在过去的几年内经历了积淀与发展，不然也不会在曾经的人类专属智力游戏上棋无敌手。但是现阶段的人工智能就像之前炒作的AR/VR,还只是处于一个处理简单工作的地步，远远不能达到媒体口中的夸张的地步。但是其中的差距真的只有时间了。就算现有的科学技术不再进行突破的情况下未来5-10年的平稳迭代升级，人们也会迎来一个美好的人工智能的时代的。</p>
-<p>但是相较于人工智能对人们提供的进步，21世纪一直<strong>默默无闻</strong>的生物工程和现代医学的进步正在挑战人类的整个文明。</p>
-<h2 id="赋予灵魂的机器"><a href="#赋予灵魂的机器" class="headerlink" title="赋予灵魂的机器"></a>赋予灵魂的机器</h2><p>让我们来看一下整个人类发展。</p>
-<p>从现代医学诞生以来人类唯一没有被移植过的器官就是头颅，或者说你的大脑。因为脑血屏的存在使得人类的大脑处于一个极高的安全系数的地方，一般的病毒根本无法通过脑血屏。现代医学对人死亡的定义也是脑死亡。就是你的大脑死亡的情况下你才被认定是死亡，至于身体的其他器官死亡或者缺失的情况只要你的大脑依旧活着你就不能被称之为死亡。</p>
-<p>大多数时候人类的死亡是因为身体的别的器官在岁月或病毒的摧残下降低甚至无法工作了，减少了大脑对各项生命活动的需求而导致脑死亡的。</p>
-<p>倘若现在又一副超越你衰老的躯体的机械身躯在你面前呢。你需要做的仅仅是做它的主人，赋予了它思维的灵魂与地球上最聪明的大脑。而机械的身躯带给你的将是生命的延长。</p>
-<p><strong>有灵魂的思维控制着没有灵魂的木偶。</strong></p>
-<p>其实我们从一开始就明白那些做在小鼠和其它动物身上的实验到底是为了什么。只是在技术还不成熟的情况下各国都在默默的角力谁也不愿意出来直面这个颠覆人类自然进化的路程的责任来。</p>
-<p>但我们依旧清楚这一天迟早会到来的，人类终将面临实现在自然的规律下臣服抑或是突破一切的限制在永无上帝的地方（基督教认为是上帝创造了亚当）把命运攥在自己手中。而拥有超越常人的巨大优势的情况下现有的社会制度和价值体系是否依旧还能在将来平稳的运行呢。</p>
-<h2 id="你愿意把灵魂献给机器么"><a href="#你愿意把灵魂献给机器么" class="headerlink" title="你愿意把灵魂献给机器么"></a>你愿意把灵魂献给机器么</h2>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道JS在执行的时候是单线程的。也就是在同一时间只能处理一件事。单线程的程序在执行的时候后面的代码是不会执行的。这样的设计一开始是为了防止两个不同的方法同时对一个Dom进行修改，则这样就会造成页面显示元素出现问题。</p>
+<p>HTML5则提出了Web Worker的标准，JS中可以允许有多个线程。其子线程完全受主线程控制，且子线程不能操纵Dom。</p>
+<h2 id="创建Web-Worker"><a href="#创建Web-Worker" class="headerlink" title="创建Web Worker"></a>创建Web Worker</h2><p>首先要说的是Worker() 是一个构造函数，通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>其中的<code>Worker(&#39;worker.js&#39;)</code>就是从一个单独的JS创建一个子线程。</p>
+<p>Web Worker的基本原理就是在当前的主线程中加载一个只读的文件来创建一个新的线程。两个线程同时存在，互不阻塞。</p>
+<p><strong>销毁</strong>线程的方法有两种<br>方法一：在主线程中调用terminate();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br><span class="line"></span><br><span class="line">worker.terminate();</span><br></pre></td></tr></table></figure></p>
+<p>方法二：在子线程中调用close();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// worker.js</span><br><span class="line"></span><br><span class="line">self.close()</span><br></pre></td></tr></table></figure></p>
+<h2 id="线程通讯"><a href="#线程通讯" class="headerlink" title="线程通讯"></a>线程通讯</h2><p>在Web Worker中提供了<code>postMessage</code>和<code>onmessage</code>来发送/接受数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br><span class="line"></span><br><span class="line">worker.postMessage(&quot;i am data from main&quot;);</span><br><span class="line">worker.onmessage = function(e) &#123;</span><br><span class="line">  console.log(e.data);  // i am data from worker.js!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// worker.js</span><br><span class="line"></span><br><span class="line">onMessage = function (e) &#123;</span><br><span class="line">  console.log(e.data);  // i am data from main</span><br><span class="line">  postMessage(&apos;i am data from worker.js!&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要注意的是子线程不与主线程共享数据而是复制，即使是引用类型的数据！</p>
+<h2 id="共享线程"><a href="#共享线程" class="headerlink" title="共享线程"></a>共享线程</h2><p>共享线程的设计是为了防止线程重复的创建与销毁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var worker = new SharedWorker(&apos;sharedworker.js&apos;);</span><br></pre></td></tr></table></figure>
+<p>共享线程也同样的使用postMessage传递数据，只是调用的方式略有不同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker.port.postMessage(&quot;test sendMessage&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="Worker作用域"><a href="#Worker作用域" class="headerlink" title="Worker作用域"></a>Worker作用域</h2><p>在创建Web Worker的时候独立的JS文件会运行在一个全新的JS环境中(WorkerGlobalScope),该环境与主线程的环境完全隔离。</p>
+<p>WorkerGlobalScope是worker的全局对象，同样的和主线程的window一样包含一些基本的方法。在子线程中同样的可以发送http请求。然后将获取的数据交给主线程使用。</p>
+
       
     </div>
     
@@ -391,7 +396,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/杂谈/" rel="tag"># 杂谈</a>
+            <a href="/tags/JS/" rel="tag"># JS</a>
           
         </div>
       
@@ -404,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/23/穹顶之下/" rel="next" title="穹顶之下">
-                <i class="fa fa-chevron-left"></i> 穹顶之下
+              <a href="/2018/05/10/JS-中的-Math/" rel="next" title="JS 中的 Math">
+                <i class="fa fa-chevron-left"></i> JS 中的 Math
               </a>
             
           </div>
@@ -413,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/26/Fetch-API/" rel="prev" title="Fetch API">
-                Fetch API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#被夸大的互联网"><span class="nav-number">1.</span> <span class="nav-text">被夸大的互联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋予灵魂的机器"><span class="nav-number">2.</span> <span class="nav-text">赋予灵魂的机器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你愿意把灵魂献给机器么"><span class="nav-number">3.</span> <span class="nav-text">你愿意把灵魂献给机器么</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Web-Worker"><span class="nav-number">2.</span> <span class="nav-text">创建Web Worker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程通讯"><span class="nav-number">3.</span> <span class="nav-text">线程通讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享线程"><span class="nav-number">4.</span> <span class="nav-text">共享线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Worker作用域"><span class="nav-number">5.</span> <span class="nav-text">Worker作用域</span></a></li></ol></div>
             
 
           </div>
@@ -753,9 +754,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/04/24/舞台上的提线木偶/';
-          this.page.identifier = '2018/04/24/舞台上的提线木偶/';
-          this.page.title = '舞台上的提线木偶';
+          this.page.url = 'http://iliujy.top/2018/05/11/Web-Worker/';
+          this.page.identifier = '2018/05/11/Web-Worker/';
+          this.page.title = 'Web Worker';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
