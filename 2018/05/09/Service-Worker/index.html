@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="简单来说，Service Worker 是一个可编程的 Web Worker，它就像一个位于浏览器与网络之间的客户端代理，可以拦截、处理、响应流经的 HTTP 请求。配合随之引入 Cache Storage API，你可以自由管理 HTTP 请求文件粒度的缓存，这使得 Service Worker 可以从缓存中向 web 应用提供资源，即使是在离线的环境下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T12:12:35.283Z">
+<meta property="og:updated_time" content="2018-05-15T11:42:21.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Service Worker">
 <meta name="twitter:description" content="简单来说，Service Worker 是一个可编程的 Web Worker，它就像一个位于浏览器与网络之间的客户端代理，可以拦截、处理、响应流经的 HTTP 请求。配合随之引入 Cache Storage API，你可以自由管理 HTTP 请求文件粒度的缓存，这使得 Service Worker 可以从缓存中向 web 应用提供资源，即使是在离线的环境下。">
@@ -347,8 +347,8 @@
 <a id="more"></a>
 <h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p>首先在创建Service Worker的网站需要先支持https。通过Service Worker可以劫持、伪造和过滤响应，为了避免这些问题，只能在HTTPS的网页上注册Service Worker。</p>
 <p>与Web Worker不同的是Service Worker的生命周期完全独立与页面。即在页面上加载销毁的情况均不影响Service Worker的生命周期，关联页面未关闭时，它也可以退出，没有关联页面时，它也可以启动。</p>
-<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>Service Worker 脚本通过  navigator.serviceWorker.register 方法注册到页面, 之后可以脱离页面在浏览器后台运行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.serviceWorker.register(&apos;service-worker.js&apos;)</span><br><span class="line">  .then(function(res) &#123;</span><br><span class="line">    console.log(&apos;success&apos;);</span><br><span class="line">  &#125;).catch(function (err) &#123;</span><br><span class="line">    console.log(&apos;faile&apos;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><p>Service Worker脚本通过 navigator.serviceWorker.register 方法注册到页面, 之后可以脱离页面在浏览器后台运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.serviceWorker.register(&apos;service-worker.js&apos;)</span><br><span class="line">  .then(res =&gt; &#123;</span><br><span class="line">    console.log(&apos;success&apos;);</span><br><span class="line">  &#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(&apos;faile&apos;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>另外出于安全的设计，Service Worker脚本的作用范围不能超出脚本文件所在的路径。比如地址是 “/js/worker.js” 的脚本只能控制 “/js/“ 下的页面。 </p>
 <p>如果Service Worker注册的地址是网站的根目录，则可以直接拦截整个网站的请求。但只是在”/js/“目录下的情况就只能拦截同级目录下的fetch事件。</p>
 <h2 id="下载、安装和激活"><a href="#下载、安装和激活" class="headerlink" title="下载、安装和激活"></a>下载、安装和激活</h2><p>在用户第一次访问一个Service Worker的网站的时候Service Worker会立刻被下载。之后每24小时会被重新下载一次，尽管可能在24小时之内被重复的下载。</p>
@@ -356,8 +356,10 @@
 <blockquote>
 <p>如果是再已经启用的网站的话，Service Worker会在后台被安装但是并不会被激活。这个时序称为worker in waiting。直到所有已加载的页面不再使用旧的Service Worker才会激活新的Service Worker。只要页面不再依赖旧的Service Worker，新的Service Worker会被激活（成为active worker）。</p>
 </blockquote>
-<p>你可以监听InstallEvent，事件触发时的标准行为是准备Service Worker用于使用，例如使用内建的storage API来创建缓存，并且放置应用离线时所需资源。</p>
+<p>你可以监听InstallEvent，事件触发时的标准行为是准备Service Worker用于使用，例如使用内建的storage API来创建缓存，并且放置应用离线时所需资源。当<code>oninstall</code>事件程序执行完毕后，就可以认为 Service Worker安装完成了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// worker.js</span><br><span class="line"></span><br><span class="line">self.addEventListener(&apos;install&apos;, event =&gt; &#123;</span><br><span class="line">    console.log(&apos;worker installing…&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下一步是激活，当Service Worker安装完成之后会收到一个激活事件（activate event）。</p>
+<p>Service Worker 现在可以控制页面了，但仅是在 register()  成功后的打开的页面。也就是说，页面起始于有没有Service worker, 且在页面的接下来生命周期内维持这个状态。页面需要重新加载以让Service worker获得完全的控制。</p>
 <h2 id="Service-Worker版本"><a href="#Service-Worker版本" class="headerlink" title="Service Worker版本"></a>Service Worker版本</h2><p>浏览器内核会管理三种Service Worker脚本版本：</p>
 <ul>
 <li>installing_version：处于 INSTALLING 状态的版本</li>
@@ -374,6 +376,7 @@
 <li>用户关闭页面，释放了当前处于 active 状态的service worker。</li>
 <li>浏览器周期性检测，发现 active service worker处于idle状态，就会释放当前处于active状态的service worker。</li>
 </ul>
+<h2 id="ServiceWorkerContainer"><a href="#ServiceWorkerContainer" class="headerlink" title="ServiceWorkerContainer"></a>ServiceWorkerContainer</h2><p><code>ServiceWorkerContainer</code>接口为 service worker提供一个容器般的功能，包括对service worker的注册，卸载 ，更新和访问service worker的状态，以及他们的注册者。</p>
 
       
     </div>
@@ -620,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">1.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册"><span class="nav-number">2.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载、安装和激活"><span class="nav-number">3.</span> <span class="nav-text">下载、安装和激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-Worker版本"><span class="nav-number">4.</span> <span class="nav-text">Service Worker版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">1.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册"><span class="nav-number">2.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载、安装和激活"><span class="nav-number">3.</span> <span class="nav-text">下载、安装和激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-Worker版本"><span class="nav-number">4.</span> <span class="nav-text">Service Worker版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServiceWorkerContainer"><span class="nav-number">5.</span> <span class="nav-text">ServiceWorkerContainer</span></a></li></ol></div>
             
 
           </div>
