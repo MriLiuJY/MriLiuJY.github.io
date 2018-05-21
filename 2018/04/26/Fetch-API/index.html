@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="Fetch API是告别XMLHttpRequest的全新选择。不仅使用了promise而且比ajax更加灵活。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T02:58:12.647Z">
+<meta property="og:updated_time" content="2018-05-21T06:10:41.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fetch API">
 <meta name="twitter:description" content="Fetch API是告别XMLHttpRequest的全新选择。不仅使用了promise而且比ajax更加灵活。">
@@ -367,6 +367,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fetch(&apos;/test&apos;, &#123;</span><br><span class="line">  credentials: &apos;same-origin&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p>fetch提供的promise的then函数中提供了一个Response对象，即代表对服务端返回值的封装，也可以在前后端分离的时候自己Mock自己的Response对象。</p>
 <p>栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var myImage = document.querySelector(&apos;.my-image&apos;);</span><br><span class="line">fetch(&apos;flowers.jpg&apos;).then(function(response) &#123;</span><br><span class="line">  return response.blob();</span><br><span class="line">&#125;).then(function(response) &#123;</span><br><span class="line">  var objectURL = URL.createObjectURL(response);</span><br><span class="line">  myImage.src = objectURL;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>response 拿到的对象直接打印出来是不能得到我们想要的结果的，可以再获取的的时候对res进行一次json()的转换就可以拿到想要的结果了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fetch(&apos;http://localhost/&apos;)</span><br><span class="line">.then(res =&gt; res.json()).then((res) =&gt; &#123;</span><br><span class="line">    console.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -535,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
