@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="最近在写SDK的时候大量会接触到原型链相关的一些技术，但是总感觉自己在工作中写代码的过程稍有欠缺，由此想写下一篇博客来详细的记录关于原型链的学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T03:56:04.794Z">
+<meta property="og:updated_time" content="2018-07-18T14:25:49.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的原型链">
 <meta name="twitter:description" content="最近在写SDK的时候大量会接触到原型链相关的一些技术，但是总感觉自己在工作中写代码的过程稍有欠缺，由此想写下一篇博客来详细的记录关于原型链的学习。">
@@ -343,6 +343,8 @@
       
         <p>最近在写SDK的时候大量会接触到原型链相关的一些技术，但是总感觉自己在工作中写代码的过程稍有欠缺，由此想写下一篇博客来详细的记录关于原型链的学习。</p>
 <a id="more"></a>
+<p>首先来认识一下什么是原型链，JS中我们可以使用 <code>var a = new Object();</code> 通过构造函数的方式来创建一个名为 <code>a</code> 的对象。</p>
+<p>其中 <code>a</code> 是在当前作用域下的一个对象，其继承自全局的 <code>Object</code> 对象的属性， 在 a 中有一个名为 <code>prototype</code> 的属性指向构造函数的指针。 所以 a 在没有设置的情况下就能使用 <code>Object.toString()</code> 等挂载在 Object 上的方法，当 a 赋值给新变量的时候，这个变量的 prototype 指向的是a，这样层层递进，就构成了实例与原型的链条。这就是原型链:)</p>
 
       
     </div>
