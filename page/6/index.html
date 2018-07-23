@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JS,CSS,浏览器," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
-<meta name="keywords" content="JS,CSS,浏览器">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浅谈前端性能优化（缓存篇）">
-<meta property="og:url" content="http://iliujy.top/2018/04/19/浅谈前端性能优化/index.html">
+<meta name="description" content="有时正是无人看好之人，所成无人能及之事">
+<meta name="keywords" content="博客 iliuJY">
+<meta property="og:type" content="website">
+<meta property="og:title" content="键盘下的sao想法">
+<meta property="og:url" content="http://iliujy.top/page/6/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
+<meta property="og:description" content="有时正是无人看好之人，所成无人能及之事">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-19T07:49:28.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈前端性能优化（缓存篇）">
-<meta name="twitter:description" content="今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。">
+<meta name="twitter:title" content="键盘下的sao想法">
+<meta name="twitter:description" content="有时正是无人看好之人，所成无人能及之事">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/04/19/浅谈前端性能优化/"/>
+  <link rel="canonical" href="http://iliujy.top/page/6/"/>
 
 
 
 
 
-  <title>浅谈前端性能优化（缓存篇） | 键盘下的sao想法</title>
+  <title>键盘下的sao想法</title>
   
 
 
@@ -155,7 +154,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/19/浅谈前端性能优化/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/18/古老而强大的正则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -280,7 +280,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈前端性能优化（缓存篇）</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/18/古老而强大的正则/" itemprop="url">古老而强大的正则</a></h1>
         
 
         <div class="post-meta">
@@ -292,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T09:43:34+08:00">
-                2018-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T11:46:36+08:00">
+                2018-04-18
               </time>
             
 
@@ -311,9 +313,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/19/浅谈前端性能优化/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/18/古老而强大的正则/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/19/浅谈前端性能优化/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/18/古老而强大的正则/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,26 +343,18 @@
       
 
       
-        <p>今天看到一篇文章谈的是浏览器的缓存，正好也想来聊聊前端对性能的优化。</p>
-<a id="more"></a>
-<h3 id="关于浏览器缓存"><a href="#关于浏览器缓存" class="headerlink" title="关于浏览器缓存"></a>关于浏览器缓存</h3><p>首先想聊一下浏览器缓存的机制，主要是两种强缓存和协商缓存</p>
-<p>1.强缓存：不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的network选项中可以看到该请求返回200的状态码，并且size显示from disk cache或from memory cache；</p>
-<p>2.协商缓存：向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是否命中协商缓存，如果命中，则返回304状态码并带上新的response header通知浏览器从缓存中读取资源；</p>
-<p>两者的共同点是，都是从客户端缓存中读取资源；区别是强缓存不会发请求，协商缓存会发请求。</p>
-<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p>Expires是HTTP/1.0控制网页缓存的字段，可由服务端通过配置Nginx来直接设置。如果客户端的时间小于设置的时间则默认缓存不需要更新直接使用浏览器缓存。<br>但是Expires有个很严重的不足就是对比的时间是客户端本地的时间这样就会造成如果客户端的时间不正确的话则设置了Expires也毫无意义。</p>
-<p>Cache-Control是HTTP/1.1用来控制网页缓存的。具体可直接设置秒数，当设置为max-age=300时浏览器在5分钟之内请求则会被强制使用缓存。Expires与Cache-Control的作用都差不多但是由Cache-Control是HTTP/1.1的所以在都设置的情况下Cache-Control的优先级会高于Expires。</p>
-<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p>协商缓存中比较常见的是对比缓存。对比缓存就是客户端请求资源的时候先访问浏览器的缓存拿到缓存的标识，然后携带该标识发送HTTP请求。若无资源更新则返回304客户端直接从缓存中读取。如果是资源更新了的情况下则服务器直接返回资源200，客户端则将新的资源存入缓存。</p>
-<p>在现代的浏览器中拥有一下两种的方式：</p>
-<h3 id="浏览器缓存过程"><a href="#浏览器缓存过程" class="headerlink" title="浏览器缓存过程"></a>浏览器缓存过程</h3><p>首先一个从未加载过资源的客户端第一次加载资源，服务器返回200，浏览器将返回的资源下载并且存入缓存。并且把response header以及该请求的时间一并缓存。</p>
-<p>下一次加载的时候会以此根据客户端当前的时间对比Cache-Control 和 Expires 如果时间没过期则命中强缓存，客户端不发送请求并且直接在本地缓存中拉取结果。</p>
-<p>或者在服务端收到请求后先根据Etag的值判断资源有无经过修改，如果没有则命中协商缓存，返回304客户端直接从缓存中读取资源。</p>
-<h3 id="用户行为对浏览器缓存的控制"><a href="#用户行为对浏览器缓存的控制" class="headerlink" title="用户行为对浏览器缓存的控制"></a>用户行为对浏览器缓存的控制</h3><p>地址栏访问，链接跳转是正常用户行为，将会触发浏览器缓存机制；</p>
-<p>F5刷新，浏览器会设置max-age=0，跳过强缓存判断，会进行协商缓存判断；</p>
-<p>ctrl+F5刷新，跳过强缓存和协商缓存，直接从服务器拉取资源。</p>
-<h3 id="避免浏览器缓存"><a href="#避免浏览器缓存" class="headerlink" title="避免浏览器缓存"></a>避免浏览器缓存</h3><p>事实上有很多的业务场景是不需要任何的缓存的，除了浏览器设置的隐私模式，也可以设置请求头：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: no-cache, no-store, must-revalidate .</span><br></pre></td></tr></table></figure></p>
-<p>或者直接用打包后生成带hash的资源。HTML也可以控制浏览器不缓存：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>首先强制缓存优先协商缓存进行，若强制缓存生效则直接使用强制缓存，若不生效则进行协商缓存。协商缓存由服务端直接决定是否使用缓存。若协商缓存失效则代表缓存失效，需要重新请求获取结果。</p>
-
+        
+          <p>最近在vue的tamplate语法中使用了不少的正则，但是由于JS中正则的使较少的情况下，对正则的使用还是处于很陌生的状态。</p>
+<p>另外发现很少有文章很详细的介绍了JS中关于对正则的入门级的使用方法的文章使得不少像我一样的小伙伴对正则处于一知半解的状态，于是萌生了专门写一篇关于正则的博客的想法。</p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/18/古老而强大的正则/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -370,78 +364,19 @@
     
 
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>hi you can see me</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechartpay.png" alt="MriliuJY 微信支付"/>
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/zhifubao.jpg" alt="MriliuJY 支付宝"/>
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
 
     
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/JS/" rel="tag"># JS</a>
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
-            <a href="/tags/浏览器/" rel="tag"># 浏览器</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/18/古老而强大的正则/" rel="next" title="古老而强大的正则">
-                <i class="fa fa-chevron-left"></i> 古老而强大的正则
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/19/《美国是如何培养精英的》/" rel="prev" title="《美国是如何培养精英的》">
-                《美国是如何培养精英的》 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -451,17 +386,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
 
-      
-    </div>
-  </div>
 
 
           </div>
@@ -469,20 +401,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -503,17 +421,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -598,22 +507,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">关于浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器缓存过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户行为对浏览器缓存的控制"><span class="nav-number">3.</span> <span class="nav-text">用户行为对浏览器缓存的控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免浏览器缓存"><span class="nav-number">4.</span> <span class="nav-text">避免浏览器缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -754,10 +647,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -775,18 +664,6 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/04/19/浅谈前端性能优化/';
-          this.page.identifier = '2018/04/19/浅谈前端性能优化/';
-          this.page.title = '浅谈前端性能优化（缓存篇）';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
