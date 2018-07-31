@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JS,PWA," />
+  <meta name="keywords" content="Node," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
-<meta name="keywords" content="JS,PWA">
+<meta name="description" content="有段时间没写技术博客了，最近看了些NodeJS的 event loop 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~">
+<meta name="keywords" content="Node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web Worker">
-<meta property="og:url" content="http://iliujy.top/2018/05/11/Web-Worker/index.html">
+<meta property="og:title" content="Node.js 事件机制">
+<meta property="og:url" content="http://iliujy.top/2018/07/31/Node-js-事件机制/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
+<meta property="og:description" content="有段时间没写技术博客了，最近看了些NodeJS的 event loop 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T11:11:29.339Z">
+<meta property="og:updated_time" content="2018-07-31T14:23:54.506Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web Worker">
-<meta name="twitter:description" content="Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。">
+<meta name="twitter:title" content="Node.js 事件机制">
+<meta name="twitter:description" content="有段时间没写技术博客了，最近看了些NodeJS的 event loop 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/05/11/Web-Worker/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/07/31/Node-js-事件机制/"/>
 
 
 
 
 
-  <title>Web Worker | 键盘下的sao想法</title>
+  <title>Node.js 事件机制 | 键盘下的sao想法</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/11/Web-Worker/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/07/31/Node-js-事件机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Web Worker</h1>
+          <h1 class="post-title" itemprop="name headline">Node.js 事件机制</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T09:53:08+08:00">
-                2018-05-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T21:55:24+08:00">
+                2018-07-31
               </time>
             
 
@@ -311,9 +311,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/11/Web-Worker/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/31/Node-js-事件机制/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/11/Web-Worker/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/31/Node-js-事件机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,25 +341,30 @@
       
 
       
-        <p>Web Workers 使得一个Web应用程序可以在与主执行线程分离的后台线程中运行一个脚本操作。这样做的好处是可以在一个单独的线程中执行费时的处理任务，从而允许主（通常是UI）线程运行而不被阻塞/放慢。</p>
+        <p>有段时间没写技术博客了，最近看了些NodeJS的 <code>event loop</code> 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~</p>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们知道JS在执行的时候是单线程的。也就是在同一时间只能处理一件事。单线程的程序在执行的时候后面的代码是不会执行的。这样的设计一开始是为了防止两个不同的方法同时对一个Dom进行修改，则这样就会造成页面显示元素出现问题。</p>
-<p>HTML5则提出了Web Worker的标准，JS中可以允许有多个线程。其子线程完全受主线程控制，且子线程不能操纵Dom。</p>
-<h2 id="创建Web-Worker"><a href="#创建Web-Worker" class="headerlink" title="创建Web Worker"></a>创建Web Worker</h2><p>首先要说的是Worker() 是一个构造函数，通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>其中的<code>Worker(&#39;worker.js&#39;)</code>就是从一个单独的JS创建一个子线程。</p>
-<p>Web Worker的基本原理就是在当前的主线程中加载一个只读的文件来创建一个新的线程。两个线程同时存在，互不阻塞。</p>
-<p><strong>销毁</strong>线程的方法有两种<br>方法一：在主线程中调用terminate();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// main.js</span><br><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br><span class="line"></span><br><span class="line">worker.terminate();</span><br></pre></td></tr></table></figure></p>
-<p>方法二：在子线程中调用close();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// worker.js</span><br><span class="line"></span><br><span class="line">self.close()</span><br></pre></td></tr></table></figure></p>
-<h2 id="线程通讯"><a href="#线程通讯" class="headerlink" title="线程通讯"></a>线程通讯</h2><p>在Web Worker中提供了<code>postMessage</code>和<code>onmessage</code>来发送/接受数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var worker = new Worker(&apos;worker.js&apos;);</span><br><span class="line"></span><br><span class="line">worker.postMessage(&quot;i am data from main&quot;);</span><br><span class="line">worker.onmessage = function(e) &#123;</span><br><span class="line">  console.log(e.data);  // i am data from worker.js!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// worker.js</span><br><span class="line"></span><br><span class="line">onMessage = function (e) &#123;</span><br><span class="line">  console.log(e.data);  // i am data from main</span><br><span class="line">  postMessage(&apos;i am data from worker.js!&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要注意的是子线程不与主线程共享数据而是复制，即使是引用类型的数据！</p>
-<h2 id="共享线程"><a href="#共享线程" class="headerlink" title="共享线程"></a>共享线程</h2><p>共享线程的设计是为了防止线程重复的创建与销毁。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var worker = new SharedWorker(&apos;sharedworker.js&apos;);</span><br></pre></td></tr></table></figure>
-<p>共享线程也同样的使用postMessage传递数据，只是调用的方式略有不同。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker.port.postMessage(&quot;test sendMessage&quot;);</span><br></pre></td></tr></table></figure>
-<h2 id="Worker作用域"><a href="#Worker作用域" class="headerlink" title="Worker作用域"></a>Worker作用域</h2><p>在创建Web Worker的时候独立的JS文件会运行在一个全新的JS环境中(WorkerGlobalScope),该环境与主线程的环境完全隔离。</p>
-<p>WorkerGlobalScope是worker的全局对象，同样的和主线程的window一样包含一些基本的方法。在子线程中同样的可以发送http请求。然后将获取的数据交给主线程使用。</p>
+<h2 id="事件循环阶段。"><a href="#事件循环阶段。" class="headerlink" title="事件循环阶段。"></a>事件循环阶段。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   ┌───────────────────────┐</span><br><span class="line">┌─ │        timers         │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">│  │     I/O callbacks     │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">│  │     idle, prepare     │</span><br><span class="line">│  └──────────┬────────────┘      ┌───────────────┐</span><br><span class="line">│  ┌──────────┴────────────┐      │   incoming:   │</span><br><span class="line">│  │         poll          │ ─────┤  connections, │</span><br><span class="line">│  └──────────┬────────────┘      │   data, etc.  │</span><br><span class="line">│  ┌──────────┴────────────┐      └───────────────┘</span><br><span class="line">│  │        check          │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">└──┤    close callbacks    │</span><br><span class="line">   └───────────────────────┘</span><br></pre></td></tr></table></figure>
+<p>其中, 不同的事件会在不同的阶段被执行。</p>
+<blockquote>
+<p>timers：执行setTimeout() 和 setInterval()中到期的callback。<br>  I/O callbacks：上一轮循环中有少数的I/Ocallback会被延迟到这一轮的这一阶段执行<br>  idle, prepare：队列的移动，仅内部使用<br>  poll：最为重要的阶段，执行I/O callback，在适当的条件下会阻塞在这个阶段<br>  check：执行setImmediate的callback<br>  close callbacks：执行close事件的callback，例如socket.on(“close”,func)</p>
+</blockquote>
+<p>首先Node执行event loop 是由一个名为<a href="https://github.com/libuv/libuv" target="_blank" rel="noopener">libuv</a>的库完成的。在libuv中会有一个while 顺序的执行 <code>uv__update_time</code>、<code>uv__run_timers</code>、<code>uv__run_pending</code>、<code>uv__run_idle</code> 和 <code>uv__run_prepare</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">while</span> (r != <span class="number">0</span> &amp;&amp; loop-&gt;stop_flag == <span class="number">0</span>) &#123;</span><br><span class="line">    uv__update_time(loop);</span><br><span class="line">    uv__run_timers(loop);</span><br><span class="line">    ran_pending = uv__run_pending(loop);</span><br><span class="line">    uv__run_idle(loop);</span><br><span class="line">    uv__run_prepare(loop);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这使得Node在每一个事件阶段都有一个FIFO的callbacks队列, Node会顺序的执行处于当前阶段的全部任务，直到所有的任务都被执行，或者达到了最大的任务上限，那么将直接进入下一阶段。</p>
+<h2 id="timers"><a href="#timers" class="headerlink" title="timers"></a>timers</h2><p>一个timer指定一个下限时间而不是准确时间，在达到这个下限时间后执行回调。在指定时间过后，timers会尽可能早地执行回调，但系统调度或者其它回调的执行可能会延迟它们。</p>
+<p>注意：技术上来说，poll 阶段控制 timers 什么时候执行。</p>
+<p>注意：这个下限时间有个范围：[1, 2147483647]，如果设定的时间不在这个范围，将被设置为1。</p>
+<h2 id="I-O-callbacks"><a href="#I-O-callbacks" class="headerlink" title="I/O callbacks"></a>I/O callbacks</h2><p>这个阶段执行一些系统操作的回调。比如TCP错误，如一个TCP socket在想要连接时收到ECONNREFUSED,<br>类unix系统会等待以报告错误，这就会放到 I/O callbacks 阶段的队列执行.<br>名字会让人误解为执行I/O回调处理程序, 实际上I/O回调会由poll阶段处理.</p>
+<h2 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h2><p>poll 阶段有两个主要功能：</p>
+<p>执行下限时间已经达到的timers的回调，然后<br>处理 poll 队列里的事件。<br>当event loop进入 poll 阶段，并且 没有设定的timers（there are no timers scheduled），会发生下面两件事之一：</p>
+<p>如果 poll 队列不空，event loop会遍历队列并同步执行回调，直到队列清空或执行的回调数到达系统上限；</p>
+<p>如果 poll 队列为空，则发生以下两件事之一：</p>
+<p>如果代码已经被setImmediate()设定了回调, event loop将结束 poll 阶段进入 check 阶段来执行 check 队列（里的回调）。<br>如果代码没有被setImmediate()设定回调，event loop将阻塞在该阶段等待回调被加入 poll 队列，并立即执行。<br>但是，当event loop进入 poll 阶段，并且 有设定的timers，一旦 poll 队列为空（poll 阶段空闲状态）：</p>
+<p>event loop将检查timers,如果有1个或多个timers的下限时间已经到达，event loop将绕回 timers 阶段，并执行 timer 队列。</p>
+<h2 id="check"><a href="#check" class="headerlink" title="check"></a>check</h2><p>这个阶段允许在 poll 阶段结束后立即执行回调。如果 poll 阶段空闲，并且有被setImmediate()设定的回调，event loop会转到 check 阶段而不是继续等待。</p>
+<p>setImmediate()实际上是一个特殊的timer，跑在event loop中一个独立的阶段。它使用libuv的API<br>来设定在 poll 阶段结束后立即执行回调。</p>
+<p>通常上来讲，随着代码执行，event loop终将进入 poll 阶段，在这个阶段等待 incoming connection, request 等等。但是，只要有被setImmediate()设定了回调，一旦 poll 阶段空闲，那么程序将结束 poll 阶段并进入 check 阶段，而不是继续等待 poll 事件们 （poll events）</p>
+<h2 id="close-callbacks"><a href="#close-callbacks" class="headerlink" title="close callbacks"></a>close callbacks</h2><p>如果一个 socket 或 handle 被突然关掉（比如 socket.destroy()），close事件将在这个阶段被触发，否则将通过process.nextTick()触发</p>
 
       
     </div>
@@ -406,9 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
-          
-            <a href="/tags/PWA/" rel="tag"># PWA</a>
+            <a href="/tags/Node/" rel="tag"># Node</a>
           
         </div>
       
@@ -421,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/JS-中的-Math/" rel="next" title="JS 中的 Math">
-                <i class="fa fa-chevron-left"></i> JS 中的 Math
+              <a href="/2018/07/23/Time-goes-by/" rel="next" title="Time goes by">
+                <i class="fa fa-chevron-left"></i> Time goes by
               </a>
             
           </div>
@@ -430,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/17/WebSocket/" rel="prev" title="WebSocket">
-                WebSocket <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -606,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Web-Worker"><span class="nav-number">2.</span> <span class="nav-text">创建Web Worker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程通讯"><span class="nav-number">3.</span> <span class="nav-text">线程通讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享线程"><span class="nav-number">4.</span> <span class="nav-text">共享线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Worker作用域"><span class="nav-number">5.</span> <span class="nav-text">Worker作用域</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环阶段。"><span class="nav-number">1.</span> <span class="nav-text">事件循环阶段。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timers"><span class="nav-number">2.</span> <span class="nav-text">timers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-callbacks"><span class="nav-number">3.</span> <span class="nav-text">I/O callbacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poll"><span class="nav-number">4.</span> <span class="nav-text">poll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check"><span class="nav-number">5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#close-callbacks"><span class="nav-number">6.</span> <span class="nav-text">close callbacks</span></a></li></ol></div>
             
 
           </div>
@@ -776,9 +775,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/05/11/Web-Worker/';
-          this.page.identifier = '2018/05/11/Web-Worker/';
-          this.page.title = 'Web Worker';
+          this.page.url = 'http://iliujy.top/2018/07/31/Node-js-事件机制/';
+          this.page.identifier = '2018/07/31/Node-js-事件机制/';
+          this.page.title = 'Node.js 事件机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
