@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="有段时间没写技术博客了，最近看了些NodeJS的 event loop 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-31T14:23:54.506Z">
+<meta property="og:updated_time" content="2018-07-31T14:37:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node.js 事件机制">
 <meta name="twitter:description" content="有段时间没写技术博客了，最近看了些NodeJS的 event loop 相关的文章，也自己详细的学了下Node中的事件执行机制，感觉来了记录一下~">
@@ -365,6 +365,7 @@
 <p>setImmediate()实际上是一个特殊的timer，跑在event loop中一个独立的阶段。它使用libuv的API<br>来设定在 poll 阶段结束后立即执行回调。</p>
 <p>通常上来讲，随着代码执行，event loop终将进入 poll 阶段，在这个阶段等待 incoming connection, request 等等。但是，只要有被setImmediate()设定了回调，一旦 poll 阶段空闲，那么程序将结束 poll 阶段并进入 check 阶段，而不是继续等待 poll 事件们 （poll events）</p>
 <h2 id="close-callbacks"><a href="#close-callbacks" class="headerlink" title="close callbacks"></a>close callbacks</h2><p>如果一个 socket 或 handle 被突然关掉（比如 socket.destroy()），close事件将在这个阶段被触发，否则将通过process.nextTick()触发</p>
+<h2 id="process-nextTick"><a href="#process-nextTick" class="headerlink" title="process.nextTick()"></a>process.nextTick()</h2><p>process.nextTick() 在Node中属于比较特殊的一个事件，在任意的两个事件阶段之间交替的时候，只要还存在着有process.nextTick()没有被执行则会优先执行 process.nextTick()</p>
 
       
     </div>
@@ -433,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/01/站在巨人的肩上/" rel="prev" title="站在巨人的肩上">
+                站在巨人的肩上 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +547,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -605,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环阶段。"><span class="nav-number">1.</span> <span class="nav-text">事件循环阶段。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timers"><span class="nav-number">2.</span> <span class="nav-text">timers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-callbacks"><span class="nav-number">3.</span> <span class="nav-text">I/O callbacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poll"><span class="nav-number">4.</span> <span class="nav-text">poll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check"><span class="nav-number">5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#close-callbacks"><span class="nav-number">6.</span> <span class="nav-text">close callbacks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件循环阶段。"><span class="nav-number">1.</span> <span class="nav-text">事件循环阶段。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timers"><span class="nav-number">2.</span> <span class="nav-text">timers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O-callbacks"><span class="nav-number">3.</span> <span class="nav-text">I/O callbacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poll"><span class="nav-number">4.</span> <span class="nav-text">poll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check"><span class="nav-number">5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#close-callbacks"><span class="nav-number">6.</span> <span class="nav-text">close callbacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#process-nextTick"><span class="nav-number">7.</span> <span class="nav-text">process.nextTick()</span></a></li></ol></div>
             
 
           </div>
