@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="TS," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="技能树终于来到了TypeScript啦，其实TS的作用在平时的开发中并没有什么特别的，就像你在写python的时候不会找个插件来约束静态类型一样。但是技能写在简历上就像 关键字，能让你从不懂技术的Hr那里赢得更多的机会。">
-<meta name="keywords" content="TS">
+<meta name="description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。  js动画其实动画实际上就是一连串的动作的组合，在基础的动作上加上 变形 、 渐变 等配合构成了页面上丰富多样的动画。用js实现动画的本质上是控制 dom 来完成。 requestAnimationFramerequestAnimationFram">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TypeScript 入门">
-<meta property="og:url" content="http://iliujy.top/2018/06/15/TypeScript-入门/index.html">
+<meta property="og:title" content="css 动画详谈">
+<meta property="og:url" content="http://iliujy.top/2018/09/04/css-动画详谈/index.html">
 <meta property="og:site_name" content="键盘下的sao想法">
-<meta property="og:description" content="技能树终于来到了TypeScript啦，其实TS的作用在平时的开发中并没有什么特别的，就像你在写python的时候不会找个插件来约束静态类型一样。但是技能写在简历上就像 关键字，能让你从不懂技术的Hr那里赢得更多的机会。">
+<meta property="og:description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。  js动画其实动画实际上就是一连串的动作的组合，在基础的动作上加上 变形 、 渐变 等配合构成了页面上丰富多样的动画。用js实现动画的本质上是控制 dom 来完成。 requestAnimationFramerequestAnimationFram">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-11T09:50:14.000Z">
+<meta property="og:updated_time" content="2018-09-05T02:07:48.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TypeScript 入门">
-<meta name="twitter:description" content="技能树终于来到了TypeScript啦，其实TS的作用在平时的开发中并没有什么特别的，就像你在写python的时候不会找个插件来约束静态类型一样。但是技能写在简历上就像 关键字，能让你从不懂技术的Hr那里赢得更多的机会。">
+<meta name="twitter:title" content="css 动画详谈">
+<meta name="twitter:description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。  js动画其实动画实际上就是一连串的动作的组合，在基础的动作上加上 变形 、 渐变 等配合构成了页面上丰富多样的动画。用js实现动画的本质上是控制 dom 来完成。 requestAnimationFramerequestAnimationFram">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/06/15/TypeScript-入门/"/>
+  <link rel="canonical" href="http://iliujy.top/2018/09/04/css-动画详谈/"/>
 
 
 
 
 
-  <title>TypeScript 入门 | 键盘下的sao想法</title>
+  <title>css 动画详谈 | 键盘下的sao想法</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/06/15/TypeScript-入门/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/09/04/css-动画详谈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MriliuJY">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TypeScript 入门</h1>
+          <h1 class="post-title" itemprop="name headline">css 动画详谈</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-15T15:09:52+08:00">
-                2018-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T09:28:55+08:00">
+                2018-09-04
               </time>
             
 
@@ -311,9 +311,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/15/TypeScript-入门/#comments" itemprop="discussionUrl">
+                <a href="/2018/09/04/css-动画详谈/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/15/TypeScript-入门/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/09/04/css-动画详谈/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,19 +341,14 @@
       
 
       
-        <p>技能树终于来到了TypeScript啦，其实TS的作用在平时的开发中并没有什么特别的，就像你在写python的时候不会找个插件来约束静态类型一样。但是技能写在简历上就像 <strong>关键字</strong>，能让你从不懂技术的Hr那里赢得更多的机会。</p>
-<a id="more"></a>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>TypeScript设计的目的就是为了解决JavaScript作为动态的脚本语言在编写的过程中因为改变了数据类型造成的隐秘错误。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> value1: boolean = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> value2: string = <span class="string">"zifuchuan"</span>;</span><br><span class="line"><span class="keyword">let</span> value3: number = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">let</span> value4: <span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> value5: <span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> value6: <span class="keyword">void</span>  = <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
-<p>首先在声明变量之后在后面跟了一个<code>:</code> + <code>type</code>类型用来表示这个变量是那种类型的，在声明了之后变量的类型不可修改。</p>
-<h2 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h2><p>在TS中在没有为变量明确指明一个变量的类型的时候，TS会进行类型推论</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> test1 = <span class="string">"test"</span>;</span><br><span class="line"><span class="keyword">let</span> test2: string = <span class="string">"test"</span>;</span><br><span class="line"></span><br><span class="line">test1 === test2  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>从上面的代码中可以看出即使你在创建变量的时候没有明确的为变量指定一个类型，TS会进行判断之后根据赋值的数据类型对变量进行声明。</p>
-<h2 id="任意值"><a href="#任意值" class="headerlink" title="任意值"></a>任意值</h2><p>可能在你创建一个变量的时候你也还没想好这个变量未来可能会变成什么类型，那么这个时候就可以用上TS中的<code>any</code>任意类型：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test: any;</span><br><span class="line">test = <span class="string">'seven'</span>;</span><br><span class="line">test = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
-<p>使用<code>any</code>来创建一个任意的类型的变量在后面修改变量的类型的时候就不会报错。任意类型的变量也可以在另一种方式中实现</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test;</span><br><span class="line">test = <span class="string">'seven'</span>;</span><br><span class="line">test = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
-<p>在创建的时候没有明确的指明变量的类型，也没有对变量赋一个初始值的情况下变量会默认为<code>any</code>任意型。</p>
+        <p>最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。</p>
+<!-- mroe -->
+<h1 id="js动画"><a href="#js动画" class="headerlink" title="js动画"></a>js动画</h1><p>其实动画实际上就是一连串的动作的组合，在基础的动作上加上 <code>变形 、 渐变</code> 等配合构成了页面上丰富多样的动画。用js实现动画的本质上是控制 dom 来完成。</p>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p><code>requestAnimationFrame</code> 的方法告诉浏览器重绘之前应该调用此函数来执行动画，更像是专门告诉浏览器js需要执行动画了 在下一次重绘前请先调用哦。</p>
+<p>由于浏览器帧数的限制每秒为60帧，很多情况下动画渲染往往达不到满帧的效果而显得卡顿（如使用sertimout的情况下），但是 <code>requestAnimationFrame</code> 的传入的回调通常都是每秒60次的执行。所以 在动画流畅程度上还是有很大的优势的。</p>
+<h2 id="settimeout-amp-amp-setinteral"><a href="#settimeout-amp-amp-setinteral" class="headerlink" title="settimeout &amp;&amp; setinteral"></a>settimeout &amp;&amp; setinteral</h2><p>通常老旧的动画实现，不过受制于js线程的执行，往往在时间上不能完全符合预期而造成的动画卡顿的情况出现。</p>
+<h1 id="css动画"><a href="#css动画" class="headerlink" title="css动画"></a>css动画</h1><p>css动画通常指的是使用 <code>animate</code> 创建的css动画，因为之前写过<a href="https://mriliujy.github.io/2018/06/05/css%20%E5%8A%A8%E7%94%BB/" target="_blank" rel="noopener">一篇文章</a> 在此就不再详细的介绍了。<br>使用css动画与transition结合可以指定动画执行的时间与执行的方式，当然 animate 关键字中包含了这个，不过可以额外的单独列出来。</p>
+<h2 id="reflow-amp-repaint"><a href="#reflow-amp-repaint" class="headerlink" title="reflow &amp; repaint"></a>reflow &amp; repaint</h2><p>浏览器执行动画</p>
 
       
     </div>
@@ -400,7 +395,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/TS/" rel="tag"># TS</a>
+            <a href="/tags/css/" rel="tag"># css</a>
           
         </div>
       
@@ -413,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/14/无头浏览器/" rel="next" title="无头浏览器">
-                <i class="fa fa-chevron-left"></i> 无头浏览器
+              <a href="/2018/09/01/站在巨人的肩上/" rel="next" title="站在巨人的肩上">
+                <i class="fa fa-chevron-left"></i> 站在巨人的肩上
               </a>
             
           </div>
@@ -422,10 +417,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/21/CSS选择器/" rel="prev" title="CSS选择器">
-                CSS选择器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型推论"><span class="nav-number">2.</span> <span class="nav-text">类型推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意值"><span class="nav-number">3.</span> <span class="nav-text">任意值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js动画"><span class="nav-number">1.</span> <span class="nav-text">js动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#requestAnimationFrame"><span class="nav-number">1.1.</span> <span class="nav-text">requestAnimationFrame</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#settimeout-amp-amp-setinteral"><span class="nav-number">1.2.</span> <span class="nav-text">settimeout &amp;&amp; setinteral</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css动画"><span class="nav-number">2.</span> <span class="nav-text">css动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reflow-amp-repaint"><span class="nav-number">2.1.</span> <span class="nav-text">reflow &amp; repaint</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -768,9 +759,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/06/15/TypeScript-入门/';
-          this.page.identifier = '2018/06/15/TypeScript-入门/';
-          this.page.title = 'TypeScript 入门';
+          this.page.url = 'http://iliujy.top/2018/09/04/css-动画详谈/';
+          this.page.identifier = '2018/09/04/css-动画详谈/';
+          this.page.title = 'css 动画详谈';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
