@@ -344,21 +344,14 @@
 
       
         
-          
-            <p>想了一圈还是觉得需要写篇文章来好好的聊下这个每天工作中都在使用的老朋友 <code>git</code> </p>
-<!-- mroe -->
-<h1 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h1><p>仓库下有多个子仓库的情况下，可以使用 <code>git submodule foreach</code> 对每个子仓库进行操作。</p>
-<p>可能你一不小心添加了到git仓库中一些没用的文件夹这时候你希望git不再继续追踪这些文件可以使用 <code>git rm</code> 来从git追踪中删除。</p>
-<h1 id="合并多个commits"><a href="#合并多个commits" class="headerlink" title="合并多个commits"></a>合并多个commits</h1><p>在团队开发中可能会遇到修改一个bug的情况下产生了多个commit历史，如果其中某些commit是完全可以由一个commit来代替的话，可能合并commit使得提交记录更简洁就会更为合适。</p>
-<p>（：以上情况只发生在本地仓库， 远程仓库的commit 神圣不可侵犯。</p>
-<p>直接使用命令 <code>git rebase -i  [startpoint]  [endpoint]</code></p>
-<p>其中 -i 的意思是 –interactive，即弹出交互式的界面让用户编辑完成合并操作</p>
-<p><code>startpoint - endpoint</code> 即为合并的区间 如果不指明 endpoint 则默认为当前分支的 HEAD的指向 (从开始一直合并到当前所处的commit)</p>
-<h1 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h1><p>git 对于已 <code>add</code> 到本地仓库的回退 <code>git reset --hard HEAD^</code> ， 其中的 <code>^</code> 代表回退一个版本使用两个则代表回退两个版本。（其中 –hard彻底回退到某个版本，本地的源码也会变为上一个版本的内容）。</p>
-<p>git 对已经 <code>commit</code> 到本地仓库的回退 <code>git reset [--hard|soft|mixed|merge|keep] [commit|HEAD]</code></p>
-<p>git 对远程仓库的回滚 <code>git checkout &lt;tag&gt;</code> 可以回滚到上次发布的tag、</p>
-
-          
+          <p>想了一圈还是觉得需要写篇文章来好好的聊下这个每天工作中都在使用的老朋友 <code>git</code> </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/27/git操作手册/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
