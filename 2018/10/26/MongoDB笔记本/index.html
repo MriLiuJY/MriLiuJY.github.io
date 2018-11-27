@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="嗯，一看这个名字就能直接的体会到这篇文章的主题了吧～ 那当然是在学习 MongoDB 的时候学到的一些基本的命令啦。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-26T15:28:17.486Z">
+<meta property="og:updated_time" content="2018-11-27T08:28:41.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB笔记本">
 <meta name="twitter:description" content="嗯，一看这个名字就能直接的体会到这篇文章的主题了吧～ 那当然是在学习 MongoDB 的时候学到的一些基本的命令啦。">
@@ -345,10 +345,15 @@
 <a id="more"></a>
 <h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><p>查看所有数据库 <code>show dbs</code></p>
 <p>切换数据库  <code>use datebase</code></p>
-<p>查看数据库下的所有表 <code>show tables</code></p>
+<p>删除当前使用数据库 <code>db.dropDatabase()</code></p>
+<p>克隆指定主机上的DB <code>db.cloneDatabase(&quot;127.0.0.1&quot;)</code></p>
+<p>修复当前数据库 <code>db.repairDatabase()</code></p>
+<h2 id="表相关"><a href="#表相关" class="headerlink" title="表相关"></a>表相关</h2><p>查看数据库下的所有表 <code>show tables</code></p>
 <p>删除某张表 <code>db.tablename.drop()</code></p>
-<p>查看某张表下有所的数据 <code>db.tablename.find({})</code></p>
-<p>删除某张表下的所有数据 <code>db.tablename.remove({})</code></p>
+<p>查看某张表下有所的数据 <code>db.tablename.find({})</code> 在find中输入条件 <code>find({ title: &quot;big news&quot; })</code> 则会找到符合条件的数据。</p>
+<p>删除某张表下的所有数据 <code>db.tablename.remove({})</code> 同样的可以通过输入条件来只删除部分数据。</p>
+<p><code>db.user.update({name:&#39;lujing&#39;},{age:18})</code> 更新操作，update()函数至少接收两个参数，第一个为更新条件，第二个参数为更新内容.当有时则更新 不存在的则插入。</p>
+<p><code>db.tablename.update({name:&#39;lisi&#39;},{age:99},true)</code> </p>
 
       
     </div>
@@ -595,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作"><span class="nav-number">1.</span> <span class="nav-text">基础操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作"><span class="nav-number">1.</span> <span class="nav-text">基础操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表相关"><span class="nav-number">2.</span> <span class="nav-text">表相关</span></a></li></ol></div>
             
 
           </div>
