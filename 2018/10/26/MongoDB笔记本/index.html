@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="键盘下的sao想法">
 <meta property="og:description" content="嗯，一看这个名字就能直接的体会到这篇文章的主题了吧～ 那当然是在学习 MongoDB 的时候学到的一些基本的命令啦。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-27T08:28:41.569Z">
+<meta property="og:updated_time" content="2018-11-27T08:54:27.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB笔记本">
 <meta name="twitter:description" content="嗯，一看这个名字就能直接的体会到这篇文章的主题了吧～ 那当然是在学习 MongoDB 的时候学到的一些基本的命令啦。">
@@ -348,12 +348,18 @@
 <p>删除当前使用数据库 <code>db.dropDatabase()</code></p>
 <p>克隆指定主机上的DB <code>db.cloneDatabase(&quot;127.0.0.1&quot;)</code></p>
 <p>修复当前数据库 <code>db.repairDatabase()</code></p>
-<h2 id="表相关"><a href="#表相关" class="headerlink" title="表相关"></a>表相关</h2><p>查看数据库下的所有表 <code>show tables</code></p>
-<p>删除某张表 <code>db.tablename.drop()</code></p>
-<p>查看某张表下有所的数据 <code>db.tablename.find({})</code> 在find中输入条件 <code>find({ title: &quot;big news&quot; })</code> 则会找到符合条件的数据。</p>
-<p>删除某张表下的所有数据 <code>db.tablename.remove({})</code> 同样的可以通过输入条件来只删除部分数据。</p>
-<p><code>db.user.update({name:&#39;lujing&#39;},{age:18})</code> 更新操作，update()函数至少接收两个参数，第一个为更新条件，第二个参数为更新内容.当有时则更新 不存在的则插入。</p>
-<p><code>db.tablename.update({name:&#39;lisi&#39;},{age:99},true)</code> </p>
+<h2 id="表相关"><a href="#表相关" class="headerlink" title="表相关"></a>表相关</h2><p><code>show tables</code> 查看数据库下的所有表</p>
+<p><code>db.tablename.count()</code> 当前集合的数据条数</p>
+<p><code>db.tablename.dataSize()</code> 查看数据空间大小</p>
+<p><code>db.tablename.drop()</code> 删除某张表</p>
+<p><code>db.tablename.find({})</code> 在find中输入条件 <code>find({ title: &quot;big news&quot; })</code> 则会找到符合条件的数据。</p>
+<p><code>db.person.find({$or:[{age:22},{age:25}]})</code> 查找age为22或25。</p>
+<p><code>db.tablename.find({age:{$gte:25}}).count()</code> 查找age&gt;=25 的结果数据的条数。</p>
+<p><code>db.tablename.find().sort({age:1})</code> 按年龄升序排序查找 -1 表示降序。</p>
+<p><code>db.tablename.find().limit(5)</code> 查询前5条信息 <code>skip(5)</code> 为后五条。</p>
+<p><code>db.tablename.save({age: &quot;1&quot;})</code> 保存一条数据。</p>
+<p><code>db.tablename.remove({})</code> 删除某张表下的所有数据 同样的可以通过输入条件来只删除部分数据。</p>
+<p><code>db.tablename.update({name:&#39;lujing&#39;},{age:18})</code> 更新操作，update()函数至少接收两个参数，第一个为更新条件，第二个参数为更新内容.当有时则更新 不存在的则插入。</p>
 
       
     </div>
