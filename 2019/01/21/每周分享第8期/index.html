@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="css," />
+  <meta name="keywords" content="分享," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。">
-<meta name="keywords" content="css">
+<meta name="description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
+<meta name="keywords" content="分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="css 动画详谈">
-<meta property="og:url" content="http://iliujy.top/2018/09/04/css-动画详谈/index.html">
+<meta property="og:title" content="每周分享第8期">
+<meta property="og:url" content="http://iliujy.top/2019/01/21/每周分享第8期/index.html">
 <meta property="og:site_name" content="键盘下的Sao想法">
-<meta property="og:description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。">
+<meta property="og:description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T01:13:26.460Z">
+<meta property="og:updated_time" content="2019-01-26T04:50:24.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="css 动画详谈">
-<meta name="twitter:description" content="最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。">
+<meta name="twitter:title" content="每周分享第8期">
+<meta name="twitter:description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/09/04/css-动画详谈/"/>
+  <link rel="canonical" href="http://iliujy.top/2019/01/21/每周分享第8期/"/>
 
 
 
 
 
-  <title>css 动画详谈 | 键盘下的Sao想法</title>
+  <title>每周分享第8期 | 键盘下的Sao想法</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/09/04/css-动画详谈/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2019/01/21/每周分享第8期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JYkid">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">css 动画详谈</h1>
+          <h1 class="post-title" itemprop="name headline">每周分享第8期</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T09:28:55+08:00">
-                2018-09-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-21T09:37:54+08:00">
+                2019-01-21
               </time>
             
 
@@ -311,9 +311,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/04/css-动画详谈/#comments" itemprop="discussionUrl">
+                <a href="/2019/01/21/每周分享第8期/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/04/css-动画详谈/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/01/21/每周分享第8期/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,14 +341,25 @@
       
 
       
-        <p>最近突然想到了一个问题，js的单线程与浏览器的多进程在页面上执行css动画与js脚本的时候究竟是怎么配合的。写一篇文章来详细的讲下这个之前被忽视的点。</p>
+        <p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p>
 <a id="more"></a>
-<h1 id="js动画"><a href="#js动画" class="headerlink" title="js动画"></a>js动画</h1><p>其实动画实际上就是一连串的动作的组合，在基础的动作上加上 <code>变形 、 渐变</code> 等配合构成了页面上丰富多样的动画。用js实现动画的本质上是控制 dom 来完成。</p>
-<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p><code>requestAnimationFrame</code> 的方法告诉浏览器重绘之前应该调用此函数来执行动画，更像是专门告诉浏览器js需要执行动画了 在下一次重绘前请先调用哦。</p>
-<p>由于浏览器帧数的限制每秒为60帧，很多情况下动画渲染往往达不到满帧的效果而显得卡顿（如使用sertimout的情况下），但是 <code>requestAnimationFrame</code> 的传入的回调通常都是每秒60次的执行。所以 在动画流畅程度上还是有很大的优势的。</p>
-<h2 id="settimeout-amp-amp-setinteral"><a href="#settimeout-amp-amp-setinteral" class="headerlink" title="settimeout &amp;&amp; setinteral"></a>settimeout &amp;&amp; setinteral</h2><p>通常老旧的动画实现，不过受制于js线程的执行，往往在时间上不能完全符合预期而造成的动画卡顿的情况出现。</p>
-<h1 id="css动画"><a href="#css动画" class="headerlink" title="css动画"></a>css动画</h1><p>css动画通常指的是使用 <code>animate</code> 创建的css动画，因为之前写过<a href="https://mriliujy.github.io/2018/06/05/css%20%E5%8A%A8%E7%94%BB/" target="_blank" rel="noopener">一篇文章</a> 在此就不再详细的介绍了。<br>使用css动画与transition结合可以指定动画执行的时间与执行的方式，当然 animate 关键字中包含了这个，不过可以额外的单独列出来。</p>
-<h2 id="reflow-amp-repaint"><a href="#reflow-amp-repaint" class="headerlink" title="reflow &amp; repaint"></a>reflow &amp; repaint</h2><p>浏览器执行动画会引起重绘与回流。而重绘的代价是巨大的，浏览器为了在固定的时间内能完成任务。有的时候就会省略一些中间的动作，这在页面上表现出来的就是掉帧</p>
+<h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>微软今日宣布 要在 2020 年 1 月 14 日停止 Windows 7 系统的更新和安全支持，Windows 用户需要在 Windows 7 和 Windows 10 之间进行抉择。</p>
+<p>近期一篇文章 <a href="https://mp.weixin.qq.com/s/OL-WcP0LgGktNgL5yd1hiQ" target="_blank" rel="noopener">搜索引擎百度已死</a> 引起广泛传播。文章提到，Baidu.com已经不是你寻找中文互联网内容的地方，而是百度自家的站内搜索；它将你引向的不是中文互联网中的优质精神食粮，而是囤积在自家的腐臭变质内容。</p>
+<p>域名结尾的意义：</p>
+<blockquote>
+<p>.net是网络服务公司，为个人或是商业提供服务<br>　.com 是提供商业 服务的网站 是company的首字母。意思是公司性质的网站，表示这个网站的性质。<br>  .org (非赢利性组织);<br>  .gov(国家政府机构)</p>
+</blockquote>
+<h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>有消息称：字节跳动有意收购锤子科技部分专利使用权计划，用于探索教育领域相关硬件。</p>
+<h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>陋室空堂，当年笏满床； 衰草枯杨，曾为歌舞场。</p>
+<p>今天凌晨，马云在达沃斯的思考和分享，入选达沃斯官网的“十大关键瞬间”。达沃斯官方给”马云的七条建议”点赞：</p>
+<blockquote>
+<p> 当时（创办阿里巴巴）我当然害怕过。但是我觉得，如果我没有成功，总有人会成功。1999年大家机会均等，没有人是专家。今天也是，没有明天的专家，大家面对明天都是平等的。<br>  我的法则是不要害怕压力竞争，不然就别做企业家。一开始的时候，如果想要做什么事情，能创造价值就有机会。<br>  年轻人第一份工作非常重要，不一定非要去有名的企业，而是要有一个好老板，第一份工作至少先干满3年。<br>  未来的人要比机器有智慧。最重要的是自我管理，也就是要相信自己的价值。未来机器有chip芯片，人类有heart，就是我们的价值。我认为这是未来教育的方向。<br>  你有晚上担心睡不着的时候吗？没有，我睡觉特别好。即便我睡不着，问题也会在那里。如果我睡得好，就有机会更好地解决它。<br>  你得用文化和价值观去管理聪明的人，让他们相信他们所做的事情。如果你只是用规则条文去控制人，那么你管理的是愚蠢的人。<br>  我喜欢雇比我聪明的人，这些人可能四五年以后会成为我的老板。我喜欢积极，永不放弃的人。</p>
+</blockquote>
+<h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>孤独是一个没有酒的局。</p>
+<p>最近一篇文章 <a href="https://mp.weixin.qq.com/s/R5nSlfnB9f1iOKYKKxISOw" target="_blank" rel="noopener">一个北大毕业生决定去送外卖</a> 引起很多的关注与讨论。要说有什么感受，大抵是生活就是一场谎言，所有人都盛装出席，可我却怎么也选不好自己的礼服。</p>
+<h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p>
+<p>《追梦赤子心》: 可能有时候你的努力不一定会有结果，但更像是一个暗待花开种子，努力奋斗不仅能让种子有了绽放的希望，更能影响到身边的人。当你朝一个方向坚持不懈的努力的时候，全世界都会为你让路的。</p>
+<p>一般般推荐系列：《傲慢与偏见》</p>
 
       
     </div>
@@ -395,7 +406,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/分享/" rel="tag"># 分享</a>
           
         </div>
       
@@ -408,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/01/站在巨人的肩上/" rel="next" title="站在巨人的肩上">
-                <i class="fa fa-chevron-left"></i> 站在巨人的肩上
+              <a href="/2019/01/16/每周分享第7期/" rel="next" title="每周分享第7期">
+                <i class="fa fa-chevron-left"></i> 每周分享第7期
               </a>
             
           </div>
@@ -417,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/12/linux服务器常用命令/" rel="prev" title="linux服务器常用命令">
-                linux服务器常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js动画"><span class="nav-number">1.</span> <span class="nav-text">js动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#requestAnimationFrame"><span class="nav-number">1.1.</span> <span class="nav-text">requestAnimationFrame</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#settimeout-amp-amp-setinteral"><span class="nav-number">1.2.</span> <span class="nav-text">settimeout &amp;&amp; setinteral</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css动画"><span class="nav-number">2.</span> <span class="nav-text">css动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#reflow-amp-repaint"><span class="nav-number">2.1.</span> <span class="nav-text">reflow &amp; repaint</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术"><span class="nav-number">1.</span> <span class="nav-text">技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经济"><span class="nav-number">2.</span> <span class="nav-text">经济</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分享"><span class="nav-number">3.</span> <span class="nav-text">分享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感受"><span class="nav-number">4.</span> <span class="nav-text">感受</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐"><span class="nav-number">5.</span> <span class="nav-text">推荐</span></a></li></ol></div>
             
 
           </div>
@@ -767,9 +774,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/09/04/css-动画详谈/';
-          this.page.identifier = '2018/09/04/css-动画详谈/';
-          this.page.title = 'css 动画详谈';
+          this.page.url = 'http://iliujy.top/2019/01/21/每周分享第8期/';
+          this.page.identifier = '2019/01/21/每周分享第8期/';
+          this.page.title = '每周分享第8期';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
