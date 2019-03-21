@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JS," />
+  <meta name="keywords" content="分享," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="长久以来在没有WebSocket的时候解决服务端消息推送这一让人头疼的事困扰着很多服务端开发的同学，终于在有了WebSocket之后只需要前端引入这一全新的通讯协议就能愉快的解决这些问题了。">
-<meta name="keywords" content="JS">
+<meta name="description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
+<meta name="keywords" content="分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebSocket">
-<meta property="og:url" content="http://iliujy.top/2018/05/17/WebSocket/index.html">
+<meta property="og:title" content="每周分享第15期">
+<meta property="og:url" content="http://iliujy.top/2019/03/16/每周分享第15期/index.html">
 <meta property="og:site_name" content="键盘下的Sao想法">
-<meta property="og:description" content="长久以来在没有WebSocket的时候解决服务端消息推送这一让人头疼的事困扰着很多服务端开发的同学，终于在有了WebSocket之后只需要前端引入这一全新的通讯协议就能愉快的解决这些问题了。">
+<meta property="og:description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T11:26:38.000Z">
+<meta property="og:updated_time" content="2019-03-21T01:13:05.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebSocket">
-<meta name="twitter:description" content="长久以来在没有WebSocket的时候解决服务端消息推送这一让人头疼的事困扰着很多服务端开发的同学，终于在有了WebSocket之后只需要前端引入这一全新的通讯协议就能愉快的解决这些问题了。">
+<meta name="twitter:title" content="每周分享第15期">
+<meta name="twitter:description" content="这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎投稿提交Issue。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://iliujy.top/2018/05/17/WebSocket/"/>
+  <link rel="canonical" href="http://iliujy.top/2019/03/16/每周分享第15期/"/>
 
 
 
 
 
-  <title>WebSocket | 键盘下的Sao想法</title>
+  <title>每周分享第15期 | 键盘下的Sao想法</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/17/WebSocket/">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2019/03/16/每周分享第15期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JYkid">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WebSocket</h1>
+          <h1 class="post-title" itemprop="name headline">每周分享第15期</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-17T15:31:22+08:00">
-                2018-05-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-16T11:43:12+08:00">
+                2019-03-16
               </time>
             
 
@@ -311,9 +311,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/17/WebSocket/#comments" itemprop="discussionUrl">
+                <a href="/2019/03/16/每周分享第15期/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/05/17/WebSocket/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/03/16/每周分享第15期/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -341,19 +341,16 @@
       
 
       
-        <p>长久以来在没有WebSocket的时候解决服务端消息推送这一让人头疼的事困扰着很多服务端开发的同学，终于在有了WebSocket之后只需要前端引入这一全新的通讯协议就能愉快的解决这些问题了。</p>
+        <p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p>
 <a id="more"></a>
-<h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>首先创建一个WebSocket非常简单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var ws = new WebSocket(&quot;wss://echo.websocket.org&quot;);</span><br><span class="line"></span><br><span class="line">ws.onopen = function(evt) &#123; </span><br><span class="line">  console.log(&quot;Connection open ...&quot;); </span><br><span class="line">  ws.send(&quot;Hello WebSockets!&quot;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onmessage = function(evt) &#123;</span><br><span class="line">  console.log( &quot;Received Message: &quot; + evt.data);</span><br><span class="line">  ws.close();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ws.onclose = function(evt) &#123;</span><br><span class="line">  console.log(&quot;Connection closed.&quot;);</span><br><span class="line">&#125;;     </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">看丸了实例之后发现是不是特别的简单。</span><br><span class="line"></span><br><span class="line">首先</span><br></pre></td></tr></table></figure></p>
-<p>var ws = new WebSocket(“wss://echo.websocket.org”);<br><code>`</code></p>
-<p>通过WebSocket构造函数创建一个WebSocket的实例传入的参数是必须的第一个为地址的URL，第二个参数是可选的。</p>
-<blockquote>
-<p>可以是一个单个的协议名字字符串或者包含多个协议名字字符串的数组。这些字符串用来表示子协议，这样做可以让一个服务器实现多种WebSocket子协议（例如你可能希望通过制定不同的协议来处理不同类型的交互）。如果没有制定这个参数，它会默认设为一个空字符串。</p>
-</blockquote>
-<p>在创建成功之后可以通过onopen的事件来表明这个链接已经准备好接收和发送数据。</p>
-<p>客户端向服务端发送数据就调用<code>send()</code>的方法传入即可, 客户端通过<code>onmessage</code>来接收数据。</p>
-<p>WebSocket的使用和<a href="https://mriliujy.github.io/2018/05/11/Web-Worker/" target="_blank" rel="noopener">WebWorker</a>是有很多相似的地方的。</p>
-<p>WebSocket没有同源策略的限制，可以发送文本也可以发送二进制的文件。</p>
-<p>简单来说WebSocket是客户端与服务端通讯的一种很优雅的解决方案。</p>
+<h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【10%中干去职：腾讯掀起史上最大一轮管理干部裁撤】数名消息人士证实，作为公司历史上第三次组织架构调整的后续动作之一，2018年12月内部员工大会后，腾讯开始裁撤一批中层干部。腾讯中干主要包括助理总经理、副总经理、总经理级别，有时一些副总裁也被认为在中干范围内。整个腾讯大概有两百多名中干，此轮调整比例约为10%，有战略发展部的腾讯员工认为，实际甚至超过了这个比例。</p>
+<p>【京东要求梳理亲属同学关系】今日京东员工爆料称，京东要求员工梳理亲属同学关系，具体包括：1.配偶：包含情侣及订婚关系；2.直系血亲；3.三代以内旁系血亲及配偶关系；4.近姻亲关系；5.自小学起同学。  – 树欲静而风不止</p>
+<h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/5zx3ap6GtSEHx4bVRNuVnQ" target="_blank" rel="noopener">没有JS的前端：体积更小、速度更快！</a> 该文以用户场景出发，详细的讲述了现代 <code>javaScript</code> 应用的一些痛点。其中有个观点很有意思，在如今前端越来越流行的情况下，<code>javaScript</code> 语言被使用在多种场景下进行开发，现在很多时候人们都是用 kb 、mb 来评价 <code>javaScript</code> 文件的大小，却忘了这同样需要使用 cpu 的计算资源来完成解析和执行，而 <code>javaScript</code> 即使在有 <code>JWT</code> 的情况下同样是一个执行速度很慢的语言。</p>
+<p><a href="https://mp.weixin.qq.com/s/uKAIqrnjZ75_Mbsm_ArUVg" target="_blank" rel="noopener">5款小程序框架全面测评</a> 本文来自腾讯凹凸实验室，在当今小程序开发的势头之下兴起的是跨平台开发，及一款 ui 和代码在框架的打包之下可以兼容多个平台。文本分享了五种不同类型的小程序框架的特点和排名。</p>
+<h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>市盈利率（PE）</strong>：市盈率（Price earnings ratio，即P/E ratio）也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。市盈率是最常用来评估股价水平是否合理的指标之一，由股价除以年度每股盈余（EPS）得出（以公司市值除以年度股东应占溢利亦可得出相同结果）。计算时，股价通常取最新收盘价，而EPS方面，若按已公布的上年度EPS计算，称为历史市盈率（historical P/E）；计算预估市盈率所用的EPS预估值，一般采用市场平均预估（consensus estimates），即追踪公司业绩的机构收集多位分析师的预测所得到的预估平均值或中值。何谓合理的市盈率没有一定的准则。</p>
+<h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p>
+<p>《一个明星的诞生》：百年IP下讲述的不仅仅是格莱美音乐路上的艰难坎坷，真正用心的人反而江河日下的浮躁乐坛，真的是有离开了才会开始懂得珍惜么。（Lady Gaga真的是跨界小能手）</p>
+<h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://wallstreetcn.com/" target="_blank" rel="noopener">华尔街见闻</a> 是一个专注投资市场的咨询分享平台，其中不乏有很多有价值的投资观点，但更多的是能帮助你实时的获取一些最新的投资消息。</p>
 
       
     </div>
@@ -400,7 +397,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"># JS</a>
+            <a href="/tags/分享/" rel="tag"># 分享</a>
           
         </div>
       
@@ -413,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/11/Web-Worker/" rel="next" title="Web Worker">
-                <i class="fa fa-chevron-left"></i> Web Worker
+              <a href="/2019/03/10/每周分享第14期/" rel="next" title="每周分享第14期">
+                <i class="fa fa-chevron-left"></i> 每周分享第14期
               </a>
             
           </div>
@@ -423,8 +420,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/21/前端的尽头/" rel="prev" title="前端的尽头">
-                前端的尽头 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/19/每周分享第16期/" rel="prev" title="每周分享第16期">
+                每周分享第16期 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -598,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.</span> <span class="nav-text">WebSocket</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#新闻"><span class="nav-number">1.</span> <span class="nav-text">新闻</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术"><span class="nav-number">2.</span> <span class="nav-text">技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#经济"><span class="nav-number">3.</span> <span class="nav-text">经济</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#名词"><span class="nav-number">4.</span> <span class="nav-text">名词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐"><span class="nav-number">5.</span> <span class="nav-text">推荐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分享"><span class="nav-number">6.</span> <span class="nav-text">分享</span></a></li></ol></div>
             
 
           </div>
@@ -768,9 +765,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://iliujy.top/2018/05/17/WebSocket/';
-          this.page.identifier = '2018/05/17/WebSocket/';
-          this.page.title = 'WebSocket';
+          this.page.url = 'http://iliujy.top/2019/03/16/每周分享第15期/';
+          this.page.identifier = '2019/03/16/每周分享第15期/';
+          this.page.title = '每周分享第15期';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
