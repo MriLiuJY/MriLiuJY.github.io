@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 来编译。">
+<meta name="description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Golang编译WebAssembly">
 <meta property="og:url" content="http://iliujy.top/2019/04/17/使用Golang编译WebAssembly/index.html">
 <meta property="og:site_name" content="键盘下的Sao想法">
-<meta property="og:description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 来编译。">
+<meta property="og:description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-19T02:05:50.172Z">
+<meta property="og:updated_time" content="2019-04-19T02:42:03.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Golang编译WebAssembly">
-<meta name="twitter:description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 来编译。">
+<meta name="twitter:description" content="WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。">
 
 
 
@@ -341,7 +341,7 @@
       
 
       
-        <p>WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 来编译。</p>
+        <p>WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。</p>
 <a id="more"></a>
 <p>首先准备一份需要编译成 WebAssembly 的 Go 文件，例如：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
