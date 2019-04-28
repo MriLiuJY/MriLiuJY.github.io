@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>键盘下的Sao想法</title>
+  
+  <subtitle>曾在这里写下迷茫中的自己</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://iliujy.top/"/>
+  <updated>2019-04-19T07:50:22.609Z</updated>
+  <id>http://iliujy.top/</id>
+  
+  <author>
+    <name>JYkid</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每周分享第20期</title>
+    <link href="http://iliujy.top/2019/04/19/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC20%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/04/19/每周分享第20期/</id>
+    <published>2019-04-19T03:52:26.000Z</published>
+    <updated>2019-04-19T07:50:22.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Golang编译WebAssembly</title>
+    <link href="http://iliujy.top/2019/04/17/%E4%BD%BF%E7%94%A8Golang%E7%BC%96%E8%AF%91WebAssembly/"/>
+    <id>http://iliujy.top/2019/04/17/使用Golang编译WebAssembly/</id>
+    <published>2019-04-17T15:04:08.000Z</published>
+    <updated>2019-04-19T08:07:11.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。</p><a id="more"></a><p>首先准备一份需要编译成 WebAssembly 的 Go 文件，例如：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在该文件的目录下直接使用 Go 自带的命令， 将 GO 文件编译成 wasm 。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GOOS=js GOARCH=wasm go build -o filename.wasm</span><br></pre></td></tr></table></figure><p>然后在目录下可以看到一份以 <code>.wasm</code> 结尾的文件，这份文件就是编译出来我们需要在前端引入的 WebAssembly，因为 WebAssembly 与 JS 的通讯需要引入一个 50k-100k 的 JavaScript 类库作为基础设施，Go 本身提供了这个库。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp &quot;$GOROOT/misc/wasm/wasm_exec.js&quot; /yourpath</span><br></pre></td></tr></table></figure><p>然后就可以新建一份 html 文件来引入刚编译的 wasm 文件了，</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./wasm_exec.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> go = <span class="keyword">new</span> Go()</span></span><br><span class="line"><span class="javascript">      WebAssembly.instantiateStreaming(fetch(<span class="string">"filename.wasm"</span>), go.importObject).</span></span><br><span class="line"><span class="javascript">        then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="undefined">          go.run(result.instance)</span></span><br><span class="line"><span class="undefined">        &#125;)</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>当然如果你像我一样使用的是python 自带的 http server 服务的话还需要配置一下让 静态资源支持 wasm文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /usr/local/etc/mime.types</span><br></pre></td></tr></table></figure><p>然后添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application/wasm    wasm</span><br></pre></td></tr></table></figure><p>这样在 Chrome 中就不会出现报错了，便能愉快的访问自己本地搭建的测试 wasm 的地址了。</p><p>最后作为一个 Go 吹，还是要指出 由于Go是一种垃圾收集语言，因此整个运行时都在wasm二进制文件中。因此，<strong>二进制文件通常有几MB的大小</strong>。</p><p>比如像这个简单的几行 Go 代码编译出来的 wasm 文件就有 2.4M 大小。</p><p>相对于 C/C++ 这无疑是个巨大的缺点，另外 C/C++可以通过 Emscripten 编译成浏览器支持更广泛的 asm.js 。</p><p>希望以后 Golang 能对 wasm 的支持更棒吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WebAssembly 在前端的应用中得到了广泛的实践，来讲下使用 Golang 编译成 WebAssembly 的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Go" scheme="http://iliujy.top/tags/Go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>外面阳光正好</title>
+    <link href="http://iliujy.top/2019/04/17/%E5%A4%96%E9%9D%A2%E9%98%B3%E5%85%89%E6%AD%A3%E5%A5%BD/"/>
+    <id>http://iliujy.top/2019/04/17/外面阳光正好/</id>
+    <published>2019-04-16T23:21:52.000Z</published>
+    <updated>2019-04-19T02:42:08.479Z</updated>
+    
+    <content type="html"><![CDATA[<p>窗外阳光正好，春风微拂，你应当多出去走走。</p><a id="more"></a><p>最近看新闻，巴黎圣母院失火，全人类的文明珠宝在一场意外中牵动着每一个人的心弦。有幸并未造成完全无法挽回的损失，但木质结构的屋顶与著名的塔尖却被大火破坏。</p><p>巴黎圣母院的木质屋顶有半数来自11世纪 ～ 12世纪砍伐的大树。这样有着悠久历史的文明在一场大火中提醒着世人珍惜当下。</p><p>或许你从网络的高清图片中看到过巴黎圣母院，又或者你曾读过雨果的名著《巴黎圣母院》认识了敲钟人卡西莫多。</p><p>但你未曾去过，没有真正的去感受过这栋百年建筑的美丽，没看过玫瑰花床折射的缤纷阳光，没抬头欣赏过绝美的穹顶，也未曾见过木质轻巧又高挑的哥特建筑。</p><p>引用《心灵捕手》中的一段：</p><blockquote><p>你只是个孩子，你根本不晓得你在说什么。问你艺术，你可能会提出艺术书籍中的粗浅论调，有关米开朗基罗，你知道很多，他的满腔政治热情，他与教皇相交莫逆，和他的耽于性爱，你对他很清楚吧？<strong>但你知道西斯汀教堂的气味吗？你没试过站在那儿，昂首眺望天花板上的名画吧？你肯定未见过吧？</strong> 如果我问关于女人的事，你大可以向我如数家珍，你可能上过几次床，但你没法说出在女人身旁醒来时，那份内心真正的喜悦。你年轻彪悍，我如果和你谈论战争，你大可以会向我大抛莎士比亚，背诵“共赴战场，亲爱的朋友“，但你从未亲临战阵，未试过把挚友的头拥入怀里，看着他吸着最后一口气，凝望着你，向你求助。我问你何为爱情，你可能会吟风弄月，但你未试过全情投入真心倾倒。</p></blockquote><p>真正的遗憾就像是还未见过百年的建筑，无情的大火便在时光中增添了一道无法磨灭的伤痕。</p><p>就像温莎城堡曾遭遇火灾之后在历史长留下的那句话一样：“我们所建造的事物，我们也可以重建”</p><p>人类的历史不会一位一场大火就被吞噬殆尽，但却带走了时光。</p><p>你不会因为这场意外就永远的错失了与巴黎圣母院相见的机会。</p><p>但重建工作会持续很长的一段时间，在此期间只能等待在时光中一点点的修复大火带来的伤痕。</p><p>其实谈到这里还有一个很大的遗憾。</p><p>还记得之前很喜欢的一个乐队 林肯公园，在15年的时候曾来中国有一次巡演，还记得当时听到消息的喜悦，却最终因为种种原因都没选择去看现场。</p><p>当时想着下次一定补上</p><p>可后来听闻乐队主唱离世的消息。</p><p>你看啊，时光从来不会要求你什么</p><p>即使你没去你最喜欢的乐队现场</p><p>到头来当初没珍惜的后来也没机会补上。</p><p>所以，趁现在年轻力壮、外面阳光正好，还是多出去走走满足下自己的小愿望，别留下太多的遗憾给时光。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;窗外阳光正好，春风微拂，你应当多出去走走。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="短文" scheme="http://iliujy.top/tags/%E7%9F%AD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每月分享第19期</title>
+    <link href="http://iliujy.top/2019/04/09/%E6%AF%8F%E6%9C%88%E5%88%86%E4%BA%AB%E7%AC%AC19%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/04/09/每月分享第19期/</id>
+    <published>2019-04-09T10:47:42.000Z</published>
+    <updated>2019-04-19T03:53:17.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【社科院报告预警！养老金照这么花下去，没等80后退休就会花光】报告预测，未来30年我国的制度赡养率翻倍，今年当期结余总额超千亿元，但到2028年可能会首次出现负数。此外，城镇职工基本养老金累计结余到2027年有望达到峰值约7万亿元，到2035年有耗尽累计结余的可能性。到2050年，当期结余可能达到负11.28万亿元。当期收不抵支省份今年恐达16个，到2050年前后几乎是1个缴费者需要赡养一个离退休者，建议尽快出台延迟退休方案。</p><p>中国首条5G智能制造生产线在武汉启动】4月11日，全天候科技讯，据上证报报道，中国移动湖北公司与中国信科集团昨日在湖北武汉共同发布了“5G智慧工厂”项目，这也是我国首条5G智能制造生产线。该生产线位于中国信科虹信通信天馈生产基地，主要生产通信设备天线。生产线上，机械手自动焊接、组装，并通过5G网络随时上传工作状态，云端平台统一管理，几乎无需人为干预。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/7EMFN_3DQs2MkkHHmBYpZw" target="_blank" rel="noopener">我们用WebAssembly将Web App速度提升了20倍！</a>WebAssembly 是除 JavaScript 之外另一门可以在浏览器上运行的语言，其他语言（如 C/C++/Rust）也可以被编译成 WebAssembly 在浏览器上运行。WebAssembly 是静态类型的语言，使用线性内存，并保存成紧凑的二进制格式，所以速度非常快，可以以“接近原生”的速度运行代码（与从本地命令行运行程序的速度相当）。</p><p><a href="https://zhuanlan.zhihu.com/p/25669120" target="_blank" rel="noopener">JavaScript Just-in-time (JIT) 工作原理</a>JavaScript 的启动比较缓慢，但是通过 JIT 可以使其变快，那么 JIT 是如何起作用的呢？</p><p><a href="https://segmentfault.com/a/1190000016231512" target="_blank" rel="noopener">AST抽象语法树</a>抽象语法树（AST），是一个非常基础而重要的知识点，但国内的文档却几乎一片空白。本文将带大家从底层了解AST,并且通过发布一个小型前端工具，来带大家了解AST的强大功能。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受</p><p>《程序员的自我修养》：关于这本小书怎么说呢，看完并没有特别多的共鸣，更像是一本讲了很多职场小技巧的小书，只是主角换成了程序员，网上有个 <a href="https://segmentfault.com/a/1190000013972995" target="_blank" rel="noopener">大概的总结</a> 我觉得还不错，可以酌情参考一下</p><p>一般般推荐系列 《拯救大兵瑞恩》</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>本周参与了公司GT day的一个关于设计入门的分享，想起了之前看的《穿普拉达的女王》中 米兰达对 安迪穿的一件蓝色毛衣的评价：</p><blockquote><p>首先你分不清那是蓝色还是青绿色还是琉璃色，其实它是天蓝色，你也不知道，在我印象里2002年的发布会上第一次出现了天蓝色的礼服，继而有人展现了天蓝色军服系列，天蓝色就出现在了８个设计师的发布会上，随后风靡于世界各大高级卖场再到街头连锁店，最后你在一个廉价的卖场里找到了它，<strong>你以为是你经过精心挑选买了它，以为你的选择与时尚产业无关，事实却并非如此，是这间屋子里的人，在一堆这样的东西里替你做了选择</strong>。</p></blockquote><p>看似无关的时尚与设计其实在我们的生活中对我们的影响却是方方面面的。</p><p>比如文字的排版，又比如工业设计，室内设计对人感官的影响，设计在或明显或隐藏着的地方影响着我们的方方面面。</p><p>未来会不会人类将无法区分一件艺术品是人类创造的还是 AI 创造的，然后走上了 AI 主导了人类审美的潮流这样的事。</p><p>未来世界的构建又将建立在什么基础之上呢。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-cli 3.0中webpack打包优化</title>
+    <link href="http://iliujy.top/2019/04/04/vue-cli-3-0%E4%B8%ADwebpack%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96/"/>
+    <id>http://iliujy.top/2019/04/04/vue-cli-3-0中webpack打包优化/</id>
+    <published>2019-04-04T13:06:01.000Z</published>
+    <updated>2019-04-09T09:26:30.146Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直以来想写一篇关于 <code>Webpack</code> 优化的博客，最近正好做了vue-cli 3.0中关于webpack 打包的优化正好来记录一下。</p><a id="more"></a><p>最近在整理季度的优化代码，然后发现了一个项目中集成了原来 4 - 5个管理后台的大型项目在 webpack 优化方面做的很一般。</p><p><img src="http://pohm750jw.bkt.clouddn.com/image/first_js.png" alt="未优化打包js" title="未优化打包js"></p><p><img src="http://pohm750jw.bkt.clouddn.com/image/first_css.png" alt="未优化打包css" title="未优化打包css"></p><p>由上面的图可以看出来不仅 <code>vendors</code> 打包体积到了 1300+ kb 而且 多个 <code>chunk</code> 体积在Gzip 之后也大于240kb 根据webpack 的建议 大于 240 kb的文件是要进行拆分的。</p><p>还可以看出来在项目中不仅js 打包单个文件的体积过大。而且存在 为抽取公共部分组件、css / js 打包之后文件过多的问题。</p><p>打包了很多小的css文件不仅不利于网页的加载，大量的时间耗费在 http 请求上。而且相互依赖的 css 会造成网页在解析的过程中不断的触发重绘，这将对性能造成极大的影响。</p><p>那么明确了项目中存在的问题之后我们来着手解决。</p><p>首先在开始前我们需要足够的了解项目的webpack默认配置</p><p>在vue-cli3.0的项目中使用 <code>vue inspect &gt; output.js</code> 来输出一份当前webpack的配置文件。</p><p>这个命令是我们优化webpack配置项的基础。</p><p>然后我们需要借助 <code>webpack-bundle-analyzer</code> 来看下项目打包构建的过程中引用了哪些包和具体的文件size。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  config</span><br><span class="line">    .plugin(<span class="string">'webpack-bundle-analyzer'</span>)</span><br><span class="line">    .use(<span class="built_in">require</span>(<span class="string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后在线项目中直接 <code>npm run serve || npm run build</code> 即可打开一份当前项目引用资源分析的页面。 </p><h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><p>另外在此要讲一下的是，vue为了降低入门难度在vuecli3.0之后的版本中 vue对webpack的配置文件都默认隐藏了，因为大部分的功能都默认成开箱即用。</p><p>vue对webpack的配置的封装可以 <a href="https://cli.vuejs.org/zh/config/" target="_blank" rel="noopener">参考</a> ，文档中出现的具体的项都可以直接配置，单如果需要更灵活的使用webpack的配置，就需要修改 <code>configureWebpack</code> 或者使用 <code>chainWebpack</code> 做修改（chainWebpack 加大了学习成本）</p><p>由于vuecli 默认配置的webpack中是打开了 SourceMap 的，而服务端的更新通常都是增量更新，前端每次在打包的时候输出的SourceMap 文件会造成服务端文件冗余。并且在开启 SourceMap 之后build 速度会慢下来很多。</p><p>由于vue自身优化了配置项，SourceMap 就处于其中，所以直接在配置中设置即可关闭。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h2><p>在有了项目分析和配置项文件之后就可以着手解决打包优化的问题了。首先是JS单个文件 size 过大，因为在vue-cli3.0 中使用的是 <code>webapck: 4.26.1</code> 所以 <code>CommonChunkSplit</code> 已经被删掉了，取代的是 <code>splitChunks</code>。</p><p>然后我们需要先抽取代码中的重复引用的部分公共代码,那么首先我们来看文档中对文件 size 的优化的配置 <code>minSize</code> 代表单个文件最大的size。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cacheGroups: &#123;</span><br><span class="line">  common: &#123;</span><br><span class="line">    name: <span class="string">"chunk-common"</span>, <span class="comment">// 抽取公共文件的名字</span></span><br><span class="line">    minChunks: <span class="number">2</span>, <span class="comment">// 最小被引用多少次则被抽取</span></span><br><span class="line">    minSize: <span class="number">30000</span> <span class="comment">// 单个文件最小size</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>另外在项目中有很多的代码体积来自 console，这些只在开发中使用的代码不应该发布到线上，所以直接使用 <code>UglifyJsPlugin</code> 删除console 文件体积减少24kb+</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">  uglifyOptions: &#123;</span><br><span class="line">    compress: &#123;</span><br><span class="line">      warnings: <span class="literal">false</span>,</span><br><span class="line">      drop_console: <span class="literal">true</span>,</span><br><span class="line">      pure_funcs: [<span class="string">'console.log'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  sourceMap: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="构建优化"><a href="#构建优化" class="headerlink" title="构建优化"></a>构建优化</h2><p>构建优化上我们使用了 happypack 来利用多核CPU 加快打包的速度。</p><p>最终配置的代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.optimization = &#123;</span><br><span class="line">        splitChunks: &#123;</span><br><span class="line">            minSize: <span class="number">1000000</span>, <span class="comment">// 单个文件的最小size</span></span><br><span class="line">            maxSize: <span class="number">2000000</span>, <span class="comment">// 单个文件最大的size</span></span><br><span class="line">            minChunks: <span class="number">2</span>,     <span class="comment">// 最小被引用</span></span><br><span class="line">            maxAsyncRequests: <span class="number">5</span>,  <span class="comment">// 首页加载资源</span></span><br><span class="line">            maxInitialRequests: <span class="number">3</span>,</span><br><span class="line">            automaticNameDelimiter: <span class="string">'~'</span>, <span class="comment">// 打包文件自定义的链接符</span></span><br><span class="line">            name: <span class="literal">true</span>,</span><br><span class="line">            chunks: <span class="string">'async'</span>, <span class="comment">// initial(初始块)、async(按需加载块)、all(默认，全部块)</span></span><br><span class="line">            <span class="comment">// 这里需要注意的是如果使用initial 会将首页需要的依赖和项目本身的依赖打包2次增大文件体积</span></span><br><span class="line">            cacheGroups: &#123;</span><br><span class="line">                <span class="keyword">default</span>: <span class="literal">false</span>,</span><br><span class="line">                vendor: &#123;</span><br><span class="line">                    test(<span class="built_in">module</span>) &#123;</span><br><span class="line">                        <span class="keyword">let</span> path = <span class="built_in">module</span>.resource</span><br><span class="line">                        <span class="keyword">if</span> (!path) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">                        path = path.replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>)</span><br><span class="line">                        <span class="keyword">let</span> isNeed = path &amp;&amp;</span><br><span class="line">                            /node_modules/.test(path) &amp;&amp;</span><br><span class="line">                            /node_modules\/(?!vuetify)/.test(path) &amp;&amp;</span><br><span class="line">                            /node_modules\/(?!muse)\n*<span class="regexp">/.test(path)</span></span><br><span class="line"><span class="regexp">                        if (!isNeed &amp;&amp; path.indexOf('node_modules') &gt; -1) &#123;</span></span><br><span class="line"><span class="regexp">                            console.log('vendor not need::', path, isNeed)</span></span><br><span class="line"><span class="regexp">                        &#125;</span></span><br><span class="line"><span class="regexp">                        return isNeed</span></span><br><span class="line"><span class="regexp">                    &#125;,</span></span><br><span class="line"><span class="regexp">                    name: "chunk-vendors",</span></span><br><span class="line"><span class="regexp">                    priority: 10,</span></span><br><span class="line"><span class="regexp">                    enforce: true</span></span><br><span class="line"><span class="regexp">                &#125;,</span></span><br><span class="line"><span class="regexp">                vue: &#123;</span></span><br><span class="line"><span class="regexp">                    test(module) &#123;</span></span><br><span class="line"><span class="regexp">                        let path = module.resource</span></span><br><span class="line"><span class="regexp">                        if (!path) return false</span></span><br><span class="line"><span class="regexp">                        path = path.replace(/</span>\\/g, <span class="string">'/'</span>)</span><br><span class="line">                        <span class="comment">// return path &amp;&amp; path.indexOf('node_modules') &gt; -1 &amp;&amp; path.indexOf('vuetify') &gt; -1</span></span><br><span class="line">                        <span class="keyword">return</span> path &amp;&amp; <span class="regexp">/node_modules\/vue/</span>.test(path)</span><br><span class="line">                    &#125;,</span><br><span class="line">                    name: <span class="string">"chunk-vuetify"</span>,</span><br><span class="line">                    priority: <span class="number">9</span>,</span><br><span class="line">                    enforce: <span class="literal">true</span></span><br><span class="line">                &#125;,</span><br><span class="line">                echarts: &#123;</span><br><span class="line">                    <span class="comment">// test: (/node_modules/ &amp;&amp; /muse\n*/),</span></span><br><span class="line">                    test(<span class="built_in">module</span>) &#123;</span><br><span class="line">                        <span class="keyword">let</span> path = <span class="built_in">module</span>.resource</span><br><span class="line">                        <span class="keyword">if</span> (!path) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">                        path = path.replace(<span class="regexp">/\\/g</span>, <span class="string">'/'</span>)</span><br><span class="line">                        <span class="keyword">return</span> path &amp;&amp; <span class="regexp">/node_modules\/echarts\n*/</span>.test(path)</span><br><span class="line">                    &#125;,</span><br><span class="line">                    name: <span class="string">"chunk-echarts"</span>,</span><br><span class="line">                    priority: <span class="number">8</span>,</span><br><span class="line">                    enforce: <span class="literal">true</span></span><br><span class="line">                &#125;,</span><br><span class="line">                common: &#123;</span><br><span class="line">                    name: <span class="string">"chunk-common"</span>,</span><br><span class="line">                    minChunks: <span class="number">2</span>,</span><br><span class="line">                    minSize: <span class="number">30000</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直以来想写一篇关于 &lt;code&gt;Webpack&lt;/code&gt; 优化的博客，最近正好做了vue-cli 3.0中关于webpack 打包的优化正好来记录一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Webpack" scheme="http://iliujy.top/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第18期</title>
+    <link href="http://iliujy.top/2019/04/01/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC18%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/04/01/每周分享第18期/</id>
+    <published>2019-04-01T04:51:59.000Z</published>
+    <updated>2019-04-08T11:00:43.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受</p><p>《调音师》：什么是生命，这取决于肝脏。整部电影围绕着一点开始展开叙述，不仅在喜剧中穿插了许多关于人性的讨论，而且对人性的刻画也格外的深入。</p><p>一般般推荐系列 《波西米亚狂想曲》</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><blockquote><p>前几天，我听一个广播节目。主持人问，现在很多人开网约车，这样能赚多少钱，能够赚到大钱吗？<br> 这个问题很容易回答，答案就是不能。出租车司机的收入，主要由营业时间的长短决定。基本上，一天开12个小时，就是比开6个小时，收入高出一倍。每天只有24个小时，因此收入存在上限，不可能偏离平均水平很远。<br> 出租车是”时间换收入”的典型行业，投入的时间越多，收入越高，在家休息就没收入。很多行业都属于”时间换收入”，所有此类行业都赚不到大钱。因为你能用来交换的时间是有限的，而且进入中年以后，你就拿不出更多的时间来交换。开出租车赚零花钱，或者作为短期过渡，这是没问题的，但作为终身职业是很糟糕的。<br> 我觉得，越来越多的程序员正在落入这个陷井，用编码的时间换取收入。只有不停地做项目，才能拿到钱。项目做得越多，收入越高。这个项目开发完了，公司又让他去干下一个项目。 忙了好几年，项目完成了一大堆，但是自己什么也没留下，以后的收入还要取决于从零开始的新项目。这样的话，你跟出租车司机有何两样，哪一天你不写代码了，不是照样没收入。<br> 那些赚到大钱的人，没有一个是靠时间换取收入的。他们要么通过积累资产致富，要么购买他人的时间，为自己创造财富。你应该警惕，不要落入”时间换取收入”的陷井，不要只顾着为别人生产代码，而要注意积累自己的资产，以及适时开展属于自己的业务。</p></blockquote><p> 关于上面这段的观点在 <a href="https://mriliujy.github.io/2019/03/05/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC13%E6%9C%9F/" target="_blank" rel="noopener">之前的博客中</a> 有提到过。现在社会上很多的人正在从各行各业中向程序员转行，一方面每天在写字楼处于白领的工作状态，另一方面程序员相对较高的工资成了大家纷纷转行的主要原因。</p><p> 但是是否真的考虑过未来的出路，现在的程序员很像当年的石油工人，一个行业的火热建立在全球都对该行业的需求中，之前是对原油的需求，现在是互联网时代的需求。</p><p> 但是这种需求往往是替代性很强的，因为这种行业中的工作岗位都会随着生产力工具的提高而逐渐变的没有那么大的需求。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第17期</title>
+    <link href="http://iliujy.top/2019/03/26/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC17%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/03/26/每周分享第17期/</id>
+    <published>2019-03-26T10:07:13.000Z</published>
+    <updated>2019-04-07T03:52:34.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>1.<strong>华为发布P30 pro 刷新DxOMark 评分</strong> 近年来各大手机厂商在角逐手机的各个领域，从创新的机械模组到怪兽级的摄像功能，各大手机厂商都在纷纷求追现在5G 来临前的一波爆点。华为在3月的发布会上带来的是P系列中迄今为止最强劲的摄像能力。以及搭配屏下指纹、IP68防尘防水的 真旗舰 大作。</p><p>2.<strong>优酷否认裁员</strong>：阿里大文娱新财年将招聘超 1800 人。 针对自媒体爆料称优酷裁员的消息，阿里大文娱表示，此前已做过公开辟谣，不存在裁员，未来一年公司计划在影视内容制作、互联网产品策划、技术研发等方向开放招聘超过 1800 名新员工。</p><p>3.<strong>比特币交易量绝大多数为虚假</strong> 本周，比特币资产管理公司Bitwise Asset Management对81个比特币交易所在3月份其中4天内的交易活动进行了分析，研究结果表明，绝大部分的比特币交易量很可能是由交易所人为创造的。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/8jg4X-cymkIpn0zVaMDf6Q" target="_blank" rel="noopener">深入理解浏览器的缓存机制</a> 文章通过缓存位置、缓存策略以及实际场景应用缓存策略来探讨浏览器缓存机制。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>1.<strong>华尔街裁员风潮更盛：媒体称小摩野村均将裁员上百</strong> ，摩根大通将裁撤资产和财富管理部门的几百名员工；野村裁员涉及交易和投行部门，主要可能来自过去十年亏损数十亿美元的欧洲业务。上周工会警告，德国两大银行合并可能导致裁员多达3万人。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受</p><p>《末代皇帝》：讲述大清最后一任皇帝溥仪的人生与中国封建制度的瓦解。回过头去看这竟然是一位外国人拍摄的中国故事，却讲述的那么令人唏嘘，《末代皇帝》也是中国政府授权许可真正在故宫取景实拍的电影。</p><p><img src="http://pohm750jw.bkt.clouddn.com/modaihuangdi.png" alt="末代皇帝" title="末代皇帝"></p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="http://www.geekpark.net/news/239481" target="_blank" rel="noopener">Google 的云游戏平台</a> 借助 Stadia，数据中心就是你的平台。游戏机不会再成为开发者和玩家的限制。让下一代游戏抛弃专业主机，依靠云的算力提供随时随地的游戏体验，是 Google 推出 Project Stream 的赌注。</p><p><a href="http://www.geekpark.net/news/239615" target="_blank" rel="noopener">Google 用机器学习对付「杠精」</a> 这个小工具来自 Jigsaw 公司，它的前身为 Google Ideas，是 Google 创建的一个技术孵化器，致力于用技术解决网络暴力、言论自由、信息透明等难题。Tune 的作用就是屏蔽恶毒评论。它目前支持 YouTube、Twitter、Facebook、Reddit、Disqus五个平台，开启之后，用户会看到一个调整恶毒程度的按钮，有 quit、low、medium、loud、blaring 五档，级别越高，可以看到的恶毒评论越多，反之则是一个安静友善的网络环境。</p><p><a href="https://www.zhihu.com/question/37245305/answer/594992846" target="_blank" rel="noopener">中国的发展与打破东亚地狱模式</a> 东亚地狱模式，一个来自于产业的狭窄性，一个来自于支出结构的不合理性。真正值钱的资源是人力资源，而人力资源又依赖于教育和产业才能变现，没有教育，人口就无法变成人力资源，没有产业，人力资源就没有用武之地，就只能在有限的几个产业里面高烈度竞争，极大的降低效率，导致累死累活最后获得的却不成比例。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第16期</title>
+    <link href="http://iliujy.top/2019/03/19/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC16%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/03/19/每周分享第16期/</id>
+    <published>2019-03-19T03:43:23.000Z</published>
+    <updated>2019-03-30T07:47:58.228Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>苹果确定将于北京时间3月26日举行春季新品发布会，而在发布会前一周，苹果官网悄然推出了包括iPad Air、iPad mini、iMac以及AirPods在内的多款新品。此举被外界解读成苹果此次发布会的重心将会从硬件转向互联网服务，外界预计苹果公司将会推出网络视频服务和新闻订阅服务。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/G2NCndOcWh_9CQvBZNAE4A" target="_blank" rel="noopener">Vue构建工具的设计与实现</a> 本文讲述了 针对Vue技术栈设计了一套构建工具解决方案。力求做到开箱即用，又可以根据实际的项目需求插件式的配置项目模版工程，包含开发、调试、上线整个流程的功能。本文主要讲一下整体的设计思路。</p><p><a href="https://juejin.im/entry/5a9f9f8e6fb9a028df222c80" target="_blank" rel="noopener">JavaScript反调试技巧</a> 本文从多种角度讲述了如何实现js反调试。也为业务安全提供了不少的保障，在浏览器下的js如何才能让破解者提高成本来应对呢。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【中信证券：预估首批登陆科创板企业约30家 总市值规模在1780亿左右】中信证券秦培景团队认为，科创板在打新阶段：预计发行定价会系统性偏高，在上市后预计会冲高回落，初期破发率预计明显高于核准制下的A股。开板初期：预计首日会被炒作冲高，5个交易日内冲高回落，潜在的融券卖出压力远大于核准制下的次新股，小市值公司从第6个交易日起可能重新被炒作。开板一个月后：预计破发率提升会带动市场动态调整。正式开板前看科创板影子股，正式开板后看A股可比公司及产业链上下游龙头。</p><p>科创板第一批受理公司出炉，为国泰君安所辅导的晶晨半导体（上海）股份有限公司。晶晨半导体（上海）股份有限公司于2003年7月11日成立，注册资本3.7亿元。按上交所规定，今日将预披露首批申报的科创板IPO企业名单。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>基本面：</strong> 是指对宏观经济、行业和公司基本情况的分析，包括公司经营理念策略、公司报表等的分析。它包括宏观经济运行态势和上市公司基本情况。<br>宏观经济运行态势反映出上市公司整体经营业绩，也为上市公司进一步的发展确定了背景，因此宏观经济与上市公司及相应的股票价格有密切的关系。上市公司的基本面包括财务状况、盈利状况、市场占有率、经营管理体制、人才构成等各个方面。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《钢琴家》：影片以波兰一位很出名的钢琴家为线索，深入的讲述了二战时期德国纳粹对犹太人的非人暴行。在该期间波兰地区的犹太人从五十万被屠杀到六万的骇人历史，以及主角虽然是身为被迫害的一份子但是在艰难的历史时期中仍保持一颗向往音乐的心。</p><p><img src="http://pohm750jw.bkt.clouddn.com/image/pianist.png" alt="钢琴家" title="钢琴家"></p><blockquote><p>若你戳刺我们，我们不会流血吗。<br>  若你呵我们痒，我们不会笑吗。<br>  若你对我们下毒，我们不会死吗。<br>  若你加害我们，我们不该复仇吗。</p></blockquote><p>一般般推荐系列：《廉政风云》、《大上海》</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://florentcrivello.com/index.php/2019/01/28/five-promises-of-micromobility/" target="_blank" rel="noopener">微出行的意义</a> 本文从清洁、占用空间、安全性、城市面貌、成本上讲述了作者眼中微出行相较于汽车出行的便利。</p><p><a href="https://mp.weixin.qq.com/s/P8wjD2iEF2bfGf2rVtEr5w" target="_blank" rel="noopener">日本消费社会演变史 —— 窥见未来 20 年的中国</a> 该文从分析日本的消费形式的变化，在推测中国未来零售行业会发生的变革。文中提到了 孙正义的时间机器理论。这也是他投资阿里的逻辑。</p><blockquote><p>在一个发达经济体里出现的商业模式，拿到一个新兴经济体里去运用时，就好像乘坐时光机回到了几十年之前，可以按照原来的逻辑再来一遍。中日的消费零售业更是如此</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第15期</title>
+    <link href="http://iliujy.top/2019/03/16/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC15%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/03/16/每周分享第15期/</id>
+    <published>2019-03-16T03:43:12.000Z</published>
+    <updated>2019-03-22T05:39:43.469Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【10%中干去职：腾讯掀起史上最大一轮管理干部裁撤】数名消息人士证实，作为公司历史上第三次组织架构调整的后续动作之一，2018年12月内部员工大会后，腾讯开始裁撤一批中层干部。腾讯中干主要包括助理总经理、副总经理、总经理级别，有时一些副总裁也被认为在中干范围内。整个腾讯大概有两百多名中干，此轮调整比例约为10%，有战略发展部的腾讯员工认为，实际甚至超过了这个比例。</p><p>【京东要求梳理亲属同学关系】今日京东员工爆料称，京东要求员工梳理亲属同学关系，具体包括：1.配偶：包含情侣及订婚关系；2.直系血亲；3.三代以内旁系血亲及配偶关系；4.近姻亲关系；5.自小学起同学。  – 树欲静而风不止</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/5zx3ap6GtSEHx4bVRNuVnQ" target="_blank" rel="noopener">没有JS的前端：体积更小、速度更快！</a> 该文以用户场景出发，详细的讲述了现代 <code>javaScript</code> 应用的一些痛点。其中有个观点很有意思，在如今前端越来越流行的情况下，<code>javaScript</code> 语言被使用在多种场景下进行开发，现在很多时候人们都是用 kb 、mb 来评价 <code>javaScript</code> 文件的大小，却忘了这同样需要使用 cpu 的计算资源来完成解析和执行，而 <code>javaScript</code> 即使在有 <code>JWT</code> 的情况下同样是一个执行速度很慢的语言。</p><p><a href="https://mp.weixin.qq.com/s/uKAIqrnjZ75_Mbsm_ArUVg" target="_blank" rel="noopener">5款小程序框架全面测评</a> 本文来自腾讯凹凸实验室，在当今小程序开发的势头之下兴起的是跨平台开发，及一款 ui 和代码在框架的打包之下可以兼容多个平台。文本分享了五种不同类型的小程序框架的特点和排名。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>市盈利率（PE）</strong>：市盈率（Price earnings ratio，即P/E ratio）也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。市盈率是最常用来评估股价水平是否合理的指标之一，由股价除以年度每股盈余（EPS）得出（以公司市值除以年度股东应占溢利亦可得出相同结果）。计算时，股价通常取最新收盘价，而EPS方面，若按已公布的上年度EPS计算，称为历史市盈率（historical P/E）；计算预估市盈率所用的EPS预估值，一般采用市场平均预估（consensus estimates），即追踪公司业绩的机构收集多位分析师的预测所得到的预估平均值或中值。何谓合理的市盈率没有一定的准则。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《一个明星的诞生》：百年IP下讲述的不仅仅是格莱美音乐路上的艰难坎坷，真正用心的人反而江河日下的浮躁乐坛，真的是有离开了才会开始懂得珍惜么。（Lady Gaga真的是跨界小能手）</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://wallstreetcn.com/" target="_blank" rel="noopener">华尔街见闻</a> 是一个专注投资市场的咨询分享平台，其中不乏有很多有价值的投资观点，但更多的是能帮助你实时的获取一些最新的投资消息。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第14期</title>
+    <link href="http://iliujy.top/2019/03/10/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC14%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/03/10/每周分享第14期/</id>
+    <published>2019-03-10T13:48:53.000Z</published>
+    <updated>2019-03-19T03:50:34.080Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【欧洲航空安全局:对波音737MAX客机实施欧洲“禁飞令”】受埃塞俄比亚坠机事故影响,欧洲航空安全局12日宣布,对波音737MAX客机实施欧洲禁飞令。此前英国、法国和德国等欧洲国家及印度等已先后禁止该型号飞机进入空域。</p><p>在中国对波音737MAX禁飞后全球20个国家或地区也对 波音737MAX 实施禁飞，起追究于近期一架刚交付4个月的新机在津巴布韦坠毁 机上157人全部遇难，这是波音737MAX新机5个月内第二次坠机。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>Node 基金会在 medium 上宣布，Node.js 基金会和 JS 基金会正式合并为 OpenJS 基金会，这个新合并的基金覆盖的项目将更加广泛，有助于加速 JavaScript 和生态系统关键项目的开发与发展。</p><h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>jsonp是通过插入一个 script 标签，利用 <code>&lt;script&gt;</code> 可以跨域请求来实现的。然后将 src 设置为目标请求，插入到 dom 中，服务器接受该请求并返回数据，数据通常被包裹在回调钩子中。<br>优点：可以实现跨域、对低版本浏览器支持很好。<br>缺点：错误时无法获取错误状态码、IE8以下没有onerror事件、没有post请求。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【中国央行：金融供给侧改革要把重点放在疏通货币政策传导机制和效果上】央行指出，金融与实体经济是血脉相连的关系，服务实体经济是我们的天职。从人民银行、外汇局系统履行职责的角度，当前深化金融供给侧结构性改革，一定要把重点放在着力疏通货币政策传导机制和效果上，把稳健的货币政策落到实处</p><p>【央行官员：2019年仍可能处于金融风险易发高发期】央行金融稳定局局长王景武称，一些领域的“灰犀牛”风险仍然存在。地方政府隐性债务存量规模大，债券市场违约风险上升，房地产市场风险可能在某些局部显现，可能传导至金融机构。重点存量风险依然突出</p><blockquote><p>“灰犀牛”是与“黑天鹅”相互补足的概念，“灰犀牛事件”是太过于常见以至于人们习以为常的风险，“黑天鹅事件”则是极其罕见的、出乎人们意料的风险。</p></blockquote><p>【中日两大债主发力增持未扫清抛压 1月海外投资者连续三月抛售美债】1月中国的美债持仓为三个月来最高，去年12月为七个月来首次增持；日本连续三月增持，1月增持规模接近12月五倍。1月美国第三大海外债主巴西五个月首度增持，沙特持仓创八个月新低。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>资产配置</strong>是指因应投资者个别的情况和投资目标，把投资分配在不同种类的资产上，如：股票、债券、房地产及现金等，在获取理想回报之余，把风险减至最低。总括而言，资产配置为一理财概念，投资者根据其投资计划的时限及可承受的风险，来配置资产组合。资产配置可以应用于任何拥有两只以上股票的投资组合内，唯较常用于资产类别的层面。不同类别的资产在市场上的运作也有所不同，所以其回报和所涉及的风险亦各有不同。</p><p><strong>沉没成本：</strong> 或称沉淀成本或既定成本，是经济学和商业决策制定过程中，会用到的概念，代指已经付出且不可收回的成本。沉没成本常用来和可变成本（Prospective costs）作比较，可变成本可以被改变，而沉没成本则不能被改变。在微观经济学理论中，做决策时仅需要考虑可变成本。如果同时考虑到沉没成本（这被微观经济学理论认为是错误的来源请求），那结论就不是纯粹基于事物的价值作出的。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《逃出克隆岛》：如何才能证明你就是你自己以及人类为了永生会做出怎样的事。</p><p>《天下无贼》：生活要求他必须聪明起来，做为一个人，你不让他知道生活的真想，那就是欺骗</p><p>一般般推荐系列：《时间简史》</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>当秩序成了混乱的时候，就不得不用混乱来维持秩序，拯救法律了。――罗曼·罗兰</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第13期</title>
+    <link href="http://iliujy.top/2019/03/05/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC13%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/03/05/每周分享第13期/</id>
+    <published>2019-03-05T03:05:25.000Z</published>
+    <updated>2019-03-12T06:00:02.326Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>麻省理工（MIT）研究人员公布了一段 <a href="http://t.cn/EI4uuLb" target="_blank" rel="noopener">Mini Cheetah机器人</a> 的介绍视频，这个猎豹形状的机器人能跑步、侧身、跳跃、以及在一堆干枯的树叶中愉快玩耍，当它“开心”的时候，还会来一个后空翻。———希望即使技术成熟了也不会应用在战场上。</p><p>据媒体报道，多位知情和内部人士证实，聊天宝（原名：子弹短信）团队已于 3 月 5 日下午宣布就地解散，原来大约两百人的团队，“只保留二三十人”，或将回流到锤子科技。</p><p>华为起诉美国：3月7日，华为在深圳总部发布声明，决定起诉美国政府，华为称有证据表明美国政府涉嫌入侵华为服务器。此前，《纽约时报》、路透社等多家外媒已透露过这一消息。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/eNJSjm0dz5R6V-2I8ZsgDg" target="_blank" rel="noopener">张鑫旭：前端专业方向的尽头</a> ：文中作者思考了前端开发的价值与局限和尽头。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>3月5日，李克强总理作政府工作报告，总结了 2018 年中国取得的成就与在 2019 年的目标，以及工作重点：</p><blockquote><p>减税：将制造业等行业由16%的增值税降至13%全年减轻企业税收和社保缴费近2万亿元。<br>　就业：首次将就业优先政策置于宏观政策层面。<br>　消费：继续执行新能源汽车购置优惠政策。<br>　投资：完成铁路投资8000亿元、公路水运投资1.8万亿元。<br>　金融：设立科创板并试点注册制。促进多层次资本市场健康稳定发展。<br>　精准脱贫：加大“三区三州”等深度贫困地区脱贫攻坚力度。<br>　污染防治：二氧化硫、氮氧化物排放量下降3%，化学需氧量、氨氮排放量下降2%。<br>　教育：中央财政教育支出安排超过1万亿元。<br>　医疗：降低并统一大病保险起付线，报销比例由50%提高到60%。<br>　提速降费：移动网络流量平均资费再降低20%以上，在全国实行“携号转网”。<br>　开放：缩减外资准入负面清单。增设上海自贸试验区新片区。继续推动中美经贸磋商。<br>　协调发展：长三角区域一体化发展上升为国家战略。</p></blockquote><h1 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h1><p>最近在思考程序员的发展，一直以来有人称程序员为码农码农。一开始从事互联网工作的时候被高工资、轻松的工作环境、简单的人际关系等等。让我没有细细的思考为什么程序员在较其他白领工作环境更好的情况下却被嘲为 “农”。</p><p>现在想来程序员这个工作和上世纪七十年代的石油工人一样，属于单纯的卖体力卖时间的。看似高的薪资，实际建立在大量的脑力劳动，高强度的连续工作时间上。</p><p>而且程序员的未来发展在职业道路的选择上局限性较于其他职业来说更为严格。</p><p>或许与我来讲，这一切看的过于悲观了。</p><p>但我也希望将来有解。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《这就是中国》：复旦大学中国研究院院长张维为以宣传中国制度、中国理论、中国道路、中国文化的优势和先进性讲清楚，传达出“民族自信”的相关核心精神。 为目标的一个访谈性纪录片。</p><p>《500元的幸福》: 如果给你500元让你做你觉得最幸福的事，你会怎么做。看一些平凡而又怀揣梦想的人们如何用有限的金钱体会出不同人生路上的幸福。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>在心里默默理解别人的不容易，就是最大的善良。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试题cover</title>
+    <link href="http://iliujy.top/2019/03/05/%E9%9D%A2%E8%AF%95%E9%A2%98cover/"/>
+    <id>http://iliujy.top/2019/03/05/面试题cover/</id>
+    <published>2019-03-05T03:04:47.000Z</published>
+    <updated>2019-03-19T03:50:24.185Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直以来发现自己没有整理东西的习惯，那么从手边的事做起吧先收集一下我最近在看的面试题。</p><a id="more"></a><h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><p>http 状态码<a href="https://www.jianshu.com/p/93555718732a" target="_blank" rel="noopener">HTTP状态码详解</a></p><p>移动端300ms点击延迟: <a href="https://juejin.im/post/5b3cc9836fb9a04f9a5cb0e0" target="_blank" rel="noopener">移动端300ms点击延迟和点击穿透</a></p><h1 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a>进阶篇</h1><p><a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="noopener">从输入URL到页面加载发生了什么？</a></p><p><a href="https://www.jianshu.com/p/8163c6df2d76" target="_blank" rel="noopener">JS事件委托（事件代理）与事件广播</a></p><h1 id="框架篇"><a href="#框架篇" class="headerlink" title="框架篇"></a>框架篇</h1><p>vue 的双向绑定原理及实现: <a href="https://juejin.im/entry/5923973da22b9d005893805a" target="_blank" rel="noopener">vue的双向绑定原理及实现</a></p><p>react diff 算法的实现: <a href="https://zhuanlan.zhihu.com/p/20346379" target="_blank" rel="noopener">不可思议的 react diff</a></p><p>virtual-dom原理与简单实现： <a href="https://juejin.im/post/5a21621af265da4304066c8d" target="_blank" rel="noopener">virtual-dom</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直以来发现自己没有整理东西的习惯，那么从手边的事做起吧先收集一下我最近在看的面试题。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="http://iliujy.top/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第12期</title>
+    <link href="http://iliujy.top/2019/02/26/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC12%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/02/26/每周分享第12期/</id>
+    <published>2019-02-26T13:02:23.000Z</published>
+    <updated>2019-03-05T01:37:22.098Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【比尔盖茨：牛放屁、打嗝是温室气体主要来源之一 需要人为干预解决】2月18日，比尔盖茨在接受CNN采访时表示，农业占全球温室气体排放的24%，包括牛打嗝和放屁时排放的甲烷。如果要实现零排放，就必须解决这个问题。”肯定有人为干预的解决办法”。– 事实上牲畜业已经是全球温室气体的主要来源，占全球温室气体总量的14.5%，超过所有交通工具的排放总和。随着混合动力汽车和电动汽车的激增，预计汽车排放量将下降。但全球肉类的消费量，却可能在2050年比近年来增加76%。</p><p>【ofo退款新“套路”：#ofo押金换金币# 买东西却要另加钱】近日不少用户发现ofo正测试“折扣商城”功能，用户可将押金兑换为金币在商城消费。但有市民表示，商城商品少，而且买东西只是一小部分用金币，还得自己添现金，“去了金币的价格和其他网络平台的价格差不多”。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>近日，GitHub 上开源了一款鉴定不雅内容的 js 库 NSFW JS，你可以使用 NSFW JS 识别不雅内容，所有操作都只在客户端进行，甚至都不需要让文件离开用户的电脑。 – 来自<a href="https://mp.weixin.qq.com/s/6t7XKYCtY_O_593QVvaQbg" target="_blank" rel="noopener">前端之巅</a></p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>房企的艰难时刻：恒大所有住宅项目都能打9折 碧桂园最高裁员50% 】有的房企降价打折，有的减员裁员，还有的收缩业务……楼市从去年三季度开始出现明显转向迹象，今年开年后房地产销售继续低迷态势，碧桂园、恒大、万科等龙头企业降幅都在50%以上。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>投资方向上: 未来军工行业的行情如果在经济的反方向上可能出现上涨。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>起跑线</title>
+    <link href="http://iliujy.top/2019/02/17/%E8%B5%B7%E8%B7%91%E7%BA%BF/"/>
+    <id>http://iliujy.top/2019/02/17/起跑线/</id>
+    <published>2019-02-17T13:38:57.000Z</published>
+    <updated>2019-03-16T12:23:33.131Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果说在这个19年初还有什么能让大妈们都积极参与的事的话，那么A股肯定能排在前三。</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果说在这个19年初还有什么能让大妈们都积极参与的事的话，那么A股肯定能排在前三。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="经济" scheme="http://iliujy.top/tags/%E7%BB%8F%E6%B5%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第11期</title>
+    <link href="http://iliujy.top/2019/02/17/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC11%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/02/17/每周分享第11期/</id>
+    <published>2019-02-17T05:08:00.000Z</published>
+    <updated>2019-02-26T13:02:54.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【滴滴全员会宣布过冬：将裁员15%涉及员工超2000人】在今天上午的月度全员会上，滴滴CEO程维宣布公司将做好过冬准备，2019年会聚焦当前最重要的出行主业，继续加大安全和合规投入、提升效率，因此将对非主业进行“关停并转”，对业务重组带来的岗位重叠和绩效不达标的员工进行减员，整体裁员比例占到全员的15%，涉及2000人左右。</p><p>当地时间2月15日，特朗普表示，将签署一项法案宣布美国进入国家紧急状态，以绕开国会对南部边境墙建设的资金限制，保卫美国南部边境的安全，阻止犯罪分子、毒品等继续通过南部边境进入美国。多数共和党议员表示支持。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【双双创纪录！美国国家债务破22万亿美元大关 家庭债务同样增至新高】在创新高的赤字水平和发债规模的推动下，美国国家债务已于周一首次突破22万亿美元大关。家庭债务也升至历史新高13.5万亿美元，比<a href="http://t.cn/EcrEhj2" target="_blank" rel="noopener">2008年金融危机时期的峰值高出7%</a></p><p>经济观察报头条文章称，据悉，监管部门正考虑采取划转、出售等方式，将部分央企旗下的金融资产进行整合，接盘企业不排除光大、中信等。被划转后的央企，<a href="https://wallstreetcn.com/articles/3481241" target="_blank" rel="noopener">原则上将不再被允许再收购控股相关金融企业</a>。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>基尼系数</strong> :是指国际上通用的、用以衡量一个国家或地区居民收入差距的常用指标。基尼系数最大为“1”，最小等于“0”。基尼系数越接近0表明收入分配越是趋向平等。国际惯例把0.2以下视为收入绝对平均，0.2-0.3视为收入比较平均；0.3-0.4视为收入相对合理；0.4-0.5视为收入差距较大，当基尼系数达到0.5以上时，则表示收入悬殊。</p><blockquote><p>2014年7月，北京大学中国社会科学调查中心由谢宇教授领军的组织完成的《中国民生发展报告2014》显示，“1995年我国家庭净财产的基尼系数为0.45，2002年为0.55（1995和2002数字来自以往研究），2012年达到0.73。报告认为目前中国三成以上的社会财富被顶端1%的家庭所占有，而底端25%的家庭仅拥有一成社会财富。”  – 来自<a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E8%B2%A7%E5%AF%8C%E6%87%B8%E6%AE%8A" target="_blank" rel="noopener">维基百科</a></p></blockquote><p><strong>中等收入陷阱</strong> 是指一个国家由于某种优势达到了一定收入水平，而停留在该经济水平的情况。由于工资上涨，制造商常常发现自己无法和别国的低成本生产商相竞争，但他们仍未能处于高附加值产品的先进经济体内，这就是中等收入陷阱。比如南非和巴西，近几十年来一直苦苦挣扎于世界银行称之为中等收入的行列（人均国民总收入约为1,000至12,000美元，按2010年物价）。当国家发展到中等收入阶段可能出现两种结果：1.持续发展，逐渐成为发达国家。2.出现贫富悬殊、环境恶化甚至社会动荡等问题，导致经济发展徘徊不前。后一种结果称走入了中等收入陷阱。</p><p>通常，被困于中等收入水平的国家表现为: </p><blockquote><p>投资比例低；<br>  制造业增长缓慢；<br>  产业不够多元；<br>  劳动力市场状况贫穷。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第10期</title>
+    <link href="http://iliujy.top/2019/02/04/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC10%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/02/04/每周分享第10期/</id>
+    <published>2019-02-04T02:00:06.000Z</published>
+    <updated>2019-02-08T08:26:11.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>近日，尤雨溪在 medium 上宣布推出 Vue 2.6——代号“Macross”。尤雨溪表示，在过去的一年中，他们在开发新 CLI 和 3.0 原型设计上花了很多时间。因此，Vue core 2.x 在很长一段时间内都没有推出重大更新。现在是时候了，2.6 版本带来了一些实质性的改进、内部变更和新功能。 – 详在《<a href="https://mp.weixin.qq.com/s/ivP5oyvfKDkxam2PzYtnUg" target="_blank" rel="noopener">前端之巅</a>》</p><p>乙亥猪年春晚和百度合作一起发红包，在此之前腾讯和阿里分别和春晚合作过，纵然阿里经过数次双十一的历练和在春晚前反复推敲各种可能做足了准备，可还是在春晚的流量下宕机了部分时间。本轮春晚开启之前不被大家“看好”的百度竟然完整的抗下了整个春晚的流量，根据百度给出的数据，2019 年春晚上全球观众参与百度 APP 互动次数达到 208 亿次，百度 DAU 峰值突破 3 亿。另有媒体报道称小米、苹果、华为、三星等几大应用商店全部挂掉，其中苹果应用商店长达 12 分钟无法访问。– <strong>阿里的营销，腾讯的产品，百度的技术。</strong></p><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【全球现有20多家小行星挖矿公司，中国仅一家】高能天体物理学最高奖 Rossi Prize 获得者、哈佛大学苏萌博士在近期一次演讲上分享了一个观点：大航海时代很大程度上决定了之后几百年的世界格局，而未来地球的发展将取决于当下的大航天时代。与400年前欧洲人来东方寻找黄金类似，大航天时代意味着人类开始向太空索取资源。“时代的发展总是被人类获取资源的需求推动着。”目前，全球已有20多家小行星挖矿公司，中国暂只有一家。</p><p><a href="http://t.cn/EtdhUNo" target="_blank" rel="noopener">研究称：人类可在深度睡眠状态下学习</a>  德国新闻电视频道网站：研究人员向41名睡眠中的测试者多次播放各具不同含义的想象词后发现，测试者在醒来后能确定60%的想象词是代表大物体还是小物体，正如他们在睡梦中听到的那样。这证明，人类可以在深度睡眠中无意识地接收文字及其意义等复杂的信息，并在清醒的时候读取它们。研究人员认为，这说明人在有意识和无意识的状态下都可能形成记忆，“是理解睡眠的新维度”，可能应用到疾病或事故后的康复中，或许可以用于有学习困难的人。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>拆屋效应：鲁迅在1927年所写的《无声的中国》中写道：“中国人的性情总是喜欢调和、折中的，譬如你说，这屋子太暗，说在这里开一个天窗，大家一定是不允许的。但如果你主张拆掉屋顶，他们就会来调和，愿意开天窗了。”。这种效应由此而得名 <code>拆屋效应</code>，也被称为 <code>破天窗效应</code>。</p><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>《中导条约》被废除，有可能成为整个军控体系崩溃的开始。人类出现一轮新的军备竞赛将成为高概率的事件。（如果你知道你要摔倒了，你会怎么做？任其自然还是调整姿势） – 摘自《环球时报》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第9期</title>
+    <link href="http://iliujy.top/2019/01/27/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC9%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/01/27/每周分享第9期/</id>
+    <published>2019-01-27T09:43:18.000Z</published>
+    <updated>2019-02-01T02:50:13.125Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>近日，有开发者在微博上爆料 koa 路由中间件 koa-router 项目被作者公开售卖，售价为 5000 美元，此举引发了开发者极大的关注。有开发者在 GitHub 上向作者提出，为什么不把 koa-router 交给 KOA 团队维护而是公开售卖。作者回应称他不想在这个项目上花费自己太多的时间和精力，如果没有人愿意接手，他愿意交给 koa 团队维护。而作为 koa-router 用户之一的 egg.js 团队，似乎对此事早有预感，上周，egg 团队在 egg 的 issue（<a href="https://github.com/eggjs/egg/issues/3423）" target="_blank" rel="noopener">https://github.com/eggjs/egg/issues/3423）</a> 中表示，由于 koa-router 已经基本处于维护瘫痪状态，各种特性、PR、Issue 都基本上没人处理了，无法达到很好的一个特性更新的效果。所以，egg 团队打算从现有的 koa-router 进行 Fork 到 eggjs/koa-router-for-egg，名字另起。然后在 Egg.js 中从原来的继承自 koa-router 改成继承自新 fork 出来的包。对此，有开发者提议让 koa 团队也参照 egg 团队的做法，fork 一份，让社区一起来维护。 – 来自<a href="https://mp.weixin.qq.com/s/RvwKssfwMrV0wGp1XJawWw" target="_blank" rel="noopener">前端之巅</a></p><p>36氪讯，滴滴正在启动一轮裁员。目前滴滴员工人数超过一万三千人，而知情人士透露，此轮裁员比例达到25%，产品技术、网约车团队为此次裁员的重灾区，“另外，去年在业务方面没有太多进展的部门，以及没有和业务强绑定的职能部门，也都比较危险。”如果消息为真，意味着将有超过3000名滴滴员工离职。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【2018GDP数据公布 GDP同比增长6.6% <strong>中国经济总量首次突破90万亿</strong>】国家统计局今日发布，初步核算，去年我国国内生产总值90.0309万亿元，中国经济总量首次突破90万亿。按可比价格计算，同比增长6.6%，完成年度计划。分季度看，一季度同比增长6.8%，二季度增长6.7%，三季度增长6.5%，四季度增长6.4%。</p><p><a href="http://t.cn/EGG0DRi" target="_blank" rel="noopener">中国人民银行决定下调金融机构存款准备金率1个百分点</a>，其中，2019年1月15日和1月25日分别下调0.5个百分点。同时2019年一季度到期的中期借贷便利（MLF）不再续做。中国人民银行将继续实施稳健的货币政策，维持松紧适度，不搞大水漫灌。</p><p>年末才知春寒，18年底回头看这即将过去的一年中手机这一领域遇到了前所未有的挑战，不仅出货量齐齐下滑。行业内各大厂商为了市场都打出了极具 <code>性价比</code> 的旗舰。回头看这一年，OV失去了三四线的忠诚渠道，销量在第一季度分别下跌 16.8% 与 13.8% 。锤子坚持不下去了找到了字节跳动作为自己的接盘侠。金立与中兴在18年也遇到了很多的磨难，苹果销量在华连年下跌消费者越来越看紧自己的口袋了。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>地缘政治：是政治地理学说中的一种理论。它主要是根据地理要素和政治格局的地域形式，分析和预测世界或地区范围的战略形势和有关国家的政治行为。它把地理因素视为影响甚至决定国家政治行为的一个基本因素。又被称为“地理政治学”</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>人生不像做饭，不能等万事俱备了才下锅。</p><p>所有改变都必须点点滴滴累积，经过许多代的时间，才能够改变社会。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《杰出公民》：在非洲的一个部落，他们的语言中没有 “自由” 这个词，你知道为什么吗，因为他们就是自由的。</p><p>一般般推荐系列：《人类简史》</p><h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>年末了又到了一年支付宝集福，全国人民又加入了一场几个亿的大项目。支付宝的用户粘性和活动效果秒杀一众应用。巧合的是最近买了一瓶农夫山泉，瓶身包装是与故宫合作款的故宫文化。顿时想到了如果任何一个商品和支付宝集五福的活动做合作的话，既方便潜在的消费者又获得了一个超高的国民活动IP的绑定宣传。遗憾的是貌似一直没有看到有任何合作的出现，可能是支付宝对这种合作很谨慎吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>嘴里有点淡</title>
+    <link href="http://iliujy.top/2019/01/27/%E5%98%B4%E9%87%8C%E6%9C%89%E7%82%B9%E6%B7%A1/"/>
+    <id>http://iliujy.top/2019/01/27/嘴里有点淡/</id>
+    <published>2019-01-27T01:56:38.000Z</published>
+    <updated>2019-01-29T08:58:16.773Z</updated>
+    
+    <content type="html"><![CDATA[<p>兴趣来了，随手写一笔。也算是沉默的日日夜夜中的一声反语。欢迎 <a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a> 提交Issue。</p><a id="more"></a><p>听多了互联网流行的嬉皮翘语，最近反倒钟爱上了老一辈的时髦话。这种感觉就像是在日新月异的流行文化迭代中小憩一下的香甜，没有额外的着以颜色，仅仅是在反复品味之后才能发现的那一溜弯的 <code>原来如此</code> 。</p><p>嘴巴里有点淡的感觉倒很奇妙~ 形容的既不是眼里看见的美食、鼻子嗅到的香味，也不是贪吃带来的欲望，而更像是很好的照顾好自己的一种表现。</p><p>把无论是从哪勾出来的一星半点的嘴馋，换成了嘴里有点淡了，都像是文人作揖般的自然而然。</p><p>这时候无论山珍海味还是仨瓜俩枣，看起来都不像是口腹之欲，而更像是客座茶落般的自然，身边有什么，就是什么。</p><p>不仅显得委婉也表现的很随和。</p><p>大抵这就是广大群众的智慧，也是语言的艺术。把一种感觉说的如此巧妙、委婉，却又言之达意，方寸拿捏的不多不少，多一分便欲望太强，少一分就扭扭捏捏。正是这种恰到好处的描述，让人听了便很难拒绝，无论什么都不好意思再敝帚自珍，更多的是拿出来一同分享，一起化解这 <code>嘴里有点淡</code> 的感觉。</p><p>我可不是嘴馋才写的这篇文章，只是不想错过那一纵即逝的顽皮。</p><p>真好（大哥牛逼…</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;兴趣来了，随手写一笔。也算是沉默的日日夜夜中的一声反语。欢迎 &lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt; 提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="短文" scheme="http://iliujy.top/tags/%E7%9F%AD%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第8期</title>
+    <link href="http://iliujy.top/2019/01/21/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC8%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/01/21/每周分享第8期/</id>
+    <published>2019-01-21T01:37:54.000Z</published>
+    <updated>2019-01-26T06:07:38.161Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>微软今日宣布 要在 2020 年 1 月 14 日停止 Windows 7 系统的更新和安全支持，Windows 用户需要在 Windows 7 和 Windows 10 之间进行抉择。</p><p>近期一篇文章 <a href="https://mp.weixin.qq.com/s/OL-WcP0LgGktNgL5yd1hiQ" target="_blank" rel="noopener">搜索引擎百度已死</a> 引起广泛传播。文章提到，Baidu.com已经不是你寻找中文互联网内容的地方，而是百度自家的站内搜索；它将你引向的不是中文互联网中的优质精神食粮，而是囤积在自家的腐臭变质内容。</p><p>域名结尾的意义：</p><blockquote><p>.net是网络服务公司，为个人或是商业提供服务<br>　.com 是提供商业 服务的网站 是company的首字母。意思是公司性质的网站，表示这个网站的性质。<br>  .org (非赢利性组织);<br>  .gov(国家政府机构)</p></blockquote><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>有消息称：字节跳动有意收购锤子科技部分专利使用权计划，用于探索教育领域相关硬件。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>陋室空堂，当年笏满床； 衰草枯杨，曾为歌舞场。</p><p>今天凌晨，马云在达沃斯的思考和分享，入选达沃斯官网的“十大关键瞬间”。达沃斯官方给”马云的七条建议”点赞：</p><blockquote><p> 当时（创办阿里巴巴）我当然害怕过。但是我觉得，如果我没有成功，总有人会成功。1999年大家机会均等，没有人是专家。今天也是，没有明天的专家，大家面对明天都是平等的。<br>  我的法则是不要害怕压力竞争，不然就别做企业家。一开始的时候，如果想要做什么事情，能创造价值就有机会。<br>  年轻人第一份工作非常重要，不一定非要去有名的企业，而是要有一个好老板，第一份工作至少先干满3年。<br>  未来的人要比机器有智慧。最重要的是自我管理，也就是要相信自己的价值。未来机器有chip芯片，人类有heart，就是我们的价值。我认为这是未来教育的方向。<br>  你有晚上担心睡不着的时候吗？没有，我睡觉特别好。即便我睡不着，问题也会在那里。如果我睡得好，就有机会更好地解决它。<br>  你得用文化和价值观去管理聪明的人，让他们相信他们所做的事情。如果你只是用规则条文去控制人，那么你管理的是愚蠢的人。<br>  我喜欢雇比我聪明的人，这些人可能四五年以后会成为我的老板。我喜欢积极，永不放弃的人。</p></blockquote><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>孤独是一个没有酒的局。</p><p>最近一篇文章 <a href="https://mp.weixin.qq.com/s/R5nSlfnB9f1iOKYKKxISOw" target="_blank" rel="noopener">一个北大毕业生决定去送外卖</a> 引起很多的关注与讨论。要说有什么感受，大抵是生活就是一场谎言，所有人都盛装出席，可我却怎么也选不好自己的礼服。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《追梦赤子心》: 可能有时候你的努力不一定会有结果，但更像是一个暗待花开种子，努力奋斗不仅能让种子有了绽放的希望，更能影响到身边的人。当你朝一个方向坚持不懈的努力的时候，全世界都会为你让路的。</p><p>一般般推荐系列：《傲慢与偏见》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第7期</title>
+    <link href="http://iliujy.top/2019/01/16/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC7%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/01/16/每周分享第7期/</id>
+    <published>2019-01-16T03:35:31.000Z</published>
+    <updated>2019-01-20T09:23:03.495Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>腾讯技术委员会于 1 月 4 日正式成立，腾讯高级执行副总裁、技术工程事业群总裁卢山和腾讯高级执行副总裁、云与智慧产业事业群总裁汤道生两名腾讯总办成员牵头，几大事业群的技术负责人悉数进入技术委员会决策圈。</p><p>Jest 团队宣布将从 Flow 转向 TypeScript。要知道 Jest 和 Flow 都是 Facebook 的产品。同样支持 TS 的还有 react。。</p><h2 id="谷歌高级搜索技巧"><a href="#谷歌高级搜索技巧" class="headerlink" title="谷歌高级搜索技巧"></a>谷歌高级搜索技巧</h2><ul><li>使用 <code>site:github.com</code> 来固定搜索某一站点下的结果</li><li>使用双引号 <code>“搜索”</code> 来精准匹配搜索的内容</li><li>使用减号用来排除某一搜索结果 如: <code>搜索 -引擎</code></li><li>使用星号来表示任意内容 如: <code>搜索*擎</code></li><li>使用 <code>inurl</code> 来匹配在url 中的内容 如: <code>inurl:web</code> 会找出url中带有web的链接 (使用 <code>allinurl</code> 可以输入多个关键词 如: <code>allinurl:web/fontend</code> 其中/会被忽略)</li><li>使用 <code>intitle</code> 来匹配 title包含关键字的结果（用法和上条一样）。</li><li>使用 <code>filetype</code> 来制定搜索文件的类型 如: <code>filetype:doc site:gov confidential</code> 将会返回所有gov网站下.doc 文件和 包含 confidential 关键词的页面。</li><li>使用 <code>link</code> 来搜索所有包含链接的页面 如: <code>link:mriliujy.github.io/</code></li><li>在两个数值之间搜索 如 <code>year 1910.. 1920</code></li></ul><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>1月16日：格力电器举行临时股东大会，董小姐高票当选 成功实现连任。董明珠在18年内向社会发声，格力会为每一位格力的员工提供住房。</p><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>最近越来觉得没有什么真正喜欢的东西了，大多事都处于 懒得care 和 兴趣缺缺 之间。很多事即使做了也不太能记得，大概是处于年底的时间很多的心思没能集中。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://mp.weixin.qq.com/s/lmG-Q6IwWW2zKvYtwImDuw" target="_blank" rel="noopener">万物之中，希望至美</a>，张小龙4个小时演讲全文。</p><p><a href="https://segmentfault.com/a/1190000017899193" target="_blank" rel="noopener">大前端时代安全应该怎么做</a>,爬虫与反爬虫。</p><h1 id="一句话分享"><a href="#一句话分享" class="headerlink" title="一句话分享"></a>一句话分享</h1><p>不应该仅仅感受到科技进步带来的焦虑，更应该感受到因为改变而带来的希望。</p><p>对你影响最大的决定往往不是使你当即获益的。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《闻香识女人》：一直在想什么样的人生才是我所向往的，奋力追求的是不被生活所胁迫还是无拘无束的自由。往往透过表面才能看到一颗赤诚的心，留意生活的小把戏不要让它捉弄了你的灵魂。</p><p>一般般推荐系列：《幸福终点站》《狗十三》《本杰明·巴顿奇事》</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+</feed>
