@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iliujy.top/"/>
-  <updated>2019-04-19T07:50:22.609Z</updated>
+  <updated>2019-05-29T10:36:54.398Z</updated>
   <id>http://iliujy.top/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机科学中的幂等</title>
+    <link href="http://iliujy.top/2019/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%B9%82%E7%AD%89/"/>
+    <id>http://iliujy.top/2019/05/05/计算机科学中的幂等/</id>
+    <published>2019-05-05T06:48:51.000Z</published>
+    <updated>2019-05-29T10:36:54.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在写后台的页面的一些功能，发现忽略了很多细节的操作，例如像幂等的操作就被忽略了。</p><a id="more"></a><h2 id="幂等"><a href="#幂等" class="headerlink" title="幂等"></a>幂等</h2><p>计算机科学中的幂等大致可以理解为：一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。</p><p>幂等在分布式系统中尤为重要，因为网络通讯的情况下如果重发了请求在没有做幂等操作的情况下可能就会造成很大的影响。</p><p>那么在前端的优化中，幂等也是很重要的一点。</p><p>比如前端的表单 or button 在没有修改的情况下或者是在短时间内连续的点击那么很有可能是用户的误操作或者 <code>点击暴躁症</code> 的表现。</p><p>在这种情况下即使后端做了这种请求的判断前端也应该在用户交互的层面上直接return 掉用户 “多余” 的操作。</p><p>在实际开发中可能会遇到 Object 和 Array 的判断。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断数组相等</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">equalsArray</span>(<span class="params">target, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!array || !target) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (target.length !== array.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; target.length; i++) &#123;</span><br><span class="line">        <span class="comment">// nested arrays</span></span><br><span class="line">        <span class="keyword">if</span> (target[i] <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp; array[i] <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!equalsArray(target[i], array[i])) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target[i] !== array[i]) &#123;</span><br><span class="line">            <span class="comment">// two different object instances will never be equal</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断对象相等</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">obj1,obj2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(obj1).length !== <span class="built_in">Object</span>.keys(obj2).length)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> obj1) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj2.hasOwnProperty(key)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">Object</span>.is(obj1[key], obj2[key]))&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在写后台的页面的一些功能，发现忽略了很多细节的操作，例如像幂等的操作就被忽略了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>每周分享第20期</title>
@@ -384,26 +402,6 @@
     <updated>2019-01-26T06:07:38.161Z</updated>
     
     <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>微软今日宣布 要在 2020 年 1 月 14 日停止 Windows 7 系统的更新和安全支持，Windows 用户需要在 Windows 7 和 Windows 10 之间进行抉择。</p><p>近期一篇文章 <a href="https://mp.weixin.qq.com/s/OL-WcP0LgGktNgL5yd1hiQ" target="_blank" rel="noopener">搜索引擎百度已死</a> 引起广泛传播。文章提到，Baidu.com已经不是你寻找中文互联网内容的地方，而是百度自家的站内搜索；它将你引向的不是中文互联网中的优质精神食粮，而是囤积在自家的腐臭变质内容。</p><p>域名结尾的意义：</p><blockquote><p>.net是网络服务公司，为个人或是商业提供服务<br>　.com 是提供商业 服务的网站 是company的首字母。意思是公司性质的网站，表示这个网站的性质。<br>  .org (非赢利性组织);<br>  .gov(国家政府机构)</p></blockquote><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>有消息称：字节跳动有意收购锤子科技部分专利使用权计划，用于探索教育领域相关硬件。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>陋室空堂，当年笏满床； 衰草枯杨，曾为歌舞场。</p><p>今天凌晨，马云在达沃斯的思考和分享，入选达沃斯官网的“十大关键瞬间”。达沃斯官方给”马云的七条建议”点赞：</p><blockquote><p> 当时（创办阿里巴巴）我当然害怕过。但是我觉得，如果我没有成功，总有人会成功。1999年大家机会均等，没有人是专家。今天也是，没有明天的专家，大家面对明天都是平等的。<br>  我的法则是不要害怕压力竞争，不然就别做企业家。一开始的时候，如果想要做什么事情，能创造价值就有机会。<br>  年轻人第一份工作非常重要，不一定非要去有名的企业，而是要有一个好老板，第一份工作至少先干满3年。<br>  未来的人要比机器有智慧。最重要的是自我管理，也就是要相信自己的价值。未来机器有chip芯片，人类有heart，就是我们的价值。我认为这是未来教育的方向。<br>  你有晚上担心睡不着的时候吗？没有，我睡觉特别好。即便我睡不着，问题也会在那里。如果我睡得好，就有机会更好地解决它。<br>  你得用文化和价值观去管理聪明的人，让他们相信他们所做的事情。如果你只是用规则条文去控制人，那么你管理的是愚蠢的人。<br>  我喜欢雇比我聪明的人，这些人可能四五年以后会成为我的老板。我喜欢积极，永不放弃的人。</p></blockquote><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>孤独是一个没有酒的局。</p><p>最近一篇文章 <a href="https://mp.weixin.qq.com/s/R5nSlfnB9f1iOKYKKxISOw" target="_blank" rel="noopener">一个北大毕业生决定去送外卖</a> 引起很多的关注与讨论。要说有什么感受，大抵是生活就是一场谎言，所有人都盛装出席，可我却怎么也选不好自己的礼服。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《追梦赤子心》: 可能有时候你的努力不一定会有结果，但更像是一个暗待花开种子，努力奋斗不仅能让种子有了绽放的希望，更能影响到身边的人。当你朝一个方向坚持不懈的努力的时候，全世界都会为你让路的。</p><p>一般般推荐系列：《傲慢与偏见》</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周分享第7期</title>
-    <link href="http://iliujy.top/2019/01/16/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC7%E6%9C%9F/"/>
-    <id>http://iliujy.top/2019/01/16/每周分享第7期/</id>
-    <published>2019-01-16T03:35:31.000Z</published>
-    <updated>2019-01-20T09:23:03.495Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>腾讯技术委员会于 1 月 4 日正式成立，腾讯高级执行副总裁、技术工程事业群总裁卢山和腾讯高级执行副总裁、云与智慧产业事业群总裁汤道生两名腾讯总办成员牵头，几大事业群的技术负责人悉数进入技术委员会决策圈。</p><p>Jest 团队宣布将从 Flow 转向 TypeScript。要知道 Jest 和 Flow 都是 Facebook 的产品。同样支持 TS 的还有 react。。</p><h2 id="谷歌高级搜索技巧"><a href="#谷歌高级搜索技巧" class="headerlink" title="谷歌高级搜索技巧"></a>谷歌高级搜索技巧</h2><ul><li>使用 <code>site:github.com</code> 来固定搜索某一站点下的结果</li><li>使用双引号 <code>“搜索”</code> 来精准匹配搜索的内容</li><li>使用减号用来排除某一搜索结果 如: <code>搜索 -引擎</code></li><li>使用星号来表示任意内容 如: <code>搜索*擎</code></li><li>使用 <code>inurl</code> 来匹配在url 中的内容 如: <code>inurl:web</code> 会找出url中带有web的链接 (使用 <code>allinurl</code> 可以输入多个关键词 如: <code>allinurl:web/fontend</code> 其中/会被忽略)</li><li>使用 <code>intitle</code> 来匹配 title包含关键字的结果（用法和上条一样）。</li><li>使用 <code>filetype</code> 来制定搜索文件的类型 如: <code>filetype:doc site:gov confidential</code> 将会返回所有gov网站下.doc 文件和 包含 confidential 关键词的页面。</li><li>使用 <code>link</code> 来搜索所有包含链接的页面 如: <code>link:mriliujy.github.io/</code></li><li>在两个数值之间搜索 如 <code>year 1910.. 1920</code></li></ul><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>1月16日：格力电器举行临时股东大会，董小姐高票当选 成功实现连任。董明珠在18年内向社会发声，格力会为每一位格力的员工提供住房。</p><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>最近越来觉得没有什么真正喜欢的东西了，大多事都处于 懒得care 和 兴趣缺缺 之间。很多事即使做了也不太能记得，大概是处于年底的时间很多的心思没能集中。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://mp.weixin.qq.com/s/lmG-Q6IwWW2zKvYtwImDuw" target="_blank" rel="noopener">万物之中，希望至美</a>，张小龙4个小时演讲全文。</p><p><a href="https://segmentfault.com/a/1190000017899193" target="_blank" rel="noopener">大前端时代安全应该怎么做</a>,爬虫与反爬虫。</p><h1 id="一句话分享"><a href="#一句话分享" class="headerlink" title="一句话分享"></a>一句话分享</h1><p>不应该仅仅感受到科技进步带来的焦虑，更应该感受到因为改变而带来的希望。</p><p>对你影响最大的决定往往不是使你当即获益的。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《闻香识女人》：一直在想什么样的人生才是我所向往的，奋力追求的是不被生活所胁迫还是无拘无束的自由。往往透过表面才能看到一颗赤诚的心，留意生活的小把戏不要让它捉弄了你的灵魂。</p><p>一般般推荐系列：《幸福终点站》《狗十三》《本杰明·巴顿奇事》</p>]]></content>
     
     <summary type="html">
     
