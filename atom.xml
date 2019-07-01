@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iliujy.top/"/>
-  <updated>2019-05-29T10:36:54.398Z</updated>
+  <updated>2019-07-01T08:16:17.988Z</updated>
   <id>http://iliujy.top/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019年中总结</title>
+    <link href="http://iliujy.top/2019/06/12/2019%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/"/>
+    <id>http://iliujy.top/2019/06/12/2019年中总结/</id>
+    <published>2019-06-12T01:50:31.000Z</published>
+    <updated>2019-07-01T08:16:17.988Z</updated>
+    
+    <content type="html"><![CDATA[<p>时间来到了2019年中，又是一篇年中总结。我曾想过要不就不写了，反正自己的小破站又没啥流量，拖了也没人催更…</p><a id="more"></a><p>说起来，上半年坚持的 <code>weekly blog</code> 已经断更2个多月了，落起来没来得及看的技术书已经比电脑显示器还高了。</p><p>突然发现有点想不出这半年来自己干了写什么值得总结的事。</p><p>但至少我知道我尝试了 <code>新媒体</code>，玩了 <code>闲鱼</code> ，也做了 <code>外包</code> 最后发现其实即使是自己投入了很多的精力也不一定有收获的事真的挺让人垂头丧气的。</p><p>这半年中比以往的每一天我更多的问自己，究竟自己想要什么。</p><p>以前经常和别人开玩笑说我是拯救世界的小哥哥，现在每一天忙完了更多的是想躺在床上当咸鱼。</p><p>那种疲惫感从某一天晚上突然打败了我。</p><p>我开始慢慢的逃避，我觉得 <code>weekly blog</code> 晚一天更新没什么，我觉得每天早上多睡一个小时而不是起来写一篇文章、发布一部视频更让当下的我有更多的收获，我觉得晚一会看这个视频不会让我在技术上落后别人多少。</p><p>就这样渐渐的开始放逐自己，突然有一天我发现自己在一个闭塞的盒子中太久没有呼吸。</p><p>就像困在大山深处的孩子不曾见过外面的世界。</p><p>我开始觉得自己每天工作中思考中的问题永远都是业务层面的问题。</p><p>每一次解决的问题都是在互联网中的一个角落别人曾经光顾过的地方。</p><p>每一次有新的发现不过是几年前别人更新的博客或者文档。</p><p>许久。</p><p>我都没有当年那种</p><p>我要学会这个技术，学会了我出去面试就能多要1k的感觉。</p><p>那种感觉仿佛就像 <code>希望</code> ，在沉浮的互联网中的灯塔一般。让我觉得仿佛真的只要自己努力，其实无论学历、智商、经历等差距都是可以被抹平的。</p><p>就像小时候的孩子王突然有一天发现小伙伴们都不见了。</p><p>我弄丢了我的冲劲，我开始思考更多除了写代码之外的事。</p><p>如果说这篇年中总结是希望记录下来这半年我的成长，我觉得更多的是思想上的成长。</p><p>另外感觉就是自己更加的重视亲情了。</p><p>如果还有什么成长的话大概就是这半年在公司的团队沟通配合等方面有了更多的成长吧。</p><p>感觉自己还是学到了很多自己想要的技能的。</p><p>嗯，另外还有《清醒思考的艺术》《活出生命的意义》等7本书，《JavaScript设计模式》等五本技术书，N部纪录片/电影，也写了不少博客。</p><p><strong>前路愈艰，且歌且行。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;时间来到了2019年中，又是一篇年中总结。我曾想过要不就不写了，反正自己的小破站又没啥流量，拖了也没人催更…&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="总结" scheme="http://iliujy.top/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Vue中编写单元测试</title>
+    <link href="http://iliujy.top/2019/06/04/%E5%9C%A8Vue%E4%B8%AD%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <id>http://iliujy.top/2019/06/04/在Vue中编写单元测试/</id>
+    <published>2019-06-04T10:46:04.000Z</published>
+    <updated>2019-06-04T10:46:04.590Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>每周分享第21期</title>
+    <link href="http://iliujy.top/2019/05/31/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC21%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/05/31/每周分享第21期/</id>
+    <published>2019-05-31T10:38:58.000Z</published>
+    <updated>2019-07-01T08:15:58.289Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>计算机科学中的幂等</title>
@@ -342,66 +390,6 @@
     <updated>2019-02-08T08:26:11.158Z</updated>
     
     <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>近日，尤雨溪在 medium 上宣布推出 Vue 2.6——代号“Macross”。尤雨溪表示，在过去的一年中，他们在开发新 CLI 和 3.0 原型设计上花了很多时间。因此，Vue core 2.x 在很长一段时间内都没有推出重大更新。现在是时候了，2.6 版本带来了一些实质性的改进、内部变更和新功能。 – 详在《<a href="https://mp.weixin.qq.com/s/ivP5oyvfKDkxam2PzYtnUg" target="_blank" rel="noopener">前端之巅</a>》</p><p>乙亥猪年春晚和百度合作一起发红包，在此之前腾讯和阿里分别和春晚合作过，纵然阿里经过数次双十一的历练和在春晚前反复推敲各种可能做足了准备，可还是在春晚的流量下宕机了部分时间。本轮春晚开启之前不被大家“看好”的百度竟然完整的抗下了整个春晚的流量，根据百度给出的数据，2019 年春晚上全球观众参与百度 APP 互动次数达到 208 亿次，百度 DAU 峰值突破 3 亿。另有媒体报道称小米、苹果、华为、三星等几大应用商店全部挂掉，其中苹果应用商店长达 12 分钟无法访问。– <strong>阿里的营销，腾讯的产品，百度的技术。</strong></p><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【全球现有20多家小行星挖矿公司，中国仅一家】高能天体物理学最高奖 Rossi Prize 获得者、哈佛大学苏萌博士在近期一次演讲上分享了一个观点：大航海时代很大程度上决定了之后几百年的世界格局，而未来地球的发展将取决于当下的大航天时代。与400年前欧洲人来东方寻找黄金类似，大航天时代意味着人类开始向太空索取资源。“时代的发展总是被人类获取资源的需求推动着。”目前，全球已有20多家小行星挖矿公司，中国暂只有一家。</p><p><a href="http://t.cn/EtdhUNo" target="_blank" rel="noopener">研究称：人类可在深度睡眠状态下学习</a>  德国新闻电视频道网站：研究人员向41名睡眠中的测试者多次播放各具不同含义的想象词后发现，测试者在醒来后能确定60%的想象词是代表大物体还是小物体，正如他们在睡梦中听到的那样。这证明，人类可以在深度睡眠中无意识地接收文字及其意义等复杂的信息，并在清醒的时候读取它们。研究人员认为，这说明人在有意识和无意识的状态下都可能形成记忆，“是理解睡眠的新维度”，可能应用到疾病或事故后的康复中，或许可以用于有学习困难的人。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>拆屋效应：鲁迅在1927年所写的《无声的中国》中写道：“中国人的性情总是喜欢调和、折中的，譬如你说，这屋子太暗，说在这里开一个天窗，大家一定是不允许的。但如果你主张拆掉屋顶，他们就会来调和，愿意开天窗了。”。这种效应由此而得名 <code>拆屋效应</code>，也被称为 <code>破天窗效应</code>。</p><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>《中导条约》被废除，有可能成为整个军控体系崩溃的开始。人类出现一轮新的军备竞赛将成为高概率的事件。（如果你知道你要摔倒了，你会怎么做？任其自然还是调整姿势） – 摘自《环球时报》</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周分享第9期</title>
-    <link href="http://iliujy.top/2019/01/27/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC9%E6%9C%9F/"/>
-    <id>http://iliujy.top/2019/01/27/每周分享第9期/</id>
-    <published>2019-01-27T09:43:18.000Z</published>
-    <updated>2019-02-01T02:50:13.125Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>近日，有开发者在微博上爆料 koa 路由中间件 koa-router 项目被作者公开售卖，售价为 5000 美元，此举引发了开发者极大的关注。有开发者在 GitHub 上向作者提出，为什么不把 koa-router 交给 KOA 团队维护而是公开售卖。作者回应称他不想在这个项目上花费自己太多的时间和精力，如果没有人愿意接手，他愿意交给 koa 团队维护。而作为 koa-router 用户之一的 egg.js 团队，似乎对此事早有预感，上周，egg 团队在 egg 的 issue（<a href="https://github.com/eggjs/egg/issues/3423）" target="_blank" rel="noopener">https://github.com/eggjs/egg/issues/3423）</a> 中表示，由于 koa-router 已经基本处于维护瘫痪状态，各种特性、PR、Issue 都基本上没人处理了，无法达到很好的一个特性更新的效果。所以，egg 团队打算从现有的 koa-router 进行 Fork 到 eggjs/koa-router-for-egg，名字另起。然后在 Egg.js 中从原来的继承自 koa-router 改成继承自新 fork 出来的包。对此，有开发者提议让 koa 团队也参照 egg 团队的做法，fork 一份，让社区一起来维护。 – 来自<a href="https://mp.weixin.qq.com/s/RvwKssfwMrV0wGp1XJawWw" target="_blank" rel="noopener">前端之巅</a></p><p>36氪讯，滴滴正在启动一轮裁员。目前滴滴员工人数超过一万三千人，而知情人士透露，此轮裁员比例达到25%，产品技术、网约车团队为此次裁员的重灾区，“另外，去年在业务方面没有太多进展的部门，以及没有和业务强绑定的职能部门，也都比较危险。”如果消息为真，意味着将有超过3000名滴滴员工离职。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【2018GDP数据公布 GDP同比增长6.6% <strong>中国经济总量首次突破90万亿</strong>】国家统计局今日发布，初步核算，去年我国国内生产总值90.0309万亿元，中国经济总量首次突破90万亿。按可比价格计算，同比增长6.6%，完成年度计划。分季度看，一季度同比增长6.8%，二季度增长6.7%，三季度增长6.5%，四季度增长6.4%。</p><p><a href="http://t.cn/EGG0DRi" target="_blank" rel="noopener">中国人民银行决定下调金融机构存款准备金率1个百分点</a>，其中，2019年1月15日和1月25日分别下调0.5个百分点。同时2019年一季度到期的中期借贷便利（MLF）不再续做。中国人民银行将继续实施稳健的货币政策，维持松紧适度，不搞大水漫灌。</p><p>年末才知春寒，18年底回头看这即将过去的一年中手机这一领域遇到了前所未有的挑战，不仅出货量齐齐下滑。行业内各大厂商为了市场都打出了极具 <code>性价比</code> 的旗舰。回头看这一年，OV失去了三四线的忠诚渠道，销量在第一季度分别下跌 16.8% 与 13.8% 。锤子坚持不下去了找到了字节跳动作为自己的接盘侠。金立与中兴在18年也遇到了很多的磨难，苹果销量在华连年下跌消费者越来越看紧自己的口袋了。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>地缘政治：是政治地理学说中的一种理论。它主要是根据地理要素和政治格局的地域形式，分析和预测世界或地区范围的战略形势和有关国家的政治行为。它把地理因素视为影响甚至决定国家政治行为的一个基本因素。又被称为“地理政治学”</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>人生不像做饭，不能等万事俱备了才下锅。</p><p>所有改变都必须点点滴滴累积，经过许多代的时间，才能够改变社会。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《杰出公民》：在非洲的一个部落，他们的语言中没有 “自由” 这个词，你知道为什么吗，因为他们就是自由的。</p><p>一般般推荐系列：《人类简史》</p><h1 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h1><p>年末了又到了一年支付宝集福，全国人民又加入了一场几个亿的大项目。支付宝的用户粘性和活动效果秒杀一众应用。巧合的是最近买了一瓶农夫山泉，瓶身包装是与故宫合作款的故宫文化。顿时想到了如果任何一个商品和支付宝集五福的活动做合作的话，既方便潜在的消费者又获得了一个超高的国民活动IP的绑定宣传。遗憾的是貌似一直没有看到有任何合作的出现，可能是支付宝对这种合作很谨慎吧。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>嘴里有点淡</title>
-    <link href="http://iliujy.top/2019/01/27/%E5%98%B4%E9%87%8C%E6%9C%89%E7%82%B9%E6%B7%A1/"/>
-    <id>http://iliujy.top/2019/01/27/嘴里有点淡/</id>
-    <published>2019-01-27T01:56:38.000Z</published>
-    <updated>2019-01-29T08:58:16.773Z</updated>
-    
-    <content type="html"><![CDATA[<p>兴趣来了，随手写一笔。也算是沉默的日日夜夜中的一声反语。欢迎 <a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a> 提交Issue。</p><a id="more"></a><p>听多了互联网流行的嬉皮翘语，最近反倒钟爱上了老一辈的时髦话。这种感觉就像是在日新月异的流行文化迭代中小憩一下的香甜，没有额外的着以颜色，仅仅是在反复品味之后才能发现的那一溜弯的 <code>原来如此</code> 。</p><p>嘴巴里有点淡的感觉倒很奇妙~ 形容的既不是眼里看见的美食、鼻子嗅到的香味，也不是贪吃带来的欲望，而更像是很好的照顾好自己的一种表现。</p><p>把无论是从哪勾出来的一星半点的嘴馋，换成了嘴里有点淡了，都像是文人作揖般的自然而然。</p><p>这时候无论山珍海味还是仨瓜俩枣，看起来都不像是口腹之欲，而更像是客座茶落般的自然，身边有什么，就是什么。</p><p>不仅显得委婉也表现的很随和。</p><p>大抵这就是广大群众的智慧，也是语言的艺术。把一种感觉说的如此巧妙、委婉，却又言之达意，方寸拿捏的不多不少，多一分便欲望太强，少一分就扭扭捏捏。正是这种恰到好处的描述，让人听了便很难拒绝，无论什么都不好意思再敝帚自珍，更多的是拿出来一同分享，一起化解这 <code>嘴里有点淡</code> 的感觉。</p><p>我可不是嘴馋才写的这篇文章，只是不想错过那一纵即逝的顽皮。</p><p>真好（大哥牛逼…</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;兴趣来了，随手写一笔。也算是沉默的日日夜夜中的一声反语。欢迎 &lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt; 提交Issue。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="短文" scheme="http://iliujy.top/tags/%E7%9F%AD%E6%96%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周分享第8期</title>
-    <link href="http://iliujy.top/2019/01/21/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC8%E6%9C%9F/"/>
-    <id>http://iliujy.top/2019/01/21/每周分享第8期/</id>
-    <published>2019-01-21T01:37:54.000Z</published>
-    <updated>2019-01-26T06:07:38.161Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>微软今日宣布 要在 2020 年 1 月 14 日停止 Windows 7 系统的更新和安全支持，Windows 用户需要在 Windows 7 和 Windows 10 之间进行抉择。</p><p>近期一篇文章 <a href="https://mp.weixin.qq.com/s/OL-WcP0LgGktNgL5yd1hiQ" target="_blank" rel="noopener">搜索引擎百度已死</a> 引起广泛传播。文章提到，Baidu.com已经不是你寻找中文互联网内容的地方，而是百度自家的站内搜索；它将你引向的不是中文互联网中的优质精神食粮，而是囤积在自家的腐臭变质内容。</p><p>域名结尾的意义：</p><blockquote><p>.net是网络服务公司，为个人或是商业提供服务<br>　.com 是提供商业 服务的网站 是company的首字母。意思是公司性质的网站，表示这个网站的性质。<br>  .org (非赢利性组织);<br>  .gov(国家政府机构)</p></blockquote><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>有消息称：字节跳动有意收购锤子科技部分专利使用权计划，用于探索教育领域相关硬件。</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>陋室空堂，当年笏满床； 衰草枯杨，曾为歌舞场。</p><p>今天凌晨，马云在达沃斯的思考和分享，入选达沃斯官网的“十大关键瞬间”。达沃斯官方给”马云的七条建议”点赞：</p><blockquote><p> 当时（创办阿里巴巴）我当然害怕过。但是我觉得，如果我没有成功，总有人会成功。1999年大家机会均等，没有人是专家。今天也是，没有明天的专家，大家面对明天都是平等的。<br>  我的法则是不要害怕压力竞争，不然就别做企业家。一开始的时候，如果想要做什么事情，能创造价值就有机会。<br>  年轻人第一份工作非常重要，不一定非要去有名的企业，而是要有一个好老板，第一份工作至少先干满3年。<br>  未来的人要比机器有智慧。最重要的是自我管理，也就是要相信自己的价值。未来机器有chip芯片，人类有heart，就是我们的价值。我认为这是未来教育的方向。<br>  你有晚上担心睡不着的时候吗？没有，我睡觉特别好。即便我睡不着，问题也会在那里。如果我睡得好，就有机会更好地解决它。<br>  你得用文化和价值观去管理聪明的人，让他们相信他们所做的事情。如果你只是用规则条文去控制人，那么你管理的是愚蠢的人。<br>  我喜欢雇比我聪明的人，这些人可能四五年以后会成为我的老板。我喜欢积极，永不放弃的人。</p></blockquote><h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>孤独是一个没有酒的局。</p><p>最近一篇文章 <a href="https://mp.weixin.qq.com/s/R5nSlfnB9f1iOKYKKxISOw" target="_blank" rel="noopener">一个北大毕业生决定去送外卖</a> 引起很多的关注与讨论。要说有什么感受，大抵是生活就是一场谎言，所有人都盛装出席，可我却怎么也选不好自己的礼服。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《追梦赤子心》: 可能有时候你的努力不一定会有结果，但更像是一个暗待花开种子，努力奋斗不仅能让种子有了绽放的希望，更能影响到身边的人。当你朝一个方向坚持不懈的努力的时候，全世界都会为你让路的。</p><p>一般般推荐系列：《傲慢与偏见》</p>]]></content>
     
     <summary type="html">
     
