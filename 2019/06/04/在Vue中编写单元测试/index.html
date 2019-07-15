@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="有时正是无人看好之人，所成无人能及之事">
-<meta name="keywords" content="博客 iliuJY blog 前端 js 小程序 node MriliuJY">
+<meta name="description" content="最近一直在写 Vue 的单元测试，发现 Vue 其实本身的单元测试并不是很难写但是项目中的各种奇奇怪怪的配置项简直令人抓狂。">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Vue中编写单元测试">
 <meta property="og:url" content="http://iliujy.top/2019/06/04/在Vue中编写单元测试/index.html">
 <meta property="og:site_name" content="键盘下的Sao想法">
-<meta property="og:description" content="有时正是无人看好之人，所成无人能及之事">
+<meta property="og:description" content="最近一直在写 Vue 的单元测试，发现 Vue 其实本身的单元测试并不是很难写但是项目中的各种奇奇怪怪的配置项简直令人抓狂。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-04T10:46:04.590Z">
+<meta property="og:updated_time" content="2019-07-15T01:09:14.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Vue中编写单元测试">
-<meta name="twitter:description" content="有时正是无人看好之人，所成无人能及之事">
+<meta name="twitter:description" content="最近一直在写 Vue 的单元测试，发现 Vue 其实本身的单元测试并不是很难写但是项目中的各种奇奇怪怪的配置项简直令人抓狂。">
 
 
 
@@ -343,7 +343,25 @@
       
 
       
-        
+        <p>最近一直在写 Vue 的单元测试，发现 Vue 其实本身的单元测试并不是很难写但是项目中的各种奇奇怪怪的配置项简直令人抓狂。</p>
+<a id="more"></a>
+<h2 id="首先为什么要写单元测试"><a href="#首先为什么要写单元测试" class="headerlink" title="首先为什么要写单元测试"></a>首先为什么要写单元测试</h2><ul>
+<li>帮助我们优化代码</li>
+<li>节省手动测试的时间</li>
+<li>减少开发新功能的时候的BUG</li>
+<li>促进项目迭代</li>
+<li>开源项目必备</li>
+</ul>
+<p>无论是哪一种都是我们在项目中做单元测试的初始动力。</p>
+<h2 id="如何写一个单元测试"><a href="#如何写一个单元测试" class="headerlink" title="如何写一个单元测试"></a>如何写一个单元测试</h2><p>在动手之前你可能会遇到在项目中如何编写一份单元测试的小小阻力，那么我们一起来看如何从零开始编写一个项目的单元测试。</p>
+<p>1.首先本文基于 Vue 官方推荐的单元测试 Vue-unit-test 来进行，如果你有自己习惯的其他的测试框架可以结合本文来尝试。</p>
+<p>2.配置项，此处因为配置项格外的多所以我先把我项目中的配置贴出来然后讲解。</p>
+<p>首先我是把jest的配置写到了packgae.json中，当然你可以通过在根目录新建一个 <code>jest.config.js</code> 来写jest的配置项<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"jest"</span>: &#123;</span><br><span class="line">  <span class="string">"moduleFileExtensions"</span>: [</span><br><span class="line">    <span class="string">"js"</span>,</span><br><span class="line">    <span class="string">"jsx"</span>,</span><br><span class="line">    <span class="string">"json"</span>,</span><br><span class="line">    <span class="string">"vue"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"transform"</span>: &#123;</span><br><span class="line">    <span class="string">"^.+\\.vue$"</span>: <span class="string">"vue-jest"</span>,</span><br><span class="line">    <span class="string">".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$"</span>: <span class="string">"jest-transform-stub"</span>,</span><br><span class="line">    <span class="string">"^.+\\.js?$"</span>: <span class="string">"babel-jest"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"moduleNameMapper"</span>: &#123;</span><br><span class="line">    <span class="string">"^@/(.*)$"</span>: <span class="string">"&lt;rootDir&gt;/packages/$1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"snapshotSerializers"</span>: [</span><br><span class="line">    <span class="string">"jest-serializer-vue"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"testMatch"</span>: [</span><br><span class="line">    <span class="string">"**/test/unit/**/*.spec.(js|jsx|ts|tsx)|**/__test__/*.(js|jsx|ts|tsx)"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"testURL"</span>: <span class="string">"http://localhost/"</span>,</span><br><span class="line">  <span class="string">"collectCoverage"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"collectCoverageFrom"</span>: [</span><br><span class="line">    <span class="string">"**/packages/**/*.vue"</span>,</span><br><span class="line">    <span class="string">"!**/node_modules/**"</span>,</span><br><span class="line">    <span class="string">"!**packages/main.js**"</span>,</span><br><span class="line">    <span class="string">"!**packages/router.js**"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>完整的package.json的 <a href="https://github.com/holylovelqq/vue-unit-test-with-jest/blob/master/vue-unit-test-with-jest/package.json" target="_blank" rel="noopener">项目地址</a>。</p>
+<p>其次是项目中需要配置babel,这里需要讲一下的是项目中使用的是 <code>&quot;babel-core&quot;: &quot;7.0.0-bridge.0&quot;,</code> 此babel与6.X版本冲突，所以 如果使用了其他 配置项的可能需要 这个 <a href="https://github.com/vuejs/vue-cli/issues/1584" target="_blank" rel="noopener">issue</a>。</p>
+<p>在做好了这些之后你只需要在根目录新建一个 <code>test</code> 文件夹并且在其中 <code>unit</code> 文件夹下新建 testName.spec.js 的文件即可开始测试之旅。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://vue-test-utils.vuejs.org/zh/guides/" target="_blank" rel="noopener">https://vue-test-utils.vuejs.org/zh/guides/</a><br><a href="https://vue-test-utils.vuejs.org/zh/guides/" target="_blank" rel="noopener">vue-test-utils</a></p>
+
       
     </div>
     
@@ -386,6 +404,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
       
 
       
@@ -476,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -569,6 +602,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先为什么要写单元测试"><span class="nav-number">1.</span> <span class="nav-text">首先为什么要写单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何写一个单元测试"><span class="nav-number">2.</span> <span class="nav-text">如何写一个单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
