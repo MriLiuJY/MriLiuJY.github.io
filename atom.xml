@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iliujy.top/"/>
-  <updated>2019-09-02T01:08:32.849Z</updated>
+  <updated>2019-11-07T03:45:05.177Z</updated>
   <id>http://iliujy.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每周分享第21期</title>
+    <link href="http://iliujy.top/2019/09/23/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC21%E6%9C%9F/"/>
+    <id>http://iliujy.top/2019/09/23/每周分享第21期/</id>
+    <published>2019-09-23T10:38:58.000Z</published>
+    <updated>2019-11-07T03:45:05.177Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【马云：农村很重要】马云在第七届中国淘宝村高峰论坛上表示，这是我最后一次以阿里巴巴董事长的身份来参加活动，因为我认为农村很重要。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>webassembly： 最近在做 SDK 的 webassembly 的尝试，首先提出并尝试了 使用 assemblyScript 的方式来改造升级我们的代码中 AES 和 RSA 的加密算法。但是最近在尝试中发现 assemblyScript 的语法要求比 TypeScript 高很多。在做技术升级的时候几乎无法做到完全的无痛升级的特点，所以在开发中无奈只能尝试将 js 代码一点点的迁移到 assemblyScript 的要求规则中。但这种成本和解决方法却又与最初选择的另外一条路 使用 Emscripten 编译 c/c++ 的路差不多的付出。选择学习实践新技术的时候往往也还会因为现在的社区的不成熟与干货的缺失造成更高的学习成本。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受</p><p>《天地玄黄》：纪录片，全程没有一句人物对白或旁白在内，但以独特的镜头语言介绍了这个多彩的世界。</p><p>《睡前消息》系列：观视频工作室出品的一款事实新闻评论节目，该节目以独特的角度和丰富的知识内容解读一些新闻中有趣的点，分享不一样的观点。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>每周分享第20期</title>
@@ -131,22 +151,6 @@
     
     
       <category term="前端" scheme="http://iliujy.top/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周分享第21期</title>
-    <link href="http://iliujy.top/2019/05/31/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC21%E6%9C%9F/"/>
-    <id>http://iliujy.top/2019/05/31/每周分享第21期/</id>
-    <published>2019-05-31T10:38:58.000Z</published>
-    <updated>2019-09-02T00:34:51.213Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
