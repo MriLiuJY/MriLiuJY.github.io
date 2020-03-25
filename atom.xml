@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://iliujy.top/"/>
-  <updated>2020-03-10T14:01:07.156Z</updated>
+  <updated>2020-03-25T16:17:45.182Z</updated>
   <id>http://iliujy.top/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为什么我们总说POST比GFET安全</title>
+    <link href="http://iliujy.top/2020/03/25/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E6%80%BB%E8%AF%B4POST%E6%AF%94GFET%E5%AE%89%E5%85%A8/"/>
+    <id>http://iliujy.top/2020/03/25/为什么我们总说POST比GFET安全/</id>
+    <published>2020-03-25T15:20:21.000Z</published>
+    <updated>2020-03-25T16:17:45.182Z</updated>
+    
+    <content type="html"><![CDATA[<p>为什么我们总在说 <code>POST</code> 比 GET 安全，那么到底安全在哪里呢？是只有面试题上洋洋洒洒罗列的那些问题么。</p><a id="more"></a><h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>这个问题的起源是小伙伴在面试的时候问候选人 “ <code>POST</code> 与 <code>GET</code> 的差异，然后提到了 <code>POST</code> 比 <code>GET</code> 安全”，然后前端小组内由 <code>PSOT</code> 比 <code>GET</code> 安全在哪些地方进行了充分的讨论。</p><h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><p>那我们先来看看普通版本的面试题答案，<code>POST</code> 比 <code>GET</code> 的优势：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GET 请求参数是放在 URL 上，有长度的限制，POST 没有</span><br><span class="line">对参数数据类型，GET 只接受 ASCII 字符，而 POST 没有限制</span><br><span class="line">GET 请求会被浏览器缓存造成意外的问题，而 POST 除非手动设置否则不会</span><br><span class="line">GET 请求重放的时候不会对用户进行提示，POST 会弹窗提示，</span><br><span class="line">POST 会比 GET 请求安全，因为在参数在 body 中而不是 URL 上...</span><br></pre></td></tr></table></figure><p>首先我们来看，到底为什么 <code>POST</code> 会比 <code>GET</code> 安全。</p><p>首先我们来看一个场景，萌新入职第一天愉快的登陆了 <strong>A网站</strong> 完成了注册登陆大礼包。<br>这时候老司机想看看萌新的安全意识直接丢了一个神秘链接给萌新，萌新开心的打开，突然发现页面 <code>CSRF</code> 四个大字在页面上。<br>萌新一脸无辜赶紧请教老司机，老司机不疾不徐的道来： “刚你在 <strong>A网站</strong>进行了登陆，这个时候服务端会给你设置一个cookie，这里cookie会存在浏览器本地，在有效期内同源的请求都会默认携带上这个cookie。我就是利用了这一点对你完成了 CSRF 的跨站脚本攻击”。</p><p>“可是什么究竟什么是跨站脚本攻击呢？”</p><p>CSRF（Cross-site request forgery）跨站请求伪造：即为在第三方网站中，向被攻击网站发送跨站请求。利用浏览本地存储的被攻击网站的cookie，绕过服务端的验证，达到冒充用户的目的。</p><p>“那么 CSRF 与 POST 更安全有什么关系呢？”</p><p>谈到为什么 POST 相较 GET 更安全那我们就要看 POST 与 GET 的区别了。</p><p>首先 GET 请求发送没有同源策略的限制</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为什么我们总在说 &lt;code&gt;POST&lt;/code&gt; 比 GET 安全，那么到底安全在哪里呢？是只有面试题上洋洋洒洒罗列的那些问题么。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://iliujy.top/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>每周分享第22期</title>
@@ -380,26 +400,6 @@
     <updated>2019-03-22T05:39:43.469Z</updated>
     
     <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【10%中干去职：腾讯掀起史上最大一轮管理干部裁撤】数名消息人士证实，作为公司历史上第三次组织架构调整的后续动作之一，2018年12月内部员工大会后，腾讯开始裁撤一批中层干部。腾讯中干主要包括助理总经理、副总经理、总经理级别，有时一些副总裁也被认为在中干范围内。整个腾讯大概有两百多名中干，此轮调整比例约为10%，有战略发展部的腾讯员工认为，实际甚至超过了这个比例。</p><p>【京东要求梳理亲属同学关系】今日京东员工爆料称，京东要求员工梳理亲属同学关系，具体包括：1.配偶：包含情侣及订婚关系；2.直系血亲；3.三代以内旁系血亲及配偶关系；4.近姻亲关系；5.自小学起同学。  – 树欲静而风不止</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p><a href="https://mp.weixin.qq.com/s/5zx3ap6GtSEHx4bVRNuVnQ" target="_blank" rel="noopener">没有JS的前端：体积更小、速度更快！</a> 该文以用户场景出发，详细的讲述了现代 <code>javaScript</code> 应用的一些痛点。其中有个观点很有意思，在如今前端越来越流行的情况下，<code>javaScript</code> 语言被使用在多种场景下进行开发，现在很多时候人们都是用 kb 、mb 来评价 <code>javaScript</code> 文件的大小，却忘了这同样需要使用 cpu 的计算资源来完成解析和执行，而 <code>javaScript</code> 即使在有 <code>JWT</code> 的情况下同样是一个执行速度很慢的语言。</p><p><a href="https://mp.weixin.qq.com/s/uKAIqrnjZ75_Mbsm_ArUVg" target="_blank" rel="noopener">5款小程序框架全面测评</a> 本文来自腾讯凹凸实验室，在当今小程序开发的势头之下兴起的是跨平台开发，及一款 ui 和代码在框架的打包之下可以兼容多个平台。文本分享了五种不同类型的小程序框架的特点和排名。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>市盈利率（PE）</strong>：市盈率（Price earnings ratio，即P/E ratio）也称“本益比”、“股价收益比率”或“市价盈利比率（简称市盈率）”。市盈率是最常用来评估股价水平是否合理的指标之一，由股价除以年度每股盈余（EPS）得出（以公司市值除以年度股东应占溢利亦可得出相同结果）。计算时，股价通常取最新收盘价，而EPS方面，若按已公布的上年度EPS计算，称为历史市盈率（historical P/E）；计算预估市盈率所用的EPS预估值，一般采用市场平均预估（consensus estimates），即追踪公司业绩的机构收集多位分析师的预测所得到的预估平均值或中值。何谓合理的市盈率没有一定的准则。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《一个明星的诞生》：百年IP下讲述的不仅仅是格莱美音乐路上的艰难坎坷，真正用心的人反而江河日下的浮躁乐坛，真的是有离开了才会开始懂得珍惜么。（Lady Gaga真的是跨界小能手）</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p><a href="https://wallstreetcn.com/" target="_blank" rel="noopener">华尔街见闻</a> 是一个专注投资市场的咨询分享平台，其中不乏有很多有价值的投资观点，但更多的是能帮助你实时的获取一些最新的投资消息。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎&lt;a href=&quot;https://github.com/MriLiuJY/MriLiuJY.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;投稿&lt;/a&gt;提交Issue。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="分享" scheme="http://iliujy.top/tags/%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>每周分享第14期</title>
-    <link href="http://iliujy.top/2019/03/10/%E6%AF%8F%E5%91%A8%E5%88%86%E4%BA%AB%E7%AC%AC14%E6%9C%9F/"/>
-    <id>http://iliujy.top/2019/03/10/每周分享第14期/</id>
-    <published>2019-03-10T13:48:53.000Z</published>
-    <updated>2019-03-19T03:50:34.080Z</updated>
-    
-    <content type="html"><![CDATA[<p>这里记录过去一周，我看到的值得分享的东西。每周不定期发布。欢迎<a href="https://github.com/MriLiuJY/MriLiuJY.github.io" target="_blank" rel="noopener">投稿</a>提交Issue。</p><a id="more"></a><h1 id="新闻"><a href="#新闻" class="headerlink" title="新闻"></a>新闻</h1><p>【欧洲航空安全局:对波音737MAX客机实施欧洲“禁飞令”】受埃塞俄比亚坠机事故影响,欧洲航空安全局12日宣布,对波音737MAX客机实施欧洲禁飞令。此前英国、法国和德国等欧洲国家及印度等已先后禁止该型号飞机进入空域。</p><p>在中国对波音737MAX禁飞后全球20个国家或地区也对 波音737MAX 实施禁飞，起追究于近期一架刚交付4个月的新机在津巴布韦坠毁 机上157人全部遇难，这是波音737MAX新机5个月内第二次坠机。</p><h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><p>Node 基金会在 medium 上宣布，Node.js 基金会和 JS 基金会正式合并为 OpenJS 基金会，这个新合并的基金覆盖的项目将更加广泛，有助于加速 JavaScript 和生态系统关键项目的开发与发展。</p><h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>jsonp是通过插入一个 script 标签，利用 <code>&lt;script&gt;</code> 可以跨域请求来实现的。然后将 src 设置为目标请求，插入到 dom 中，服务器接受该请求并返回数据，数据通常被包裹在回调钩子中。<br>优点：可以实现跨域、对低版本浏览器支持很好。<br>缺点：错误时无法获取错误状态码、IE8以下没有onerror事件、没有post请求。</p><h1 id="经济"><a href="#经济" class="headerlink" title="经济"></a>经济</h1><p>【中国央行：金融供给侧改革要把重点放在疏通货币政策传导机制和效果上】央行指出，金融与实体经济是血脉相连的关系，服务实体经济是我们的天职。从人民银行、外汇局系统履行职责的角度，当前深化金融供给侧结构性改革，一定要把重点放在着力疏通货币政策传导机制和效果上，把稳健的货币政策落到实处</p><p>【央行官员：2019年仍可能处于金融风险易发高发期】央行金融稳定局局长王景武称，一些领域的“灰犀牛”风险仍然存在。地方政府隐性债务存量规模大，债券市场违约风险上升，房地产市场风险可能在某些局部显现，可能传导至金融机构。重点存量风险依然突出</p><blockquote><p>“灰犀牛”是与“黑天鹅”相互补足的概念，“灰犀牛事件”是太过于常见以至于人们习以为常的风险，“黑天鹅事件”则是极其罕见的、出乎人们意料的风险。</p></blockquote><p>【中日两大债主发力增持未扫清抛压 1月海外投资者连续三月抛售美债】1月中国的美债持仓为三个月来最高，去年12月为七个月来首次增持；日本连续三月增持，1月增持规模接近12月五倍。1月美国第三大海外债主巴西五个月首度增持，沙特持仓创八个月新低。</p><h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p><strong>资产配置</strong>是指因应投资者个别的情况和投资目标，把投资分配在不同种类的资产上，如：股票、债券、房地产及现金等，在获取理想回报之余，把风险减至最低。总括而言，资产配置为一理财概念，投资者根据其投资计划的时限及可承受的风险，来配置资产组合。资产配置可以应用于任何拥有两只以上股票的投资组合内，唯较常用于资产类别的层面。不同类别的资产在市场上的运作也有所不同，所以其回报和所涉及的风险亦各有不同。</p><p><strong>沉没成本：</strong> 或称沉淀成本或既定成本，是经济学和商业决策制定过程中，会用到的概念，代指已经付出且不可收回的成本。沉没成本常用来和可变成本（Prospective costs）作比较，可变成本可以被改变，而沉没成本则不能被改变。在微观经济学理论中，做决策时仅需要考虑可变成本。如果同时考虑到沉没成本（这被微观经济学理论认为是错误的来源请求），那结论就不是纯粹基于事物的价值作出的。</p><h1 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h1><p>这里分享本周我看的一些电影/书籍和一些感受。</p><p>《逃出克隆岛》：如何才能证明你就是你自己以及人类为了永生会做出怎样的事。</p><p>《天下无贼》：生活要求他必须聪明起来，做为一个人，你不让他知道生活的真想，那就是欺骗</p><p>一般般推荐系列：《时间简史》</p><h1 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h1><p>当秩序成了混乱的时候，就不得不用混乱来维持秩序，拯救法律了。――罗曼·罗兰</p>]]></content>
     
     <summary type="html">
     
