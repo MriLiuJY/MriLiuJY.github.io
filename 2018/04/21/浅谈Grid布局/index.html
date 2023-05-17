@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS,Grid," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="键盘下的Sao想法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
+<meta name="keywords" content="CSS,Grid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Grid布局">
+<meta property="og:url" content="http://iliujy.top/2018/04/21/浅谈Grid布局/index.html">
+<meta property="og:site_name" content="键盘下的Sao想法">
+<meta property="og:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-25T01:56:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈Grid布局">
+<meta name="twitter:description" content="CSS Grid布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&amp;gt;float-&amp;gt;position-&amp;gt;flex的经历。而是直接带我们进入了网格的布局的时代。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iliujy.top/2018/04/21/浅谈Grid布局/"/>
+
+
+
+
+
+  <title>浅谈Grid布局 | 键盘下的Sao想法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?892b5adf865a95799f76163fee705024";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">键盘下的Sao想法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">曾在这里写下迷茫中的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/21/浅谈Grid布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JYkid">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="键盘下的Sao想法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈Grid布局</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T11:05:49+08:00">
+                2018-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/21/浅谈Grid布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/21/浅谈Grid布局/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout" target="_blank" rel="noopener">CSS Grid</a>布局一个基于网格的二维布局系统，Grid布局是web的第一个真正的布局系统。他的目的是将内容组织成行列的形式。他的出现彻底终结了web开发从蛮荒时代的table-&gt;float-&gt;position-&gt;flex的经历。而是直接带我们进入了网格的布局的时代。</p>
+<a id="more"></a>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>Grid布局在各个浏览器的最新版兼容性已经做的非常好了，但是如果你需要兼容低版本的浏览器，还需要慎重的使用。网上对网格布局的概述已经足够多了，所以本文直接从Grid布局的用法与属性来介绍了。</p>
+<h2 id="启用网格布局"><a href="#启用网格布局" class="headerlink" title="启用网格布局"></a>启用网格布局</h2><p>首先我们使用<strong>display</strong>的属性来定义一个网格容器，他的grid值决定了容器展现是块级还是内联。一旦启用网格容器，它的所有子元素都进入grid文档流，称为网格子项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: grid | inline-grid | subgrid</span><br></pre></td></tr></table></figure>
+<ul>
+<li>grid 定义一个块级的网格容器。</li>
+<li>inline-grid 定义一个内联网格容器。</li>
+<li>subgrid 定义一个继承其父级网格容器的行和列的大小的网格容器，它是其父级网格容器的一个子项。</li>
+</ul>
+<p>在设置了grid布局之后，<strong>column, float, clear和vertical-align</strong> 对网格容器没有效果。</p>
+<h2 id="grid-template-columns-grid-template-rows"><a href="#grid-template-columns-grid-template-rows" class="headerlink" title="grid-template-columns / grid-template-rows"></a>grid-template-columns / grid-template-rows</h2><p>grid-template-columns用来设置网格列的名称和宽度。grid-template-rows用来设置网格行的名称和高度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-template-columns: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... ;</span><br><span class="line">grid-template-rows:    &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ... ;</span><br></pre></td></tr></table></figure>
+<p>属性：</p>
+<blockquote>
+<p>track-size: 非负的值，可以使用css长度单位或者百分比。当设置为auto时会根据空间自动分配。<br>line-name: 网格线的名字，可以是任意的名字。</p>
+</blockquote>
+<p>使用fr单位可以将容器分成几等份，如果与px或者%混用的话则会平分剩下的空间，栗子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 1fr 1fr 1fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义的宽度如果包含重复的部分则可以使用repeat()来重复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: repeat(3, 20px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码会重复3个20px的列，repeat同样也可以用在grid-template-rows上。</p>
+<h2 id="grid-column-gap-grid-row-gap"><a href="#grid-column-gap-grid-row-gap" class="headerlink" title="grid-column-gap / grid-row-gap"></a>grid-column-gap / grid-row-gap</h2><p>用来控制单元格的间距, 间距仅设置在单元格之间不作用在容器的边缘。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">  display:grid;</span><br><span class="line">  grid-template-columns: 100px 50px 100px;</span><br><span class="line">  grid-template-rows: 80px auto 80px; </span><br><span class="line">  grid-column-gap: 10px;</span><br><span class="line">  grid-row-gap: 15px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="justify-items-align-items"><a href="#justify-items-align-items" class="headerlink" title="justify-items / align-items"></a>justify-items / align-items</h2><p>justify-items垂直与<strong>列</strong>网格线对齐，适用于网格容器里面所有网格项。<br>align-items垂直与<strong>行</strong>网格线对齐，适用于网格容器里面所有网格项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start:   左对齐。 / 顶部对齐</span><br><span class="line">end:     右对齐。 / 底部对齐</span><br><span class="line">center:  居中对齐。 / 居中对齐</span><br><span class="line">stretch: 填满（默认） / 填满（默认）</span><br></pre></td></tr></table></figure>
+<h2 id="justify-content-align-content"><a href="#justify-content-align-content" class="headerlink" title="justify-content / align-content"></a>justify-content / align-content</h2><p>如果使用的是px这样的单位的话，总的网格区域可能小于网格容器，这个时候justify-content可以设置网格区域的对齐方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start:         左对齐。</span><br><span class="line">end:           右对齐。</span><br><span class="line">center:        居中对齐。</span><br><span class="line">stretch:       填满网格容器。</span><br><span class="line">space-around:  网格项两边间距相等，网格项之间间隔是单侧的2倍。</span><br><span class="line">space-between: 两边对齐，网格项之间间隔相等。</span><br><span class="line">space-evenly:  网格项间隔相等。</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>hi you can see me</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechartpay.png" alt="JYkid 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpg" alt="JYkid 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/Grid/" rel="tag"># Grid</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/20/前端资源分享/" rel="next" title="前端资源分享">
+                <i class="fa fa-chevron-left"></i> 前端资源分享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/22/export与export-default/" rel="prev" title="export与export default">
+                export与export default <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar.jpg"
+                alt="JYkid" />
+            
+              <p class="site-author-name" itemprop="name">JYkid</p>
+              <p class="site-description motion-element" itemprop="description">有时正是无人看好之人，所成无人能及之事</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MriLiuJY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-Github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode-cn.com/mriliujy/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-Leetcode"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.yuque.com/lucienstar/mwvbem" title="大儿子" target="_blank">大儿子</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用网格布局"><span class="nav-number">2.</span> <span class="nav-text">启用网格布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-template-columns-grid-template-rows"><span class="nav-number">3.</span> <span class="nav-text">grid-template-columns / grid-template-rows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-column-gap-grid-row-gap"><span class="nav-number">4.</span> <span class="nav-text">grid-column-gap / grid-row-gap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-items-align-items"><span class="nav-number">5.</span> <span class="nav-text">justify-items / align-items</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#justify-content-align-content"><span class="nav-number">6.</span> <span class="nav-text">justify-content / align-content</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JYkid</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://iliujy.top/2018/04/21/浅谈Grid布局/';
+          this.page.identifier = '2018/04/21/浅谈Grid布局/';
+          this.page.title = '浅谈Grid布局';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

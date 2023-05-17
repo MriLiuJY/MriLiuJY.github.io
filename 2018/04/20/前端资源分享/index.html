@@ -1,0 +1,2143 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="键盘下的Sao想法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="最近在Segmentfault上看到一篇关于前端学习资源分享的文章，看了一下感觉还算很全面就从Github上搬运了过来。">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端资源分享">
+<meta property="og:url" content="http://iliujy.top/2018/04/20/前端资源分享/index.html">
+<meta property="og:site_name" content="键盘下的Sao想法">
+<meta property="og:description" content="最近在Segmentfault上看到一篇关于前端学习资源分享的文章，看了一下感觉还算很全面就从Github上搬运了过来。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-20T02:22:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端资源分享">
+<meta name="twitter:description" content="最近在Segmentfault上看到一篇关于前端学习资源分享的文章，看了一下感觉还算很全面就从Github上搬运了过来。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iliujy.top/2018/04/20/前端资源分享/"/>
+
+
+
+
+
+  <title>前端资源分享 | 键盘下的Sao想法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?892b5adf865a95799f76163fee705024";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">键盘下的Sao想法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">曾在这里写下迷茫中的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/04/20/前端资源分享/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JYkid">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="键盘下的Sao想法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端资源分享</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T10:10:46+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/20/前端资源分享/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/20/前端资源分享/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在<a href="https://segmentfault.com/a/1190000014297702" target="_blank" rel="noopener">Segmentfault</a>上看到一篇关于前端学习资源分享的文章，看了一下感觉还算很全面就从<a href="https://github.com/WEBING123/Front-end-resources" target="_blank" rel="noopener">Github</a>上搬运了过来。</p>
+<a id="more"></a>
+<h1 id="Front-end-resources"><a href="#Front-end-resources" class="headerlink" title="Front-end-resources"></a>Front-end-resources</h1><h2 id="一、团队组织"><a href="#一、团队组织" class="headerlink" title="一、团队组织"></a>一、团队组织</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.alloyteam.com/" target="_blank" rel="noopener">腾讯 AlloyTeam 团队</a></td>
+<td>腾讯Web前端团队，代表作品WebQQ，致力于前端技术的研究</td>
+</tr>
+<tr>
+<td><a href="https://isux.tencent.com/" target="_blank" rel="noopener">ISUX</a></td>
+<td>腾讯社交用户体验设计，简称ISUX，腾讯设计团队网站</td>
+</tr>
+<tr>
+<td><a href="http://cdc.tencent.com/" target="_blank" rel="noopener">CDC</a></td>
+<td>腾讯用户研究与体验设计部</td>
+</tr>
+<tr>
+<td><a href="http://fex.baidu.com/" target="_blank" rel="noopener">FEX</a></td>
+<td>百度Web前端研发部出品</td>
+</tr>
+<tr>
+<td><a href="http://taobaofed.org/" target="_blank" rel="noopener">淘宝前端团队（FED）</a></td>
+<td>用技术为体验提供无限可能</td>
+</tr>
+<tr>
+<td><a href="https://aotu.io/" target="_blank" rel="noopener">凹凸实验室</a></td>
+<td>京东用户体验设计部出品</td>
+</tr>
+<tr>
+<td><a href="https://75team.com/" target="_blank" rel="noopener">奇舞团</a></td>
+<td>奇虎360旗下前端开发团队出品</td>
+</tr>
+<tr>
+<td><a href="http://www.aliued.com/" target="_blank" rel="noopener">阿里巴巴国际UED团队</a></td>
+<td>在更新的屏幕里创造出更好的产品和更优的体验</td>
+</tr>
+<tr>
+<td><a href="http://efe.baidu.com/" target="_blank" rel="noopener">EFE</a></td>
+<td>由百度多个遵循统一技术体系的前端团队所组成</td>
+</tr>
+<tr>
+<td><a href="http://ued.baidu.com/" target="_blank" rel="noopener">UXC</a></td>
+<td>覆盖了百度85%以上的产品体验设计</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二、开发社区"><a href="#二、开发社区" class="headerlink" title="二、开发社区"></a>二、开发社区</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://stackoverflow.com/" target="_blank" rel="noopener">StackOverflow</a></td>
+<td>加入世界上最大的开发者社区</td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/" target="_blank" rel="noopener">SegmentFault</a></td>
+<td>中文领域最大的技术问答交流社区平台</td>
+</tr>
+<tr>
+<td><a href="http://www.zhihu.com/" target="_blank" rel="noopener">知乎</a></td>
+<td>中文互联网最大的知识分享和社交平台</td>
+</tr>
+<tr>
+<td><a href="http://www.oschina.net/" target="_blank" rel="noopener">开源中国</a></td>
+<td>目前国内最大的开源技术社区</td>
+</tr>
+<tr>
+<td><a href="https://www.w3ctech.com/" target="_blank" rel="noopener">w3ctech</a></td>
+<td>中国最大的前端技术社区</td>
+</tr>
+<tr>
+<td><a href="https://juejin.im/" target="_blank" rel="noopener">掘金</a></td>
+<td>一个帮助开发者成长的社区</td>
+</tr>
+<tr>
+<td><a href="https://www.v2ex.com/" target="_blank" rel="noopener">V2EX</a></td>
+<td>创意工作者们的社区</td>
+</tr>
+<tr>
+<td><a href="https://www.cnblogs.com/" target="_blank" rel="noopener">博客园</a></td>
+<td>一个面向开发者的知识分享社区</td>
+</tr>
+<tr>
+<td><a href="https://cnodejs.org/" target="_blank" rel="noopener">CNode</a></td>
+<td>国内最大最具影响力的 Node.js 开源技术社区</td>
+</tr>
+<tr>
+<td><a href="https://ruby-china.org/" target="_blank" rel="noopener">Ruby China</a></td>
+<td>由众多爱好者共同维护的 Ruby 中文社区</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三、前端门户"><a href="#三、前端门户" class="headerlink" title="三、前端门户"></a>三、前端门户</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.qdfuns.com/" target="_blank" rel="noopener">前端网</a></td>
+<td>一个专注于Web前端开发行业的综合性门户网站</td>
+</tr>
+<tr>
+<td><a href="http://www.daqianduan.com/" target="_blank" rel="noopener">大前端</a></td>
+<td>一个集前端开发和Wordpress内容为一体的双轨独立网站</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四、前端大牛"><a href="#四、前端大牛" class="headerlink" title="四、前端大牛"></a>四、前端大牛</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.alloyteam.com/" target="_blank" rel="noopener">AlloyTeam</a></td>
+<td>腾讯Web前端团队</td>
+</tr>
+<tr>
+<td><a href="http://taobaofed.org/" target="_blank" rel="noopener">taobaofed</a></td>
+<td>淘宝前端团队（FED）</td>
+</tr>
+<tr>
+<td><a href="https://alinode.aliyun.com/blog" target="_blank" rel="noopener">alinode团队博客</a></td>
+<td>基于 Node 运行时的应用性能管理解决方案</td>
+</tr>
+<tr>
+<td><a href="http://www.zhangxinxu.com/" target="_blank" rel="noopener">鑫空间-鑫生活</a></td>
+<td><strong>张鑫旭</strong>,上海阅文信息技术有限公司用户体验设计师</td>
+</tr>
+<tr>
+<td><a href="https://www.liaoxuefeng.com/" target="_blank" rel="noopener">廖雪峰的官方网站</a></td>
+<td><strong>廖雪峰</strong>，著有《Spring 2.0核心技术与最佳实践》一书。</td>
+</tr>
+<tr>
+<td><a href="http://www.ruanyifeng.com/home.html" target="_blank" rel="noopener">阮一峰的个人网站</a></td>
+<td><strong>阮一峰</strong>,2014年出版《ECMAScript 6入门》</td>
+</tr>
+<tr>
+<td><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/" target="_blank" rel="noopener">JavaScript 秘密花园</a></td>
+<td><strong>三生石上</strong></td>
+</tr>
+<tr>
+<td><a href="http://jiongks.name/" target="_blank" rel="noopener">囧克斯</a></td>
+<td>勾三股四</td>
+</tr>
+<tr>
+<td><a href="https://www.w3cplus.com/" target="_blank" rel="noopener">w3cplus</a></td>
+<td><strong>大漠</strong>，就职淘宝，CSS3、CSS处理器和Drupal中国布道者。2014年出版《图解CSS3：核心技术与案例实战》。</td>
+</tr>
+<tr>
+<td><a href="https://coolshell.cn/" target="_blank" rel="noopener">酷 壳 – COOLSHELL</a></td>
+<td><strong>陈皓</strong>，就职经历Amazon中国任研发经理；阿里北京研发中心、商家业务部资深专家；阿里核心系统和阿里云ECS相关的虚拟化平台的开发工作。</td>
+</tr>
+<tr>
+<td><a href="http://html5ify.com/" target="_blank" rel="noopener">html5ify</a></td>
+<td><strong>朴灵</strong>，阿里数据产品部资深工程师。致力前端、数据可视化、Node等领域</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/rubylouvre" target="_blank" rel="noopener">Ruby’s Louvre</a></td>
+<td><strong>钟钦成</strong>,网名<strong>司徒正美</strong>,著名的JavaScript专家,去哪儿网前端架构师</td>
+</tr>
+<tr>
+<td><a href="http://blog.cssforest.org/" target="_blank" rel="noopener">CSS森林</a></td>
+<td><strong>GhostZhang</strong>,微信支付设计中心，负责重构前端团队的管理工作。</td>
+</tr>
+<tr>
+<td><a href="http://www.99css.com/" target="_blank" rel="noopener">99css</a></td>
+<td><strong>ytzong</strong>,就职经历139 邮箱前端工程师；腾讯 ISUX 前端工程师； iOS 独立开发者</td>
+</tr>
+<tr>
+<td><a href="https://s5s5.me/" target="_blank" rel="noopener">[米随随] s5s5</a></td>
+<td><strong>刘小超</strong>，现在就职于 Tencent ISUX ，岗位 UI Engineer，主要从事UI开发方面工作。</td>
+</tr>
+<tr>
+<td><a href="https://www.barretlee.com/" target="_blank" rel="noopener">小胡子哥的个人网站</a></td>
+<td><strong>Barret李靖</strong>，阿里巴巴职员</td>
+</tr>
+<tr>
+<td><a href="https://imququ.com/" target="_blank" rel="noopener">Jerry Qu</a></td>
+<td><strong>屈光宇</strong>，奇虎 360，前端开发</td>
+</tr>
+<tr>
+<td><a href="http://evilcos.me/" target="_blank" rel="noopener">EVILCOS</a></td>
+<td><strong>余弦</strong>，知道创宇</td>
+</tr>
+<tr>
+<td><a href="http://www.css88.com/" target="_blank" rel="noopener">WEB前端开发</a></td>
+<td><strong>愚人码头</strong>，内容涵盖Web前端开发原创教程、技术中文文档、前端工具、资源分享、疑难解答、最新技术、招聘信息等</td>
+</tr>
+<tr>
+<td><a href="http://www.jobbole.com/" target="_blank" rel="noopener">伯乐在线</a></td>
+<td><strong>黄余粮</strong>，<strong>黄利民</strong></td>
+</tr>
+<tr>
+<td><a href="https://aimingoo.github.io/" target="_blank" rel="noopener">Aimingoo’s Blog</a></td>
+<td><strong>周爱民</strong>，一名程序员、架构师，就职物联网公司（ruff.io）</td>
+</tr>
+<tr>
+<td><a href="http://justjavac.com/" target="_blank" rel="noopener">justjavac(迷渡)</a></td>
+<td>justjavac，天津维基科技有限公司研发工程师</td>
+</tr>
+<tr>
+<td><a href="http://beforweb.com/" target="_blank" rel="noopener">Be For Web</a></td>
+<td>C7210，交互设计师、UX热爱者、译者</td>
+</tr>
+<tr>
+<td><a href="http://jinlong.github.io/" target="_blank" rel="noopener">Alon’s Blog</a></td>
+<td>Alon Zhang，互联网资讯博主</td>
+</tr>
+<tr>
+<td><a href="http://www.qiqiboy.com/" target="_blank" rel="noopener">I’m qiqiboy!</a></td>
+<td>qiqiboy，wordpress开发、web前端</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五、活跃微博"><a href="#五、活跃微博" class="headerlink" title="五、活跃微博"></a>五、活跃微博</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://weibo.com/xitucircle" target="_blank" rel="noopener">掘金技术社区</a></td>
+<td>挖掘最优质的互联网技术</td>
+</tr>
+<tr>
+<td><a href="https://weibo.com/w3cchina?is_hot=1" target="_blank" rel="noopener">w3c中国</a></td>
+<td>万维网联盟中国办事处官方微博</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六、书籍推荐"><a href="#六、书籍推荐" class="headerlink" title="六、书籍推荐"></a>六、书籍推荐</h2><table>
+<thead>
+<tr>
+<th>书籍</th>
+<th>作者</th>
+<th>译者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《Web标准设计》</td>
+<td>刘杰（嗷嗷）</td>
+</tr>
+<tr>
+<td>《大巧不工 Web前端设计修炼之道》</td>
+<td>赖定清 / 林坚 </td>
+</tr>
+<tr>
+<td>《高性能网站建设指南 前端工程师技能精髓》</td>
+<td>Steve Souders</td>
+<td>刘彦博</td>
+</tr>
+<tr>
+<td>《高性能网站建设进阶指南 Web开发者性能优化最佳实践》</td>
+<td>Steve Souders</td>
+<td>口碑网前端团队 </td>
+</tr>
+<tr>
+<td>《Web站点优化》</td>
+<td>金</td>
+</tr>
+<tr>
+<td>《Node.js开发指南》</td>
+<td>郭家寶（BYVoid）</td>
+</tr>
+<tr>
+<td>《JavaScript高级程序设计（第3版）》</td>
+<td>[美] 尼古拉斯·泽卡斯</td>
+<td>李松峰 / 曹力 </td>
+</tr>
+<tr>
+<td>《JavaScript权威指南》</td>
+<td>弗拉纳根</td>
+<td>李强</td>
+</tr>
+<tr>
+<td>《JavaScript语言精粹》</td>
+<td>Douglas Crockford</td>
+<td>赵泽欣/ 鄢学鹍 </td>
+</tr>
+<tr>
+<td>《深入浅出Node.js》</td>
+<td>朴灵</td>
+</tr>
+<tr>
+<td>《CSS开发王》</td>
+<td>张亚飞</td>
+</tr>
+<tr>
+<td>《JavaScript DOM编程艺术 （第2版）》</td>
+<td>[英] Jeremy Keith / [加] Jeffrey Sambells</td>
+<td>杨涛 / 王建桥 / 杨晓云 等</td>
+</tr>
+</tbody>
+</table>
+<h2 id="七、前端教程"><a href="#七、前端教程" class="headerlink" title="七、前端教程"></a>七、前端教程</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.chinaw3c.org/" target="_blank" rel="noopener">W3C中国</a></td>
+<td>Web技术领域最具权威和影响力的国际中立性技术标准机构</td>
+</tr>
+<tr>
+<td><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web 文档</a></td>
+<td>学习 Web 开发的最佳实践</td>
+</tr>
+<tr>
+<td><a href="https://www.w3cschool.cn/" target="_blank" rel="noopener">w3cschool</a></td>
+<td>学编程，从w3cschool开始</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/zh-cn/library/aa155073.aspx" target="_blank" rel="noopener">Microsoft Web 开发</a></td>
+<td>Developer Network</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八、HTML-5"><a href="#八、HTML-5" class="headerlink" title="八、HTML(5)"></a>八、HTML(5)</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML" target="_blank" rel="noopener">HTML(超文本标记语言)MDN</a></td>
+<td>MDN Web 文档</td>
+</tr>
+<tr>
+<td><a href="http://tgideas.qq.com/webplat/info/news_version3/804/7104/7106/m5723/201506/354489.shtml" target="_blank" rel="noopener">后HTML5时代Ⅰ</a></td>
+<td>TGideas 万技师</td>
+</tr>
+<tr>
+<td><a href="http://tgideas.qq.com/webplat/info/news_version3/804/7104/7106/m5723/201506/355023.shtml" target="_blank" rel="noopener">后HTML5时代Ⅱ</a></td>
+<td>TGideas 鬼爪手</td>
+</tr>
+<tr>
+<td><a href="https://zhuanlan.zhihu.com/linshuai?topic=HTML5" target="_blank" rel="noopener">HTML5 进阶系列</a></td>
+<td>爱前端 林鑫</td>
+</tr>
+<tr>
+<td><a href="http://geek.csdn.net/news/detail/209887" target="_blank" rel="noopener">匠心打造canvas签名组件</a></td>
+<td>翟灿东，网名路易斯，平安健康前端工程师。</td>
+</tr>
+<tr>
+<td><a href="https://www.zhihu.com/question/24398907" target="_blank" rel="noopener">HTML5 有哪些让你惊艳的 demo？</a></td>
+<td>知乎 关注者 8K</td>
+</tr>
+<tr>
+<td><a href="http://supperjet.github.io/tags/canvas/" target="_blank" rel="noopener">一只会飞的鱼</a></td>
+<td>每周一点canvas动画</td>
+</tr>
+</tbody>
+</table>
+<h2 id="九、CSS-3"><a href="#九、CSS-3" class="headerlink" title="九、CSS(3)"></a>九、CSS(3)</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://tympanus.net/codrops/css_reference/" target="_blank" rel="noopener">CSS Reference</a></td>
+<td>从基础知识中学习CSS的所有重要属性</td>
+</tr>
+<tr>
+<td><a href="https://zhuanlan.zhihu.com/c_29157201?topic=CSS" target="_blank" rel="noopener">You Don’t Know CSS</a></td>
+<td>杨健</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http://www.cnblogs.com/zhuzhenwei918/p/6120294.html" target="_blank" rel="noopener">强大的css3</a></td>
+<td>Wayne Zhu</td>
+</tr>
+<tr>
+<td><a href="https://www.ibm.com/developerworks/cn/web/1202_zhouxiang_css3/" target="_blank" rel="noopener">深入了解 CSS3 新特性</a></td>
+<td>周 翔</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="noopener">Flex 布局教程：实例篇</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/nzbin/archive/2017/08/06/7073601.html" target="_blank" rel="noopener">如何编写轻量级 CSS 框架</a></td>
+<td>叙帝利</td>
+</tr>
+<tr>
+<td><a href="https://github.com/AllThingsSmitty/css-protips/tree/master/translations/zh-CN#table-of-contents" target="_blank" rel="noopener">CSS 专业技巧</a></td>
+<td>一个帮你提升 CSS 技巧的收藏集</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/aaronjs/p/4744014.html" target="_blank" rel="noopener">CSS3技术-雪碧图自适应缩放与精灵动画方案</a></td>
+<td>慕课网 艾伦 Aaron</td>
+</tr>
+<tr>
+<td><a href="http://imweb.io/topic/5643850eed18cc424277050e" target="_blank" rel="noopener">搞定这些疑难杂症，向css3动画说yes</a></td>
+<td>IMWeb 结一 </td>
+</tr>
+<tr>
+<td><a href="http://yincheng.site/using-html-css-instead-of-js" target="_blank" rel="noopener">Effective前端1：能使用html/css解决的问题就不要使用JS</a></td>
+<td>会编程的银猪</td>
+</tr>
+<tr>
+<td><a href="http://www.imweb.io/topic/55e32fd5771670e207a16bb9" target="_blank" rel="noopener">前端如何呼风唤雨</a></td>
+<td>IMWeb coverguo</td>
+</tr>
+<tr>
+<td><a href="https://juejin.im/post/591873170ce4630069f3013d" target="_blank" rel="noopener">默认的checkbox、input、radio太丑了？我来教你改变使用纯css3改写的带动画的默认样式</a></td>
+<td>掘金 sunshine小小倩</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/xiaoloulan/p/5801663.html" target="_blank" rel="noopener">CSS性能分析，如何优化CSS提高性能</a></td>
+<td>博客园 楼兰小骑士</td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000011354975" target="_blank" rel="noopener">CSS 黑魔法小技巧，让你少写不必要的JS，代码更优雅</a></td>
+<td>思否 微醺岁月</td>
+</tr>
+<tr>
+<td><a href="https://css-tricks.com/examples/ShapesOfCSS/" target="_blank" rel="noopener">CSS-Tricks</a></td>
+<td>The Shapes of CSS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十、ECMAScript"><a href="#十、ECMAScript" class="headerlink" title="十、ECMAScript"></a>十、ECMAScript</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://leanpub.com/understandinges6/read" target="_blank" rel="noopener">Understanding ECMAScript 6</a></td>
+<td>Nicholas C. Zakas</td>
+</tr>
+<tr>
+<td><a href="http://es6-org.github.io/exploring-es6/" target="_blank" rel="noopener">探索 ES6</a></td>
+<td>翻译自《 Exploring ES6 》</td>
+</tr>
+<tr>
+<td><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6 入门</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://yanhaijing.com/es5/#about" target="_blank" rel="noopener">ES5合集</a></td>
+<td>颜海镜</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http://taobaofed.org/blog/2016/07/22/es6-basics/" target="_blank" rel="noopener">ES6 你可能不知道的事 - 基础篇</a></td>
+<td>化辰，淘宝前端团队（FED）</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http://taobaofed.org/blog/2016/11/03/es6-advanced/" target="_blank" rel="noopener">ES6 你可能不知道的事 - 进阶篇</a></td>
+<td>化辰，淘宝前端团队（FED）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十一、JavaScript"><a href="#十一、JavaScript" class="headerlink" title="十一、JavaScript"></a>十一、JavaScript</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://javascript.ruanyifeng.com/" target="_blank" rel="noopener">JavaScript 标准参考教程（alpha）</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://bonsaiden.github.io/JavaScript-Garden/zh/" target="_blank" rel="noopener">JavaScript 秘密花园</a></td>
+<td>三生石上 中文翻译</td>
+</tr>
+<tr>
+<td><a href="http://liubin.org/promises-book/" target="_blank" rel="noopener">JavaScript Promise迷你书（中文版）</a></td>
+<td>原著：azu / 翻译：liubin、kaku、honnkyou</td>
+</tr>
+<tr>
+<td><a href="https://legacy.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details" target="_blank" rel="noopener">JS 函数式编程指南</a></td>
+<td>Linghao Li</td>
+</tr>
+<tr>
+<td><a href="https://github.com/stone0090/javascript-lessons" target="_blank" rel="noopener">JavaScript 闯关记</a></td>
+<td>stone0090</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十二、jQuery"><a href="#十二、jQuery" class="headerlink" title="十二、jQuery"></a>十二、jQuery</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://learn.jquery.com/" target="_blank" rel="noopener">学习jQuery</a></td>
+<td>Learning Center</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.jquery123.com/" target="_blank" rel="noopener">jQuery API 中文文档</a>|官方<br>|<a href="http://www.css88.com/jqapi-1.9/" target="_blank" rel="noopener">jQuery API中文文档</a>|愚人码头<br>|<a href="http://www.css88.com/jquery-ui-api/" target="_blank" rel="noopener">jQuery UI API中文文档</a>|愚人码头<br>|<a href="http://hemin.cn/jq/" target="_blank" rel="noopener">jQuery中文手册</a>|hemin<br>|<a href="http://youmightnotneedjquery.com/" target="_blank" rel="noopener">YOU MIGHT NOT NEED JQUERY</a>|你可能不需要JQUERY</p>
+<h2 id="十三、Vue-js"><a href="#十三、Vue-js" class="headerlink" title="十三、Vue.js"></a>十三、Vue.js</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">Vue.js</a></td>
+<td>官方网站</td>
+</tr>
+<tr>
+<td><a href="https://github.com/vuejs" target="_blank" rel="noopener">vuejs</a></td>
+<td>官方仓库</td>
+</tr>
+<tr>
+<td><a href="https://www.vue-js.com/" target="_blank" rel="noopener">Vue 中文社区</a></td>
+<td>全球最大的 Vueframework 中文开源技术社区</td>
+</tr>
+<tr>
+<td><a href="https://vuefe.cn/" target="_blank" rel="noopener">vuefe.cn</a></td>
+<td>Vue.js 中文文档</td>
+</tr>
+<tr>
+<td><a href="http://forum.vuejs.org/" target="_blank" rel="noopener">Vue Forum</a></td>
+<td>Vue 论坛</td>
+</tr>
+<tr>
+<td><a href="https://discordapp.com/invite/HBherRA" target="_blank" rel="noopener">Vue Land</a></td>
+<td>Vue 聊天室</td>
+</tr>
+<tr>
+<td><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">vue-devtools</a></td>
+<td>用于调试Vue.js应用程序的浏览器devtools扩展</td>
+</tr>
+<tr>
+<td><a href="https://vue-loader.vuejs.org/zh-cn/" target="_blank" rel="noopener">Vue Loader</a></td>
+<td>一个 webpack 的 loader</td>
+</tr>
+<tr>
+<td><a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="noopener">vue-router</a></td>
+<td>官方路由</td>
+</tr>
+<tr>
+<td><a href="https://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">Vuex</a></td>
+<td>状态管理模式</td>
+</tr>
+<tr>
+<td><a href="https://ssr.vuejs.org/zh/" target="_blank" rel="noopener">Vue 服务端渲染</a></td>
+<td>Vue.js 服务器端渲染指南</td>
+</tr>
+<tr>
+<td><a href="https://curated.vuejs.org/" target="_blank" rel="noopener">Vue package</a></td>
+<td>Find the best packages for your Vue app!</td>
+</tr>
+<tr>
+<td><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></td>
+<td>Awesome Vue.js</td>
+</tr>
+<tr>
+<td><a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="noopener">Element</a></td>
+<td>一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库</td>
+</tr>
+<tr>
+<td><a href="https://www.iviewui.com/" target="_blank" rel="noopener">iView</a></td>
+<td>一套基于 Vue.js 的高质量 UI 组件库</td>
+</tr>
+<tr>
+<td><a href="http://jiongks.name/blog/just-vue/" target="_blank" rel="noopener">Vue + webpack 项目实践</a></td>
+<td>勾三股四</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Coffcer/Blog/issues/3" target="_blank" rel="noopener">vue 性能优化</a></td>
+<td>岛书,Coffcer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十四、AngularJS"><a href="#十四、AngularJS" class="headerlink" title="十四、AngularJS"></a>十四、AngularJS</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://angular.cn/" target="_blank" rel="noopener">Angular 中文版</a></td>
+<td>官方网站</td>
+</tr>
+<tr>
+<td><a href="http://www.ituring.com.cn/book/1206" target="_blank" rel="noopener">AngularJS入门教程</a></td>
+<td>严清 , 李诗剑 (译者)</td>
+</tr>
+<tr>
+<td><a href="http://each.sinaapp.com/angular/" target="_blank" rel="noopener">AngularJS在线教程</a></td>
+<td>乔乐共享</td>
+</tr>
+<tr>
+<td><a href="https://www.zouyesheng.com/angular.html" target="_blank" rel="noopener">AngularJS学习笔记</a></td>
+<td>邹业盛</td>
+</tr>
+<tr>
+<td><a href="http://blog.aijc.net/AngularLearning/" target="_blank" rel="noopener">Angularlearning</a></td>
+<td>Angular.js 的一些学习资源</td>
+</tr>
+<tr>
+<td><a href="http://angular-ui.github.io/bootstrap/" target="_blank" rel="noopener">UI Bootstrap</a></td>
+<td>Bootstrap components written in pureAngularJSby theAngularUI Team</td>
+</tr>
+<tr>
+<td><a href="http://mgcrea.github.io/angular-strap/" target="_blank" rel="noopener">AngularStrap</a></td>
+<td>AngularJS 1.2+ native directives for Bootstrap 3</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dolymood/AngularLearning" target="_blank" rel="noopener">AngularLearning</a></td>
+<td>dolymood</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十五、React"><a href="#十五、React" class="headerlink" title="十五、React"></a>十五、React</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://reactjs.org/" target="_blank" rel="noopener">React</a></td>
+<td>官方网站</td>
+</tr>
+<tr>
+<td><a href="http://nav.react-china.org/#docs" target="_blank" rel="noopener">React 中文索引</a></td>
+<td>Made by 题叶 &amp; Feifei Hang</td>
+</tr>
+<tr>
+<td><a href="http://www.react-china.org/" target="_blank" rel="noopener">React China</a></td>
+<td>React 中文的论坛</td>
+</tr>
+<tr>
+<td><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">React 入门实例教程</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://www.ruanyifeng.com/blog/2016/05/react_router.html?utm_source=tool.lu" target="_blank" rel="noopener">React Router 使用教程</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://wiki.jikexueyuan.com/project/react-native/" target="_blank" rel="noopener">React Native 中文版</a></td>
+<td>极客学院</td>
+</tr>
+<tr>
+<td><a href="http://www.phperz.com/special/14.html" target="_blank" rel="noopener">React.JS教程</a></td>
+<td>PHPERZ</td>
+</tr>
+<tr>
+<td><a href="http://www.alloyteam.com/2016/01/reactjs-best-practices-for-2016/" target="_blank" rel="noopener">React.js 2016 最佳实践</a></td>
+<td>腾讯全端 AlloyTeam 团队 Blog</td>
+</tr>
+<tr>
+<td><a href="http://60sky.com/" target="_blank" rel="noopener">React 导读</a></td>
+<td>小撸,国双科技</td>
+</tr>
+<tr>
+<td><a href="http://cn.redux.js.org/" target="_blank" rel="noopener">Redux 中文文档</a></td>
+<td>收到 Redux 作者 Dan 的多次点赞</td>
+</tr>
+<tr>
+<td><a href="https://github.com/react-guide/react-router-cn" target="_blank" rel="noopener">React Router 中文文档</a></td>
+<td>官方文档中文翻译</td>
+</tr>
+<tr>
+<td><a href="https://www.ibm.com/developerworks/cn/web/1509_dongyue_react/index.html" target="_blank" rel="noopener">React 介绍及实践教程</a></td>
+<td>董越 和 徐新茹</td>
+</tr>
+<tr>
+<td><a href="https://github.com/react-guide/react-basic" target="_blank" rel="noopener">React 设计思想</a></td>
+<td>React 核心开发者、有 React API 终结者之称的 Sebastian Markbåge 撰写</td>
+</tr>
+<tr>
+<td><a href="https://fakefish.github.io/react-webpack-cookbook/index.html" target="_blank" rel="noopener">React Webpack 小书</a></td>
+<td>作者 Christian Alfoni and Juho Vepsäläinen 中文译者 Fakefish</td>
+</tr>
+<tr>
+<td><a href="http://material-ui.com/" target="_blank" rel="noopener">Material-UI</a></td>
+<td>React 前端 UI 库</td>
+</tr>
+<tr>
+<td><a href="http://amazeui.org/react/" target="_blank" rel="noopener">Amaze UI React</a></td>
+<td>基于 React.js 开发的 Web 组件库</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dvajs/dva/blob/master/README_zh-CN.md" target="_blank" rel="noopener">dva</a></td>
+<td>基于 redux、redux-saga 和 react-router 的轻量级前端框架</td>
+</tr>
+<tr>
+<td><a href="https://motion.ant.design/" target="_blank" rel="noopener">Ant Motion</a></td>
+<td>能够快速在 React 框架中使用动画</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十六、Node-js"><a href="#十六、Node-js" class="headerlink" title="十六、Node.js"></a>十六、Node.js</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://nodeschool.io/zh-cn/" target="_blank" rel="noopener">NODESCHOOL</a></td>
+<td>教你 Web 开发技能的开源课程，自学或者参加一个附近的教学活动</td>
+</tr>
+<tr>
+<td><a href="https://www.nodebeginner.org/index-zh-cn.html" target="_blank" rel="noopener">Node入门</a></td>
+<td>作者： Manuel Kiessling 翻译： goddyzhao &amp; GrayZhang &amp; MondayChen</td>
+</tr>
+<tr>
+<td><a href="http://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="noopener">七天学会NodeJS</a></td>
+<td>Alibaba.com</td>
+</tr>
+<tr>
+<td><a href="https://github.com/alsotang/node-lessons" target="_blank" rel="noopener">Node.js 包教不包会</a></td>
+<td>alsotang</td>
+</tr>
+<tr>
+<td><a href="http://blog.fens.me/series-nodejs/" target="_blank" rel="noopener">从零开始nodejs系列文章</a></td>
+<td>粉丝日志</td>
+</tr>
+<tr>
+<td><a href="https://www.barretlee.com/blog/2015/10/07/debug-nodejs-in-command-line/" target="_blank" rel="noopener">NodeJS的代码调试和性能调优</a></td>
+<td>小胡子哥</td>
+</tr>
+<tr>
+<td><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">Express</a></td>
+<td>基于 Node.js 平台，快速、开放、极简的 web 开发框架</td>
+</tr>
+<tr>
+<td><a href="http://javascript.ruanyifeng.com/nodejs/express.html" target="_blank" rel="noopener">Express框架</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://javascript.ruanyifeng.com/nodejs/koa.html" target="_blank" rel="noopener">Koa 框架</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="https://koa.bootcss.com/" target="_blank" rel="noopener">Koa</a></td>
+<td>Koajs 中文文档</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十七、RequireJS"><a href="#十七、RequireJS" class="headerlink" title="十七、RequireJS"></a>十七、RequireJS</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="noopener">Javascript模块化编程</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/yexiaochai/tag/require.js/" target="_blank" rel="noopener">RequireJS学习</a></td>
+<td>叶小钗</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html" target="_blank" rel="noopener">RequireJS入门</a></td>
+<td>Snandy</td>
+</tr>
+<tr>
+<td><a href="https://www.oschina.net/translate/getting-started-with-the-requirejs-library" target="_blank" rel="noopener">RequireJS 入门指南</a></td>
+<td>参与翻译 NCThinker, 姜鹏飞, super0555</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十八、Sass和Less"><a href="#十八、Sass和Less" class="headerlink" title="十八、Sass和Less"></a>十八、Sass和Less</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.sass.hk/" target="_blank" rel="noopener">Sass中文网</a></td>
+<td>世界上最成熟、最稳定、最强大的专业级CSS扩展语言</td>
+</tr>
+<tr>
+<td><a href="http://sass.bootcss.com/" target="_blank" rel="noopener">SASS中文文档</a></td>
+<td>Sass 是成熟、稳定、强大的 CSS 扩展语言</td>
+</tr>
+<tr>
+<td><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">SASS用法指南</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="https://www.w3cplus.com/sassguide/" target="_blank" rel="noopener">Sass入门</a></td>
+<td>大漠</td>
+</tr>
+<tr>
+<td><a href="https://less.bootcss.com/" target="_blank" rel="noopener">Less中文文档</a></td>
+<td>给 CSS 加点料</td>
+</tr>
+</tbody>
+</table>
+<h2 id="十九、Webpack"><a href="#十九、Webpack" class="headerlink" title="十九、Webpack"></a>十九、Webpack</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack</a></td>
+<td>官方网站</td>
+</tr>
+<tr>
+<td><a href="https://doc.webpack-china.org/" target="_blank" rel="noopener">webpack 中文</a></td>
+<td>中文官网</td>
+</tr>
+<tr>
+<td><a href="https://github.com/webpack/webpack" target="_blank" rel="noopener">webpack</a></td>
+<td>github</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="noopener">webpack-demos</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十、Markdown"><a href="#二十、Markdown" class="headerlink" title="二十、Markdown"></a>二十、Markdown</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a></td>
+<td>riku</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LearnShare/Learning-Markdown/blob/master/README.md" target="_blank" rel="noopener">Markdown 入门参考</a></td>
+<td>LearnShare</td>
+</tr>
+<tr>
+<td><a href="https://legacy.gitbook.com/" target="_blank" rel="noopener">GitBook</a></td>
+<td>帮助团队在线撰写，协作和发布内容</td>
+</tr>
+<tr>
+<td><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">Cmd Markdown</a></td>
+<td>Cmd Markdown 编辑阅读器</td>
+</tr>
+<tr>
+<td><a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a></td>
+<td>浏览器中的Markdown编辑器</td>
+</tr>
+<tr>
+<td><a href="http://bh-lay.github.io/mditor/" target="_blank" rel="noopener">Mditor</a></td>
+<td>一款轻量级的markdown编辑器</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十一、Git和GitHub"><a href="#二十一、Git和GitHub" class="headerlink" title="二十一、Git和GitHub"></a>二十一、Git和GitHub</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git-Book</a></td>
+<td>官方文档</td>
+</tr>
+<tr>
+<td><a href="http://www.runoob.com/manual/git-guide/" target="_blank" rel="noopener">git - 简明指南</a></td>
+<td>罗杰·杜德勒</td>
+</tr>
+<tr>
+<td><a href="https://backlog.com/git-tutorial/cn/" target="_blank" rel="noopener">猴子都能懂得GIT入门</a></td>
+<td>backlog</td>
+</tr>
+<tr>
+<td><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰的官方网站 Git教程</a></td>
+<td>廖雪峰</td>
+</tr>
+<tr>
+<td><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener">Learn Git Branching</a></td>
+<td>通过一系列刺激的关卡挑战，逐步深入的学习 Git 的强大功能</td>
+</tr>
+<tr>
+<td><a href="https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/README.md" target="_blank" rel="noopener">Git工作流指南</a></td>
+<td>李鼎(哲良),taobao</td>
+</tr>
+<tr>
+<td><a href="https://github.com/xirong/my-git" target="_blank" rel="noopener">有关 git 的学习资料</a></td>
+<td>xirong,alibaba</td>
+</tr>
+<tr>
+<td><a href="http://github.phodal.com/" target="_blank" rel="noopener">GitHub 漫游指南</a></td>
+<td>Phodal Huang,黄峰达,ThoughtWorks 高级咨询师</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md" target="_blank" rel="noopener">GitHub秘籍</a></td>
+<td>Star 24.8k  Fork 3.8k</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十二、Github大牛"><a href="#二十二、Github大牛" class="headerlink" title="二十二、Github大牛"></a>二十二、Github大牛</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/AlloyTeam/" target="_blank" rel="noopener">AlloyTeam</a></td>
+<td>腾讯 AlloyTeam</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fex-team/" target="_blank" rel="noopener">fex-team</a></td>
+<td>Baidu FEX team</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tmallfe" target="_blank" rel="noopener">tmallfe</a></td>
+<td>天猫前端团队</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nzakas" target="_blank" rel="noopener">nzakas</a></td>
+<td><strong>尼古拉斯·泽卡斯</strong> Nicholas C. Zakas，雅虎首页的前端技术主管， YUI 库的贡献者，目前在 Box 公司任职</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tj" target="_blank" rel="noopener">tj</a></td>
+<td><strong>TJ Holowaychuk</strong>，Koa、Co、Express、jade、mocha、node-canvas、commander.js等知名开源项目的创建和贡献者</td>
+</tr>
+<tr>
+<td><a href="https://github.com/JacksonTian" target="_blank" rel="noopener">JacksonTian</a></td>
+<td><strong>朴灵(田永强)</strong>，就职阿里巴巴数据平台，Node.js布道者</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lifesinger" target="_blank" rel="noopener">lifesinger</a></td>
+<td><strong>玉伯</strong>，支付宝前端，seajs作者</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jobbole" target="_blank" rel="noopener">jobbole</a></td>
+<td><strong>伯乐在线</strong></td>
+</tr>
+<tr>
+<td><a href="https://github.com/paulirish" target="_blank" rel="noopener">paulirish</a></td>
+<td>Google Chrome</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kejun" target="_blank" rel="noopener">kejun</a></td>
+<td>Douban Inc</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fengmk2" target="_blank" rel="noopener">fengmk2</a></td>
+<td>fengmk2，Alipay</td>
+</tr>
+<tr>
+<td><a href="https://github.com/fool2fish" target="_blank" rel="noopener">fool2fish</a></td>
+<td>Zhouxuan Yang，Alipay</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jayli" target="_blank" rel="noopener">jayli</a></td>
+<td>Taobao</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十三、框架类库"><a href="#二十三、框架类库" class="headerlink" title="二十三、框架类库"></a>二十三、框架类库</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Tencent/weui/blob/master/README_cn.md" target="_blank" rel="noopener">WeUI</a></td>
+<td>微信官方设计团队为微信 Web 开发量身设计</td>
+</tr>
+<tr>
+<td><a href="http://zui.sexy/" target="_blank" rel="noopener">ZUI</a></td>
+<td>一个基于 Bootstrap 深度定制开源前端实践方案，帮助你快速构建现代跨屏应用。</td>
+</tr>
+<tr>
+<td><a href="http://zui.sexy/m/" target="_blank" rel="noopener">MZUI</a></td>
+<td>为移动端设计，基于 Flex 的 UI 框架</td>
+</tr>
+<tr>
+<td><a href="http://m.sui.taobao.org/" target="_blank" rel="noopener">SUI Mobile</a></td>
+<td>阿里他她，一套基于 Framework7 开发的UI库</td>
+</tr>
+<tr>
+<td><a href="http://docs.kissyui.com/" target="_blank" rel="noopener">KISSY</a></td>
+<td>一款跨终端、模块化、高性能、使用简单的 JavaScript 框架</td>
+</tr>
+<tr>
+<td><a href="https://validator.niceue.com/" target="_blank" rel="noopener">nice validator</a></td>
+<td>领先的表单验证解决方案</td>
+</tr>
+<tr>
+<td><a href="http://www.css88.com/doc/underscore/" target="_blank" rel="noopener">Underscore.js</a></td>
+<td>一整套函数式编程的实用功能</td>
+</tr>
+<tr>
+<td><a href="https://lodash.com/" target="_blank" rel="noopener">Lodash</a></td>
+<td>通过解决数组，数字，对象，字符串等问题，让JavaScript变得更轻松。</td>
+</tr>
+<tr>
+<td><a href="https://www.w3cplus.com/MetroUICSS/index.php" target="_blank" rel="noopener">Metro UI CSS</a></td>
+<td>一个 BizSpark Startup</td>
+</tr>
+<tr>
+<td><a href="http://hiloki.github.io/kitecss/" target="_blank" rel="noopener">Kite CSS</a></td>
+<td>一个灵活的布局助手</td>
+</tr>
+<tr>
+<td><a href="https://tympanus.net/Development/CreativeLinkEffects/" target="_blank" rel="noopener">Creative Link Effects</a></td>
+<td>创意链接或菜单项效果</td>
+</tr>
+<tr>
+<td><a href="http://www.javascripting.com/" target="_blank" rel="noopener">JAVASCRIPTING</a></td>
+<td>最优的javascript库、框架和插件。</td>
+</tr>
+<tr>
+<td><a href="http://microjs.com/" target="_blank" rel="noopener">Microjs</a></td>
+<td>神奇的微型框架</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十四、动画"><a href="#二十四、动画" class="headerlink" title="二十四、动画"></a>二十四、动画</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://daneden.github.io/animate.css/" target="_blank" rel="noopener">Animate.css</a></td>
+<td>一个跨浏览器的CSS动画库</td>
+</tr>
+<tr>
+<td><a href="http://bouncejs.com/" target="_blank" rel="noopener">Bounce.js</a></td>
+<td>触摸库 CSS3关键帧动画</td>
+</tr>
+<tr>
+<td><a href="http://fian.my.id/Waves/" target="_blank" rel="noopener">Waves.js</a></td>
+<td>点击按钮或背景动画</td>
+</tr>
+<tr>
+<td><a href="http://easings.net/zh-cn" target="_blank" rel="noopener">缓动函数</a></td>
+<td>指定动画效果在执行时的速度，使其看起来更加真实</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十五、移动端"><a href="#二十五、移动端" class="headerlink" title="二十五、移动端"></a>二十五、移动端</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/AlloyTeam/Mars" target="_blank" rel="noopener">腾讯移动Web前端知识库</a></td>
+<td>Mars - mobile needs a hero</td>
+</tr>
+<tr>
+<td><a href="http://tgideas.github.io/mtips/#home" target="_blank" rel="noopener">Mobi Tips</a></td>
+<td>TGideas</td>
+</tr>
+<tr>
+<td><a href="https://github.com/jtyjty99999/mobileTech" target="_blank" rel="noopener">mobileTech</a></td>
+<td>jtyjty99999-Alibaba，收集移动端开发所需要的一些资源与小技巧</td>
+</tr>
+<tr>
+<td><a href="http://am-team.github.io/amg/dev-exp-doc.html" target="_blank" rel="noopener">无线Web开发经验谈</a></td>
+<td>支付宝</td>
+</tr>
+<tr>
+<td><a href="https://github.com/hoosin/mobile-web-favorites" target="_blank" rel="noopener">Mobile Web Favorites</a></td>
+<td>hoosin</td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/PeunZhang/p/3407453.html" target="_blank" rel="noopener">移动web资源整理</a></td>
+<td>白树，就职微信支付，负责移动端产品，擅长小程序、H5前端开发</td>
+</tr>
+<tr>
+<td><a href="http://www.css88.com/doc/zeptojs_api/" target="_blank" rel="noopener">Zepto.js API 中文版</a></td>
+<td>愚人码头,一些可选功能是专门针对移动端浏览器的</td>
+</tr>
+<tr>
+<td><a href="http://framework7.taobao.org/" target="_blank" rel="noopener">Framework7</a></td>
+<td>阿里他她，特色的HTML框架 可以创建精美的iOS应用</td>
+</tr>
+<tr>
+<td><a href="http://m.sui.taobao.org/" target="_blank" rel="noopener">SUI Mobile</a></td>
+<td>阿里他她，一套基于 Framework7 开发的UI库</td>
+</tr>
+<tr>
+<td><a href="http://www.swiper.com.cn/" target="_blank" rel="noopener">Swiper</a></td>
+<td>开源、免费、强大的移动端触摸滑动插件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十六、开发平台"><a href="#二十六、开发平台" class="headerlink" title="二十六、开发平台"></a>二十六、开发平台</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://jsfiddle.net/" target="_blank" rel="noopener">JSFiddle</a></td>
+<td>一款在线的代码编辑器,通过流行的JS框架创建自定义的环境,以简化JS代码</td>
+</tr>
+<tr>
+<td><a href="http://jsbin.com/" target="_blank" rel="noopener">JSBin</a></td>
+<td>Collaborative JavaScript Debugging</td>
+</tr>
+<tr>
+<td><a href="https://babeljs.io/" target="_blank" rel="noopener">BabelJS</a></td>
+<td>一个 JavaScript 编译器</td>
+</tr>
+<tr>
+<td><a href="http://runjs.cn/" target="_blank" rel="noopener">RunJS</a></td>
+<td>在线编辑、展示、分享、交流你的 JavaScript 代码</td>
+</tr>
+<tr>
+<td><a href="http://jsdm.com/" target="_blank" rel="noopener">JSDM</a></td>
+<td>一个WEB前端在线编辑器，可同时编辑HTML、CSS、JAVASCRIPT代码，并即时预览！</td>
+</tr>
+<tr>
+<td><a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a></td>
+<td>面向前端设计人员和开发人员的社交开发环境</td>
+</tr>
+<tr>
+<td><a href="https://ideone.com/" target="_blank" rel="noopener">IDeone</a></td>
+<td>一个在线编译器和调试工具，它允许您编译源代码并在线执行超过60种编程语言</td>
+</tr>
+<tr>
+<td><a href="https://code.hcharts.cn/" target="_blank" rel="noopener">HCODE</a></td>
+<td>一个在线代码测试、托管、分享的工具，方便与别人一起调试、分享代码，具有代码高亮、一键代码格式化、贴心的快捷键等功能。</td>
+</tr>
+<tr>
+<td><a href="https://thimble.mozilla.org/zh-CN/" target="_blank" rel="noopener">Thimble</a></td>
+<td>一个在线代码编辑器，用它可以很轻松地创建和发布一个您自己的网页，一切伴随着 HTML、CSS 和 JavaScript。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十七、在线工具"><a href="#二十七、在线工具" class="headerlink" title="二十七、在线工具"></a>二十七、在线工具</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://caniuse.com/" target="_blank" rel="noopener">CanIUse</a></td>
+<td>查看浏览器版本对HTML5和CSS3的支持情况</td>
+</tr>
+<tr>
+<td><a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">ECMAScript 6 compatibility table</a></td>
+<td>ECMAScript 6兼容性表</td>
+</tr>
+<tr>
+<td><a href="http://jigsaw.w3.org/css-validator/validator.html.zh-cn" target="_blank" rel="noopener">CSS Validation Service</a></td>
+<td>W3C CSS 验证服务</td>
+</tr>
+<tr>
+<td><a href="http://browserhacks.com/" target="_blank" rel="noopener">BROWSERHACKS</a></td>
+<td>browser specific CSS and JavaScript hacks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十八、正则表达式"><a href="#二十八、正则表达式" class="headerlink" title="二十八、正则表达式"></a>二十八、正则表达式</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">正则表达式 MDN</a></td>
+<td>MDN Web 文档</td>
+</tr>
+<tr>
+<td><a href="http://javascript.ruanyifeng.com/stdlib/regexp.html" target="_blank" rel="noopener">RegExp对象</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://es6.ruanyifeng.com/#docs/regex" target="_blank" rel="noopener">正则的扩展</a></td>
+<td>阮一峰</td>
+</tr>
+<tr>
+<td><a href="http://div.io/topic/764?page=1" target="_blank" rel="noopener">进阶正则表达式</a></td>
+<td>小胡子哥 ( Barret Lee )</td>
+</tr>
+<tr>
+<td><a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></td>
+<td>deerchao</td>
+</tr>
+<tr>
+<td><a href="http://louiszhai.github.io/2016/06/13/regexp/" target="_blank" rel="noopener">正则表达式前端使用手册</a></td>
+<td>路易斯</td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000002471140" target="_blank" rel="noopener">JS正则表达式元字符</a></td>
+<td>思否 小弟调调</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二十九、CDN"><a href="#二十九、CDN" class="headerlink" title="二十九、CDN"></a>二十九、CDN</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://cdn.code.baidu.com/" target="_blank" rel="noopener">百度静态资源公共库</a></td>
+<td>稳定，快速，全面，开源的国内CDN加速服务。</td>
+</tr>
+<tr>
+<td><a href="http://libs.useso.com/" target="_blank" rel="noopener">360网站卫士常用前端公共库CDN服务</a></td>
+<td>常用前端公共库以及和谐使用Google公共库&amp;字体库的调用方法</td>
+</tr>
+<tr>
+<td><a href="http://qydev.weixin.qq.com/" target="_blank" rel="noopener">前端库CDN服务</a></td>
+<td>微信，主要包括一些常用的 JS 库，CSS库，甚至是SWF文件。</td>
+</tr>
+<tr>
+<td><a href="http://www.bootcdn.cn/" target="_blank" rel="noopener">BootCDN</a></td>
+<td>Bootstrap 中文网支持并维护的前端开源项目免费 CDN 服务</td>
+</tr>
+<tr>
+<td><a href="http://npm.taobao.org/" target="_blank" rel="noopener">TAONPM</a></td>
+<td>淘宝 NPM 镜像,可以用此代替官方版本(只读)</td>
+</tr>
+<tr>
+<td><a href="http://staticfile.org/" target="_blank" rel="noopener">Staticfile CDN</a></td>
+<td>免费、快速、开放的 CDN 服务</td>
+</tr>
+<tr>
+<td><a href="http://code.jquery.com/" target="_blank" rel="noopener">jQuery CDN</a></td>
+<td>最新的稳定版本</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三十、API"><a href="#三十、API" class="headerlink" title="三十、API"></a>三十、API</h2><table>
+<thead>
+<tr>
+<th>网站</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://overapi.com/" target="_blank" rel="noopener">OverAPI.com</a></td>
+<td>Collecting All Cheat Sheets</td>
+</tr>
+<tr>
+<td><a href="http://tool.oschina.net/apidocs" target="_blank" rel="noopener">常用API文档索引</a></td>
+<td>开源中国社区 在线API文档</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>hi you can see me</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechartpay.png" alt="JYkid 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpg" alt="JYkid 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/19/《美国是如何培养精英的》/" rel="next" title="《美国是如何培养精英的》">
+                <i class="fa fa-chevron-left"></i> 《美国是如何培养精英的》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/21/浅谈Grid布局/" rel="prev" title="浅谈Grid布局">
+                浅谈Grid布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar.jpg"
+                alt="JYkid" />
+            
+              <p class="site-author-name" itemprop="name">JYkid</p>
+              <p class="site-description motion-element" itemprop="description">有时正是无人看好之人，所成无人能及之事</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MriLiuJY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-Github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode-cn.com/mriliujy/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-Leetcode"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.yuque.com/lucienstar/mwvbem" title="大儿子" target="_blank">大儿子</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Front-end-resources"><span class="nav-number">1.</span> <span class="nav-text">Front-end-resources</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、团队组织"><span class="nav-number">1.1.</span> <span class="nav-text">一、团队组织</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、开发社区"><span class="nav-number">1.2.</span> <span class="nav-text">二、开发社区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、前端门户"><span class="nav-number">1.3.</span> <span class="nav-text">三、前端门户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、前端大牛"><span class="nav-number">1.4.</span> <span class="nav-text">四、前端大牛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、活跃微博"><span class="nav-number">1.5.</span> <span class="nav-text">五、活跃微博</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、书籍推荐"><span class="nav-number">1.6.</span> <span class="nav-text">六、书籍推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、前端教程"><span class="nav-number">1.7.</span> <span class="nav-text">七、前端教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、HTML-5"><span class="nav-number">1.8.</span> <span class="nav-text">八、HTML(5)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、CSS-3"><span class="nav-number">1.9.</span> <span class="nav-text">九、CSS(3)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、ECMAScript"><span class="nav-number">1.10.</span> <span class="nav-text">十、ECMAScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、JavaScript"><span class="nav-number">1.11.</span> <span class="nav-text">十一、JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、jQuery"><span class="nav-number">1.12.</span> <span class="nav-text">十二、jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、Vue-js"><span class="nav-number">1.13.</span> <span class="nav-text">十三、Vue.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、AngularJS"><span class="nav-number">1.14.</span> <span class="nav-text">十四、AngularJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、React"><span class="nav-number">1.15.</span> <span class="nav-text">十五、React</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、Node-js"><span class="nav-number">1.16.</span> <span class="nav-text">十六、Node.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、RequireJS"><span class="nav-number">1.17.</span> <span class="nav-text">十七、RequireJS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、Sass和Less"><span class="nav-number">1.18.</span> <span class="nav-text">十八、Sass和Less</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十九、Webpack"><span class="nav-number">1.19.</span> <span class="nav-text">十九、Webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十、Markdown"><span class="nav-number">1.20.</span> <span class="nav-text">二十、Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十一、Git和GitHub"><span class="nav-number">1.21.</span> <span class="nav-text">二十一、Git和GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十二、Github大牛"><span class="nav-number">1.22.</span> <span class="nav-text">二十二、Github大牛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十三、框架类库"><span class="nav-number">1.23.</span> <span class="nav-text">二十三、框架类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十四、动画"><span class="nav-number">1.24.</span> <span class="nav-text">二十四、动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十五、移动端"><span class="nav-number">1.25.</span> <span class="nav-text">二十五、移动端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十六、开发平台"><span class="nav-number">1.26.</span> <span class="nav-text">二十六、开发平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十七、在线工具"><span class="nav-number">1.27.</span> <span class="nav-text">二十七、在线工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十八、正则表达式"><span class="nav-number">1.28.</span> <span class="nav-text">二十八、正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十九、CDN"><span class="nav-number">1.29.</span> <span class="nav-text">二十九、CDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十、API"><span class="nav-number">1.30.</span> <span class="nav-text">三十、API</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JYkid</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://iliujy.top/2018/04/20/前端资源分享/';
+          this.page.identifier = '2018/04/20/前端资源分享/';
+          this.page.title = '前端资源分享';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

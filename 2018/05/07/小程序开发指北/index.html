@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JS,小程序," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="键盘下的Sao想法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="之前自己做了一个类似驾考宝典的小程序 叫通达驾考。这篇博客主要就是想记录一下开发中遇到的一些坑和小程序中使用的有趣的技术。">
+<meta name="keywords" content="JS,小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序开发指北">
+<meta property="og:url" content="http://iliujy.top/2018/05/07/小程序开发指北/index.html">
+<meta property="og:site_name" content="键盘下的Sao想法">
+<meta property="og:description" content="之前自己做了一个类似驾考宝典的小程序 叫通达驾考。这篇博客主要就是想记录一下开发中遇到的一些坑和小程序中使用的有趣的技术。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-07T12:01:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序开发指北">
+<meta name="twitter:description" content="之前自己做了一个类似驾考宝典的小程序 叫通达驾考。这篇博客主要就是想记录一下开发中遇到的一些坑和小程序中使用的有趣的技术。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://iliujy.top/2018/05/07/小程序开发指北/"/>
+
+
+
+
+
+  <title>小程序开发指北 | 键盘下的Sao想法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?892b5adf865a95799f76163fee705024";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">键盘下的Sao想法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">曾在这里写下迷茫中的自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://iliujy.top/2018/05/07/小程序开发指北/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JYkid">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/./images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="键盘下的Sao想法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序开发指北</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T09:33:04+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/07/小程序开发指北/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/07/小程序开发指北/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前自己做了一个类似驾考宝典的小程序 叫<strong>通达驾考</strong>。这篇博客主要就是想记录一下开发中遇到的一些坑和小程序中使用的有趣的技术。</p>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先这篇文章并不是小程序的入门文章而且小程序开发相对简单。所以在阅读这篇文章的时候需要一定的前端基础和对类Vue的小程序有一定的了解（现在又了mpVue来开发小程序了！）。</p>
+<p>其次小程序在微信的平台下获取的巨大的流量所推动的经济与变革还是值得让每一位开发者去认真的去对待这个<em>新鲜</em>的事物。</p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>这个项目落地的时候距离上一次自己写小程序的项目已经过去了半年了，小程序在这半年中经历了长足的成长，不仅原生的支持了Component组件的写法。而且有了behaviors来解决组件之间的通讯。</p>
+<p>抽象节点与插件的出现极大的丰富了小程序的世界，不仅可以使用优秀开发者开源的公共插件来提升产品迭代的速度，也丰富了小程序的社区与开源精神。</p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>已经说了足够多的闲聊了，下面来将下在这个项目中遇到的一些坑和踩坑的学习之路。</p>
+<h3 id="回答后的翻页"><a href="#回答后的翻页" class="headerlink" title="回答后的翻页"></a>回答后的翻页</h3><p>这个标题的表述可能有点小的直白，但在项目中遇到的问题确实在这次的开发中使得收获颇丰。</p>
+<p>首先参考了一下市面上成熟的项目，因为是答题类型的产品，存在一个点就是在用户完成一次答题的点击之后需要跳转到下一题或者展示正确的答案的情况下是否需要页面间的跳转。</p>
+<p>简单的来说一开始看到这个项目的时候因为答题有一个类似纸质书的翻页的效果，所以第一直觉想到的应该是一个类似轮播翻页的一个效果那么实现在项目中可能就是完成一次答题之后页面做一次跳转。</p>
+<p>但是后来决定直接在页面上做一个数据的替换来代替这个效果，因为要做真是的跳转的话会出现各种意外的bug与页面之间数据携带的高度耦合。这个在开发中完全是可以通过更换实现的方式来避免画蛇添足的。</p>
+<p>在确定了实现翻页的效果是替换数据之后又进入了一个更大的坑中…因为那段时间一直在看阮一峰的《ES6入门》一书，其中的Generator function的暂停执行让我觉得可以应用在项目中实现答题之后切换数据的情况。</p>
+<p>还行当时及时止住，替换为了使用对象存放键值对来做数据的替换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.setData(&#123;</span><br><span class="line">  topic: array,                 // 请求的全部题目</span><br><span class="line">  current: res.data.data[0],    // 当前的题目</span><br><span class="line">  &apos;current.answerList&apos;: list    // 用户回答的数组</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这个小的改动不仅使我在处理后面的上一题的开发与用户在模拟考试中对已经回答过的问题做修改的时候避免了无穷无尽的填坑。而且使用一个对象来保存当前的题目相对于在一个数组中切换currentNumber来得更浅显易懂。</p>
+<p>另外整个项目做题正误的判断都是在前端来进行判断的。所以在处理各种用户在使用中产生的边界情况也让我认识到了一个项目代码的健壮性对一个程序的开发与迭代需求的重要性。</p>
+<p>确定了技术选型之后就是实现了，在这个方案的实现中遇到了一些小的坑主要是前端展示的题目存在不同的类型，比如单选题与多选题的区别。就不能用单一的方式去判断是否符合正确的答案了。</p>
+<p>另外在翻页中需要额外注意的就是防抖的问题了，用户快速的点击以及在最后一题的时候的判断的情况。此处仅为当时考虑不周实际并无太大难度就不细说了。</p>
+<h3 id="小程序中的组件"><a href="#小程序中的组件" class="headerlink" title="小程序中的组件"></a>小程序中的组件</h3><p>因为在开发的时候小程序已经原生支持了Components的使用，所以在处理可复用的组件的时候就毫不犹豫的使用了小程序的Components。因为网上对Components与小程序的文档的介绍都是不很清楚，所以在这就着重的说下。</p>
+<h4 id="首先小程序的Component的使用："><a href="#首先小程序的Component的使用：" class="headerlink" title="首先小程序的Component的使用："></a>首先小程序的Component的使用：</h4><p>在小程序中注册组件与页面稍有不同，首先需要在该组件的Json文件中声明该文件是一个组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;component&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>wxml文件与wxss文件与其他的页面并无太大的区别，主要是在JS的文件上组件与页面的区别还是挺大的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line"></span><br><span class="line">  behaviors: [],</span><br><span class="line"></span><br><span class="line">  properties: &#123;</span><br><span class="line">    myProperty: &#123; // 属性名</span><br><span class="line">      type: Array, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）</span><br><span class="line">      value: &apos;&apos;, // 属性初始值（可选），如果未指定则会根据类型选择一个</span><br><span class="line">      observer: function (newVal, oldVal) &#123;</span><br><span class="line">      &#125; // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：&apos;_propertyChange&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    myProperty2: String // 简化的定义方式</span><br><span class="line">  &#125;,</span><br><span class="line">  data: &#123;               // 私有数据，可用于模版渲染</span><br><span class="line">  &#125;,</span><br><span class="line">  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名</span><br><span class="line">  attached: function () &#123; </span><br><span class="line">  &#125;,</span><br><span class="line">  moved: function () &#123; &#125;,</span><br><span class="line">  detached: function () &#123; &#125;,</span><br><span class="line"></span><br><span class="line">  methods: &#123;</span><br><span class="line">    </span><br><span class="line">    _myPrivateMethod: function () &#123;</span><br><span class="line">      // 内部方法建议以下划线开头</span><br><span class="line">      this.replaceDataOnPath([&apos;A&apos;, 0, &apos;B&apos;], &apos;myPrivateData&apos;) // 这里将 data.A[0].B 设为 &apos;myPrivateData&apos;</span><br><span class="line">      this.applyDataUpdates()</span><br><span class="line">    &#125;,</span><br><span class="line">    _propertyChange: function (newVal, oldVal) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>首先看起来也是大部分的内容都是还算明了比如并无差异的data，但是仔细一看却又是有非常大的不同在其中的。首先出现了一个methods的方法，这个了解Vue的同学一定是并不觉得陌生直接在methos中声明和使用方法就可以了。</p>
+<p>其次生命周期与普通的小程序的页面便有了很大的不同，不在有onLoad等生命周期了反而出现的是attached、moved、detached这三个生命周期，在Component中这三个生命周期分别代表加载的时候，被移除的时候，和被删除的时候。</p>
+<p>接下来再来看properties， 在小程序的Component中也可以像在Vue中使用组件一样的在组件上直接传入属性，在组件内接收父组件传递过来的值。</p>
+<h4 id="组件之间的通讯"><a href="#组件之间的通讯" class="headerlink" title="组件之间的通讯"></a>组件之间的通讯</h4><p>在使用Components之后怎么向他的父组件进行通讯如何传递参数和事件。</p>
+<p>在与父组件通讯的情况下可以调用父组件已经注册的方法来实现。首先在组件上直接绑定事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;组件名 bind:changeChoose=&quot;changeSelectTab&quot;&gt;&lt;/组件名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后在组件上可以使用triggerEvent触发事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.triggerEvent(&apos;changeChoose&apos;, eventDetail, eventOption)</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本篇文章介绍了在开发小程序的时候遇到的一些坑和其中的一些解决的方案。在baidu + google的帮助下还是顺利的解决了曾经一度让我怀疑人生的问题。</p>
+<p>前端的进阶路上更多的是不懈的踩坑与进步~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>hi you can see me</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechartpay.png" alt="JYkid 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/zhifubao.jpg" alt="JYkid 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag"># JS</a>
+          
+            <a href="/tags/小程序/" rel="tag"># 小程序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/04/Web-RTC-入门/" rel="next" title="Web RTC 入门">
+                <i class="fa fa-chevron-left"></i> Web RTC 入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/09/假装是个设计师/" rel="prev" title="假装是个设计师">
+                假装是个设计师 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/./images/avatar.jpg"
+                alt="JYkid" />
+            
+              <p class="site-author-name" itemprop="name">JYkid</p>
+              <p class="site-description motion-element" itemprop="description">有时正是无人看好之人，所成无人能及之事</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MriLiuJY" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-Github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://leetcode-cn.com/mriliujy/" target="_blank" title="LeetCode">
+                      
+                        <i class="fa fa-fw fa-Leetcode"></i>LeetCode</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.yuque.com/lucienstar/mwvbem" title="大儿子" target="_blank">大儿子</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶"><span class="nav-number">2.</span> <span class="nav-text">进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">3.</span> <span class="nav-text">项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回答后的翻页"><span class="nav-number">3.1.</span> <span class="nav-text">回答后的翻页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序中的组件"><span class="nav-number">3.2.</span> <span class="nav-text">小程序中的组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先小程序的Component的使用："><span class="nav-number">3.2.1.</span> <span class="nav-text">首先小程序的Component的使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件之间的通讯"><span class="nav-number">3.2.2.</span> <span class="nav-text">组件之间的通讯</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JYkid</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://iliujy.top/2018/05/07/小程序开发指北/';
+          this.page.identifier = '2018/05/07/小程序开发指北/';
+          this.page.title = '小程序开发指北';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
